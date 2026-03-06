@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Oswald:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-matte-black: #121212;
+  --color-gunmetal: #2A2D34;
+  --color-torque-red: #D32F2F;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Oswald", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-matte-black text-white font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display uppercase tracking-wider;
+  }
+}
+
+.glass-panel {
+  @apply bg-gunmetal/50 backdrop-blur-md border border-white/10;
+}
+
+.btn-primary {
+  @apply bg-torque-red hover:bg-red-700 text-white font-bold py-3 px-8 rounded-none uppercase tracking-widest transition-all duration-300;
+}
+
+.btn-secondary {
+  @apply bg-transparent border-2 border-white hover:bg-white hover:text-matte-black text-white font-bold py-3 px-8 rounded-none uppercase tracking-widest transition-all duration-300;
+}
