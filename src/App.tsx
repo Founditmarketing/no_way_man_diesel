@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Facebook, 
-  ChevronRight, 
-  Wrench, 
-  Zap, 
-  ShieldCheck, 
-  Gauge, 
-  Truck, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Facebook,
+  ChevronRight,
+  Wrench,
+  Zap,
+  ShieldCheck,
+  Gauge,
+  Truck,
   Settings,
   Menu,
   X,
@@ -60,7 +60,7 @@ const Header = ({ activePage, setPage }: { activePage: string, setPage: (p: stri
 
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map(link => (
-            <button 
+            <button
               key={link.id}
               onClick={() => setPage(link.id)}
               className={`uppercase text-sm font-bold tracking-widest transition-colors ${activePage === link.id ? 'text-torque-red' : 'hover:text-torque-red'}`}
@@ -84,7 +84,7 @@ const Header = ({ activePage, setPage }: { activePage: string, setPage: (p: stri
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -92,7 +92,7 @@ const Header = ({ activePage, setPage }: { activePage: string, setPage: (p: stri
           >
             <div className="flex flex-col gap-4">
               {navLinks.map(link => (
-                <button 
+                <button
                   key={link.id}
                   onClick={() => { setPage(link.id); setIsMenuOpen(false); }}
                   className="text-left uppercase font-bold tracking-widest py-2 border-b border-white/5"
@@ -188,17 +188,17 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
     {/* Hero Section */}
     <section className="relative h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://picsum.photos/seed/diesel-shop/1920/1080?grayscale" 
-          alt="Shop Bay" 
-          className="w-full h-full object-cover opacity-40"
+        <img
+          src="https://picsum.photos/seed/diesel-shop/1920/1080"
+          alt="Shop Bay"
+          className="w-full h-full object-cover opacity-60"
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-matte-black via-matte-black/80 to-transparent" />
       </div>
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -230,23 +230,23 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 -mt-40 relative z-20">
           {[
-            { 
-              title: "CUMMINS", 
+            {
+              title: "CUMMINS",
               desc: "From 12V mechanical beasts to the latest 6.7L common rail systems. We handle head gaskets, fuel systems, and full performance builds.",
               icon: <Zap className="text-torque-red" />
             },
-            { 
-              title: "DURAMAX", 
+            {
+              title: "DURAMAX",
               desc: "Solving CP4 failures, Allison transmission issues, and injector problems. Clinical diagnostics for LB7 to L5P platforms.",
               icon: <ShieldCheck className="text-torque-red" />
             },
-            { 
-              title: "POWERSTROKE", 
+            {
+              title: "POWERSTROKE",
               desc: "The ultimate bulletproofing destination. 6.0L and 6.4L recovery, plus 6.7L performance optimization and maintenance.",
               icon: <Wrench className="text-torque-red" />
             }
           ].map((card, i) => (
-            <motion.div 
+            <motion.div
               key={card.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -294,10 +294,10 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
     {/* Megatron Teaser */}
     <section className="py-32 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://picsum.photos/seed/pulling-truck/1920/1080?grayscale" 
-          alt="Megatron Pulling Truck" 
-          className="w-full h-full object-cover opacity-20"
+        <img
+          src="https://picsum.photos/seed/pulling-truck/1920/1080"
+          alt="Megatron Pulling Truck"
+          className="w-full h-full object-cover opacity-40"
           referrerPolicy="no-referrer"
         />
       </div>
@@ -342,17 +342,17 @@ const ServicesHub = () => (
 
         <div className="space-y-20">
           {[
-            { 
-              title: "ENGINE SERVICES", 
-              items: ["Full Rebuilds", "Head Gaskets & Studding", "Fuel System Upgrades", "Turbocharger Replacement", "EGR/DPF Solutions (Competition Only)"] 
+            {
+              title: "ENGINE SERVICES",
+              items: ["Full Rebuilds", "Head Gaskets & Studding", "Fuel System Upgrades", "Turbocharger Replacement", "EGR/DPF Solutions (Competition Only)"]
             },
-            { 
-              title: "DRIVETRAIN & TRANSMISSION", 
-              items: ["Allison Performance Builds", "68RFE Valve Bodies", "Dual Disc Clutch Installs", "Differential Re-gearing", "Driveline Balancing"] 
+            {
+              title: "DRIVETRAIN & TRANSMISSION",
+              items: ["Allison Performance Builds", "68RFE Valve Bodies", "Dual Disc Clutch Installs", "Differential Re-gearing", "Driveline Balancing"]
             },
-            { 
-              title: "DIAGNOSTICS & ELECTRICAL", 
-              items: ["OEM Software Scanning", "Wiring Harness Repair", "Module Programming", "Sensor Calibration", "Battery & Charging Systems"] 
+            {
+              title: "DIAGNOSTICS & ELECTRICAL",
+              items: ["OEM Software Scanning", "Wiring Harness Repair", "Module Programming", "Sensor Calibration", "Battery & Charging Systems"]
             }
           ].map(cat => (
             <div key={cat.title}>
@@ -389,7 +389,7 @@ const EnginesPage = () => (
           <button className="btn-primary">Schedule a Diagnostic</button>
         </div>
         <div className="bg-gunmetal p-1 aspect-video border border-white/10">
-          <img src="https://picsum.photos/seed/engine-rebuild/800/600?grayscale" alt="Engine Rebuild" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <img src="https://picsum.photos/seed/engine-rebuild/800/600" alt="Engine Rebuild" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         </div>
       </div>
 
@@ -418,7 +418,7 @@ const TransmissionsPage = () => (
   <div className="pt-32 pb-24 animate-in slide-in-from-bottom-10 duration-700">
     <div className="max-w-7xl mx-auto px-6">
       <h1 className="text-5xl font-black italic mb-12 text-center">TRANSMISSIONS & DRIVETRAIN</h1>
-      
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
         <p className="text-xl text-gray-400 leading-relaxed">
           Nothing kills a diesel truck faster than a blown transmission. Whether you're towing 20,000 lbs through the Missouri hills or chasing a 10-second slip at the track, your drivetrain is the weak link. We specialize in building transmissions that don't just survive—they thrive under pressure.
@@ -515,10 +515,10 @@ const MegatronPage = () => (
           </p>
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <div className="bg-gunmetal h-64"><img src="https://picsum.photos/seed/pull1/400/400?grayscale" className="w-full h-full object-cover" referrerPolicy="no-referrer" /></div>
-          <div className="bg-gunmetal h-80"><img src="https://picsum.photos/seed/pull2/400/500?grayscale" className="w-full h-full object-cover" referrerPolicy="no-referrer" /></div>
-          <div className="bg-gunmetal h-80 -mt-16"><img src="https://picsum.photos/seed/pull3/400/500?grayscale" className="w-full h-full object-cover" referrerPolicy="no-referrer" /></div>
-          <div className="bg-gunmetal h-64"><img src="https://picsum.photos/seed/pull4/400/400?grayscale" className="w-full h-full object-cover" referrerPolicy="no-referrer" /></div>
+          <div className="bg-gunmetal h-64"><img src="https://picsum.photos/seed/pull1/400/400" className="w-full h-full object-cover" referrerPolicy="no-referrer" /></div>
+          <div className="bg-gunmetal h-80"><img src="https://picsum.photos/seed/pull2/400/500" className="w-full h-full object-cover" referrerPolicy="no-referrer" /></div>
+          <div className="bg-gunmetal h-80 -mt-16"><img src="https://picsum.photos/seed/pull3/400/500" className="w-full h-full object-cover" referrerPolicy="no-referrer" /></div>
+          <div className="bg-gunmetal h-64"><img src="https://picsum.photos/seed/pull4/400/400" className="w-full h-full object-cover" referrerPolicy="no-referrer" /></div>
         </div>
       </div>
     </div>
@@ -549,7 +549,7 @@ const BlogPage = () => (
         ].map(post => (
           <div key={post.title} className="bg-gunmetal border border-white/5 group cursor-pointer">
             <div className="h-48 bg-matte-black overflow-hidden">
-              <img src={`https://picsum.photos/seed/${post.title.length}/600/400?grayscale`} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
+              <img src={`https://picsum.photos/seed/${post.title.length}/600/400`} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
             </div>
             <div className="p-8">
               <h2 className="text-xl font-bold mb-4 uppercase italic leading-tight group-hover:text-torque-red transition-colors">{post.title}</h2>
@@ -580,8 +580,8 @@ const AboutPage = () => (
           </p>
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <img src="https://picsum.photos/seed/shop1/400/600?grayscale" className="w-full h-80 object-cover" referrerPolicy="no-referrer" />
-          <img src="https://picsum.photos/seed/shop2/400/600?grayscale" className="w-full h-80 object-cover mt-12" referrerPolicy="no-referrer" />
+          <img src="https://picsum.photos/seed/shop1/400/600" className="w-full h-80 object-cover" referrerPolicy="no-referrer" />
+          <img src="https://picsum.photos/seed/shop2/400/600" className="w-full h-80 object-cover mt-12" referrerPolicy="no-referrer" />
         </div>
       </div>
 
@@ -594,7 +594,7 @@ const AboutPage = () => (
         ].map(tech => (
           <div key={tech.name} className="text-center">
             <div className="w-48 h-48 bg-gunmetal rounded-full mx-auto mb-6 overflow-hidden border-4 border-torque-red">
-              <img src={`https://picsum.photos/seed/${tech.name}/200/200?grayscale`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+              <img src={`https://picsum.photos/seed/${tech.name}/200/200`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
             </div>
             <h4 className="text-xl font-bold uppercase italic">{tech.name}</h4>
             <p className="text-gray-500 text-sm mt-2">{tech.bio}</p>
@@ -700,7 +700,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header activePage={page} setPage={setPage} />
-      
+
       <main className="flex-grow">
         {page === 'home' && <HomePage setPage={setPage} />}
         {page === 'services' && <ServicesHub />}
