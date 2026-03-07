@@ -18,7 +18,9 @@ import {
   ShoppingCart,
   Plus,
   Minus,
-  Trash2
+  Trash2,
+  ChevronDown,
+  Star
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -47,12 +49,21 @@ const Header = ({ activePage, setPage, cartCount }: { activePage: string, setPag
 
   const navLinks = [
     { id: 'home', label: 'Home' },
-    { id: 'services', label: 'Services' },
+    { id: 'services', label: 'Services', hasDropdown: true },
     { id: 'shop', label: 'Shop' },
     { id: 'megatron', label: 'Megatron' },
-    { id: 'blog', label: 'Blog' },
+    { id: 'reviews', label: 'Reviews' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },
+  ];
+
+  const serviceLinks = [
+    { id: 'engines', label: 'Engine Rebuilds' },
+    { id: 'transmissions', label: 'Transmissions' },
+    { id: 'diagnostics', label: 'Diagnostics' },
+    { id: 'tuning', label: 'Performance Tuning' },
+    { id: 'maintenance', label: 'Maintenance' },
+    { id: 'fabrication', label: 'Custom Fabrication' },
   ];
 
   return (
@@ -65,13 +76,33 @@ const Header = ({ activePage, setPage, cartCount }: { activePage: string, setPag
 
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map(link => (
-            <button
-              key={link.id}
-              onClick={() => setPage(link.id)}
-              className={`uppercase text-sm font-bold tracking-widest transition-colors ${activePage === link.id ? 'text-torque-red' : 'hover:text-torque-red'}`}
-            >
-              {link.label}
-            </button>
+            <div key={link.id} className="relative group/nav">
+              <button
+                onClick={() => link.hasDropdown ? setPage('services') : setPage(link.id)}
+                className={`uppercase text-sm font-bold tracking-widest transition-colors flex items-center gap-1 ${activePage === link.id || (link.hasDropdown && (activePage.startsWith('service') || serviceLinks.some(s => s.id === activePage))) ? 'text-torque-red' : 'hover:text-torque-red'}`}
+              >
+                {link.label}
+                {link.hasDropdown && <ChevronDown size={14} className="group-hover/nav:rotate-180 transition-transform duration-300" />}
+              </button>
+
+              {link.hasDropdown && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 z-50">
+                  <div className="bg-gunmetal border border-white/10 p-4 min-w-[240px] shadow-2xl">
+                    <div className="grid grid-cols-1 gap-2">
+                      {serviceLinks.map(s => (
+                        <button
+                          key={s.id}
+                          onClick={() => setPage(s.id)}
+                          className={`text-left text-xs uppercase font-bold tracking-[0.2em] p-3 hover:bg-torque-red hover:text-white transition-colors border-b border-white/5 last:border-0 ${activePage === s.id ? 'text-torque-red' : 'text-gray-400'}`}
+                        >
+                          {s.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
         </nav>
 
@@ -105,13 +136,28 @@ const Header = ({ activePage, setPage, cartCount }: { activePage: string, setPag
           >
             <div className="flex flex-col gap-4">
               {navLinks.map(link => (
-                <button
-                  key={link.id}
-                  onClick={() => { setPage(link.id); setIsMenuOpen(false); }}
-                  className="text-left uppercase font-bold tracking-widest py-2 border-b border-white/5"
-                >
-                  {link.label}
-                </button>
+                <div key={link.id}>
+                  <button
+                    onClick={() => { setPage(link.id); if (!link.hasDropdown) setIsMenuOpen(false); }}
+                    className="w-full text-left uppercase font-bold tracking-widest py-3 border-b border-white/5 flex justify-between items-center"
+                  >
+                    {link.label}
+                    {link.hasDropdown && <ChevronDown size={14} />}
+                  </button>
+                  {link.hasDropdown && (
+                    <div className="pl-4 mt-2 mb-4 space-y-2 border-l border-torque-red ml-2">
+                      {serviceLinks.map(s => (
+                        <button
+                          key={s.id}
+                          onClick={() => { setPage(s.id); setIsMenuOpen(false); }}
+                          className={`block w-full text-left uppercase text-[10px] font-bold tracking-widest py-2 ${activePage === s.id ? 'text-torque-red' : 'text-gray-400'}`}
+                        >
+                          {s.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <a href={`tel:${BRAND.phone}`} className="flex items-center gap-2 font-mono font-bold text-torque-red py-2">
                 <Phone size={16} /> {BRAND.phone}
@@ -538,42 +584,161 @@ const MegatronPage = () => (
   </div>
 );
 
-const BlogPage = () => (
+const ReviewsPage = () => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700">
     <div className="max-w-7xl mx-auto px-6">
-      <h1 className="text-5xl font-black italic mb-16">THE DIESEL DIARIES</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div>
+          <h1 className="text-5xl font-black italic mb-4">CUSTOMER REVIEWS</h1>
+          <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">Real feedback from Missouri's diesel community.</p>
+        </div>
+        <div className="flex items-center gap-2 bg-gunmetal px-6 py-3 border border-white/5">
+          <div className="flex text-torque-red">
+            {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
+          </div>
+          <span className="font-bold text-xl font-mono">5.0</span>
+          <span className="text-gray-500 text-xs uppercase font-bold ml-2">Average Rating</span>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {[
-          {
-            title: "Preparing Your 6.7 Powerstroke for Missouri Winters",
-            meta: "Don't let the Missouri freeze crack your block. Learn the essential winterization steps for your Powerstroke, from fuel additives to block heaters.",
-            h2s: ["Fuel Gelling Prevention", "Battery Health Checks", "Coolant Concentration"]
-          },
-          {
-            title: "Common CP4 Failures: What Every Duramax Owner Needs to Know",
-            meta: "The CP4 pump is a ticking time bomb for many LML owners. We break down why they fail and how a bypass kit can save your entire fuel system.",
-            h2s: ["The Root Cause of CP4 Failure", "Symptoms of Imminent Disaster", "Prevention Strategies"]
-          },
-          {
-            title: "Towing vs. Racing: Choosing the Right Turbo Setup",
-            meta: "Bigger isn't always better. We explore the trade-offs between spool time and top-end power for Missouri's heavy haulers and weekend racers.",
-            h2s: ["Single vs. Compound Turbos", "Understanding A/R Ratios", "Matching Turbo to Injectors"]
-          }
-        ].map(post => (
-          <div key={post.title} className="bg-gunmetal border border-white/5 group cursor-pointer">
-            <div className="h-48 bg-matte-black overflow-hidden">
-              <img src={`https://picsum.photos/seed/${post.title.length}/600/400`} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
+          { name: "Jake Thompson", truck: "2019 RAM 2500", content: "No Way Man is the only place I trust with my Cummins. They diagnosed an injector issue that two other shops missed. Fair pricing and absolute pros.", location: "Columbia, MO" },
+          { name: "Sarah Miller", truck: "2022 Ford F-350", content: "Amazing service. Had my Powerstroke in for a full maintenance package and some performance tuning. The truck has never run smoother. Highly recommend!", location: "Novinger, MO" },
+          { name: "Mike Henderson", truck: "2015 Chevy Silverado 3500", content: "Built my Allison transmission after it blew out towing. Six months later and it's still shifting like a dream under heavy loads. These guys know their stuff.", location: "Kirksville, MO" },
+          { name: "David Ross", truck: "2020 GMC Sierra 2500", content: "Great guys. Professional, knowledgeable, and they actually care about the quality of their work. If you have a diesel in North MO, this is the spot.", location: "Macon, MO" },
+        ].map((rev, i) => (
+          <div key={i} className="bg-gunmetal p-10 border border-white/5 relative">
+            <div className="flex text-torque-red mb-6">
+              {[...Array(5)].map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
             </div>
-            <div className="p-8">
-              <h2 className="text-xl font-bold mb-4 uppercase italic leading-tight group-hover:text-torque-red transition-colors">{post.title}</h2>
-              <p className="text-gray-400 text-sm mb-6 line-clamp-3">{post.meta}</p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {post.h2s.map(h => <span key={h} className="text-[10px] bg-matte-black px-2 py-1 text-gray-500 uppercase font-bold">{h}</span>)}
+            <p className="text-lg italic text-gray-300 mb-8 leading-relaxed">"{rev.content}"</p>
+            <div className="flex justify-between items-center">
+              <div>
+                <h4 className="font-bold uppercase tracking-widest text-sm">{rev.name}</h4>
+                <p className="text-gray-500 text-[10px] uppercase font-bold font-mono">{rev.truck}</p>
               </div>
-              <button className="text-torque-red font-bold text-xs uppercase tracking-widest flex items-center gap-2">Read Article <ArrowRight size={14} /></button>
+              <div className="text-right">
+                <span className="text-[10px] text-gray-600 uppercase font-bold">{rev.location}</span>
+                <div className="flex items-center gap-1 text-green-500 text-[10px] uppercase font-bold mt-1">
+                  <div className="w-1 h-1 bg-green-500 rounded-full" /> Verified Customer
+                </div>
+              </div>
             </div>
           </div>
         ))}
+      </div>
+    </div>
+  </div>
+);
+
+const DiagnosticsPage = () => (
+  <div className="pt-32 pb-24 animate-in fade-in duration-700">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span className="text-torque-red font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Precision Testing</span>
+          <h1 className="text-5xl font-black italic mb-8">DIAGNOSTICS & TROUBLESHOOTING</h1>
+          <p className="text-gray-400 leading-relaxed mb-6">
+            Diesel engines are complex, and generic code readers often miss the root cause. We utilize OEM-level diagnostic software for Cummins, Powerstroke, and Duramax platforms to pinpoint issues before they become catastrophic failures.
+          </p>
+          <ul className="space-y-4 mb-8">
+            {['Electrical System Analysis', 'Fuel System Health Checks', 'Turbo VGT Calibration', 'Emission System Diagnostics'].map(item => (
+              <li key={item} className="flex items-center gap-3 font-bold uppercase text-xs tracking-widest text-gray-300">
+                <div className="w-1.5 h-1.5 bg-torque-red" /> {item}
+              </li>
+            ))}
+          </ul>
+          <button onClick={() => window.location.href = 'tel:+15555555555'} className="btn-primary">Schedule Diagnostic</button>
+        </div>
+        <div className="bg-matte-black aspect-video relative overflow-hidden group">
+          <img src="https://picsum.photos/seed/diagnostic/800/600" className="w-full h-full object-cover opacity-50 absolute inset-0" />
+          <div className="absolute inset-0 flex items-center justify-center p-12 text-center">
+            <div className="border border-white/10 p-8 backdrop-blur-sm bg-matte-black/40">
+              <h3 className="text-2xl font-black italic mb-2 tracking-tighter">STOP GUESSING.</h3>
+              <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400">Identify the problem. Engineer the solution.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const MaintenancePage = () => (
+  <div className="pt-32 pb-24 animate-in fade-in duration-700">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="text-center mb-16">
+        <h1 className="text-5xl font-black italic mb-4">PREVENTATIVE MAINTENANCE</h1>
+        <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">Protect your investment with Missouri's best diesel care.</p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { title: "Oil & Filter", desc: "Premium synthetic blends and high-efficiency filters." },
+          { title: "Fuel Systems", desc: "Filter replacements and fuel system cleaning." },
+          { title: "Cooling", desc: "Flush and fill with platform-specific additives." },
+        ].map(pkg => (
+          <div key={pkg.title} className="bg-gunmetal p-10 border-b-4 border-torque-red">
+            <h3 className="text-xl font-bold mb-4 uppercase italic">{pkg.title}</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">{pkg.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+const TuningPage = () => (
+  <div className="pt-32 pb-24 animate-in fade-in duration-700">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="relative h-[60vh] bg-matte-black flex items-center px-12 overflow-hidden mb-16 shadow-2xl">
+        <img src="https://picsum.photos/seed/dyno/1200/800" className="absolute inset-0 w-full h-full object-cover opacity-30" />
+        <div className="relative z-10 max-w-2xl">
+          <h1 className="text-6xl font-black italic mb-6 leading-none">PERFORMANCE <br /><span className="text-torque-red">TUNING</span></h1>
+          <p className="text-lg text-gray-300 mb-8 uppercase font-bold tracking-widest italic">Wake up your engine. Optimize for the track or the trailer.</p>
+          <div className="flex gap-4">
+            <div className="bg-torque-red text-white p-4 font-black italic text-2xl">+200HP</div>
+            <div className="bg-white text-black p-4 font-black italic text-2xl">+400LB-FT</div>
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <p className="text-gray-400 leading-relaxed">
+          From mild street tunes to full competition maps, we offer custom tuning solutions for every major diesel platform. Our goal isn't just peak numbers; it's drivability, EGT management, and maximum efficiency. We work with the best in the industry to ensure your truck performs exactly how you need it to.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {['EZ LYNK Support', 'SOTF Capability', 'TCM Tuning', 'Dyno Proven'].map(feature => (
+            <div key={feature} className="border border-white/10 p-4 font-bold uppercase text-[10px] tracking-[0.3em] flex items-center gap-3">
+              <div className="w-1 h-1 bg-torque-red" /> {feature}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const FabricationPage = () => (
+  <div className="pt-32 pb-24 animate-in fade-in duration-700">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="text-left mb-16">
+        <h1 className="text-5xl font-black italic mb-4">CUSTOM FABRICATION</h1>
+        <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">If we can't buy it, we build it. Precision metalwork for competition builds.</p>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
+        <div className="lg:col-span-2 bg-matte-black border border-white/5 p-12">
+          <h3 className="text-2xl font-bold mb-8 uppercase italic border-l-4 border-torque-red pl-6">The Fab Shop</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-400 text-sm leading-relaxed">
+            <p>Our in-house fabrication team specializes in high-strength solutions that the aftermarket often overlooks. Whether it's custom traction bars for a pulling truck or a reinforced cooling system layout, we ensure every weld is track-ready.</p>
+            <p>We work primarily with mild steel, DOM tubing, and aluminum, utilizing precision TIG and MIG welding techniques to deliver components that are as beautiful as they are functional.</p>
+          </div>
+        </div>
+        <div className="bg-torque-red p-12 flex items-center justify-center">
+          <div className="text-center">
+            <h4 className="text-4xl font-black italic mb-2">BUILT</h4>
+            <p className="uppercase font-bold tracking-[0.5em] text-xs">NOT BOUGHT</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -913,8 +1078,12 @@ export default function App() {
         {page === 'shop' && <ShopPage addToCart={addToCart} />}
         {page === 'engines' && <EnginesPage />}
         {page === 'transmissions' && <TransmissionsPage />}
+        {page === 'diagnostics' && <DiagnosticsPage />}
+        {page === 'tuning' && <TuningPage />}
+        {page === 'maintenance' && <MaintenancePage />}
+        {page === 'fabrication' && <FabricationPage />}
         {page === 'megatron' && <MegatronPage />}
-        {page === 'blog' && <BlogPage />}
+        {page === 'reviews' && <ReviewsPage />}
         {page === 'about' && <AboutPage />}
         {page === 'contact' && <ContactPage />}
       </main>
