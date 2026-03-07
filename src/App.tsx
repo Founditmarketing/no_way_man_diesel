@@ -58,12 +58,10 @@ const Header = ({ activePage, setPage, cartCount }: { activePage: string, setPag
   ];
 
   const serviceLinks = [
-    { id: 'engines', label: 'Engine Rebuilds' },
-    { id: 'transmissions', label: 'Transmissions' },
-    { id: 'diagnostics', label: 'Diagnostics' },
-    { id: 'tuning', label: 'Performance Tuning' },
-    { id: 'maintenance', label: 'Maintenance' },
-    { id: 'fabrication', label: 'Custom Fabrication' },
+    { id: 'engine-performance', label: 'Engine & Performance' },
+    { id: 'transmission-clutch', label: 'Transmission & Clutch' },
+    { id: 'drivetrain-suspension', label: 'Drivetrain & Suspension' },
+    { id: 'general-mechanical', label: 'General Mechanical Work' },
   ];
 
   return (
@@ -229,10 +227,10 @@ const StickySidebarForm = () => (
       <input type="tel" placeholder="PHONE NUMBER" className="w-full bg-matte-black border border-white/10 p-3 text-sm focus:border-torque-red outline-none" />
       <select className="w-full bg-matte-black border border-white/10 p-3 text-sm focus:border-torque-red outline-none text-gray-400">
         <option>SELECT SERVICE</option>
-        <option>ENGINE REBUILD</option>
-        <option>TRANSMISSION</option>
-        <option>DIAGNOSTICS</option>
-        <option>TUNING</option>
+        <option>ENGINE & PERFORMANCE</option>
+        <option>TRANSMISSION & CLUTCH</option>
+        <option>DRIVETRAIN & SUSPENSION</option>
+        <option>GENERAL MECHANICAL</option>
       </select>
       <textarea placeholder="DESCRIBE SYMPTOMS" rows={3} className="w-full bg-matte-black border border-white/10 p-3 text-sm focus:border-torque-red outline-none"></textarea>
       <button type="submit" className="btn-primary w-full">Send Request</button>
@@ -315,7 +313,7 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
               <div className="mb-6">{card.icon}</div>
               <h3 className="text-3xl font-black mb-4 italic">{card.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">{card.desc}</p>
-              <button onClick={() => setPage('engines')} className="text-torque-red font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
+              <button onClick={() => setPage('engine-performance')} className="text-torque-red font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
                 Learn More <ChevronRight size={14} />
               </button>
             </motion.div>
@@ -331,16 +329,18 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
           <h2 className="text-4xl md:text-5xl font-black italic mb-4">CORE CAPABILITIES</h2>
           <div className="h-1 w-20 bg-torque-red mx-auto" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5">
           {[
-            { title: "Engine Rebuilds", desc: "Complete teardowns and clinical reassembly. We specialize in long-block longevity and performance machining.", icon: <Wrench size={32} /> },
-            { title: "Transmissions", desc: "Stock rebuilds to competition-grade Allison and 68RFE builds. Engineered to handle massive torque loads.", icon: <Settings size={32} /> },
-            { title: "Diagnostics", desc: "Dealer-level scanning and electrical troubleshooting. We find the ghost in the machine that others miss.", icon: <Gauge size={32} /> },
-            { title: "Performance Tuning", desc: "Custom EFI Live and EZ LYNK tuning. Optimized for towing efficiency or maximum track performance.", icon: <Zap size={32} /> },
-            { title: "Maintenance", desc: "Fleet-grade preventative care. Oil, filters, and 50-point inspections to keep your business moving.", icon: <Truck size={32} /> },
-            { title: "Custom Fabrication", desc: "TIG-welded piping, custom mounts, and chassis reinforcements. If they don't make it, we build it.", icon: <ShieldCheck size={32} /> },
+            { id: 'engine-performance', title: "Engine & Performance", desc: "From clinical rebuilds to precision tuning. We optimize your diesel heartbeat for maximum authority.", icon: <Zap size={32} /> },
+            { id: 'transmission-clutch', title: "Transmission & Clutch", desc: "Builds that survive massive torque. Upgraded converters, billet shafts, and heavy-duty manual clutches.", icon: <Settings size={32} /> },
+            { id: 'drivetrain-suspension', title: "Drivetrain & Suspension", desc: "Axle rebuilds, custom lift kits, and steering precision. We engineer stability into every frame.", icon: <ShieldCheck size={32} /> },
+            { id: 'general-mechanical', title: "General Mechanical", desc: "OEM-level diagnostics, preventative maintenance, and custom fabrication for competition needs.", icon: <Wrench size={32} /> },
           ].map((service, i) => (
-            <div key={service.title} className="bg-matte-black p-12 hover:bg-gunmetal transition-colors group">
+            <div
+              key={service.title}
+              onClick={() => setPage(service.id)}
+              className="bg-matte-black p-12 hover:bg-gunmetal transition-colors group cursor-pointer"
+            >
               <div className="text-torque-red mb-6 group-hover:scale-110 transition-transform">{service.icon}</div>
               <h4 className="text-xl font-bold mb-4 uppercase italic">{service.title}</h4>
               <p className="text-gray-400 text-sm leading-relaxed">{service.desc}</p>
@@ -396,22 +396,26 @@ const ServicesHub = () => (
       <div className="lg:col-span-2">
         <h1 className="text-5xl font-black italic mb-8">FULL SERVICE CAPABILITIES</h1>
         <p className="text-xl text-gray-400 mb-12 leading-relaxed">
-          At No Way Man Diesel, we believe in "Doing it right the first time." Our philosophy is simple: clinical precision in every bolt turned, every diagnostic run, and every custom build. We don't cut corners because in the world of heavy-duty diesel, a corner cut is a breakdown waiting to happen.
+          At No Way Man Diesel, we believe in "Doing it right the first time." Our philosophy is simple: clinical precision in every bolt turned, every diagnostic run, and every custom build.
         </p>
 
         <div className="space-y-20">
           {[
             {
-              title: "ENGINE SERVICES",
-              items: ["Full Rebuilds", "Head Gaskets & Studding", "Fuel System Upgrades", "Turbocharger Replacement", "EGR/DPF Solutions (Competition Only)"]
+              title: "ENGINE & PERFORMANCE",
+              items: ["Full Rebuilds", "Head Gaskets", "Custom Tuning", "Turbocharge Upgrades", "Fuel System Precision"]
             },
             {
-              title: "DRIVETRAIN & TRANSMISSION",
-              items: ["Allison Performance Builds", "68RFE Valve Bodies", "Dual Disc Clutch Installs", "Differential Re-gearing", "Driveline Balancing"]
+              title: "TRANSMISSION & CLUTCH",
+              items: ["Allison Performance", "Dual Disc Clutches", "Valve Body Upgrades", "Billet Shafts", "TCM Tuning"]
             },
             {
-              title: "DIAGNOSTICS & ELECTRICAL",
-              items: ["OEM Software Scanning", "Wiring Harness Repair", "Module Programming", "Sensor Calibration", "Battery & Charging Systems"]
+              title: "DRIVETRAIN & SUSPENSION",
+              items: ["Axle & Diff Rebuilds", "Suspension Lift/Level", "Traction Bars", "Steering Upgrades", "Driveline Balancing"]
+            },
+            {
+              title: "GENERAL MECHANICAL",
+              items: ["Precision Diagnostics", "Preventative Maintenance", "System Flushes", "Electrical Repair", "Custom Fabrication"]
             }
           ].map(cat => (
             <div key={cat.title}>
@@ -434,110 +438,98 @@ const ServicesHub = () => (
   </div>
 );
 
-const EnginesPage = () => (
+const EnginePerformancePage = () => (
   <div className="pt-32 pb-24 animate-in slide-in-from-bottom-10 duration-700">
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
         <div>
           <h1 className="text-5xl md:text-6xl font-black italic mb-8 leading-tight">
-            ENGINE REBUILDS & <span className="text-torque-red">BULLETPROOFING</span>
+            ENGINE & <span className="text-torque-red">PERFORMANCE</span>
           </h1>
           <p className="text-lg text-gray-400 mb-8">
-            When your diesel heart stops beating, we perform the surgery that brings it back stronger than the day it left the factory.
+            From clinical engine rebuilds to competition-grade tuning, we optimize your diesel heartbeat for maximum reliability and power.
           </p>
-          <button className="btn-primary">Schedule a Diagnostic</button>
+          <div className="flex gap-4">
+            <div className="bg-gunmetal p-6 border-l-4 border-torque-red grow">
+              <h4 className="font-bold uppercase mb-2">Bulletproofing</h4>
+              <p className="text-xs text-gray-500 italic">ARP studs, high-grade gaskets, precision machining.</p>
+            </div>
+            <div className="bg-gunmetal p-6 border-l-4 border-torque-red grow">
+              <h4 className="font-bold uppercase mb-2">Custom Tuning</h4>
+              <p className="text-xs text-gray-500 italic">SOTF capability, TCM mapping, dyno-proven maps.</p>
+            </div>
+          </div>
         </div>
         <div className="bg-gunmetal p-1 aspect-video border border-white/10">
-          <img src="https://picsum.photos/seed/engine-rebuild/800/600" alt="Engine Rebuild" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
-        <div className="bg-gunmetal p-10 border-l-4 border-torque-red">
-          <h3 className="text-2xl font-bold mb-6 uppercase italic">Common Symptoms You Need a Rebuild</h3>
-          <ul className="space-y-4 text-gray-400">
-            <li className="flex items-start gap-3"><X size={18} className="text-torque-red mt-1" /> Excessive Blow-by at the oil fill cap</li>
-            <li className="flex items-start gap-3"><X size={18} className="text-torque-red mt-1" /> Metal shavings in the oil filter</li>
-            <li className="flex items-start gap-3"><X size={18} className="text-torque-red mt-1" /> Constant overheating or coolant loss</li>
-            <li className="flex items-start gap-3"><X size={18} className="text-torque-red mt-1" /> Significant loss of compression/power</li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-2xl font-bold mb-6 uppercase italic">Our Clinical Process</h3>
-          <p className="text-gray-400 leading-relaxed">
-            Our engine rebuild process is exhaustive. It begins with a complete teardown to the bare block, followed by hot-tanking and precision machining. We check every tolerance against OEM specs, often exceeding them for performance builds. We use only high-grade components—ARP studs, Mahle pistons, and genuine gaskets. Assembly takes place in a controlled environment where cleanliness is paramount. Every engine is primed and tested before it ever sees the frame rails of your truck again.
-          </p>
+          <img src="https://picsum.photos/seed/engine-rebuild/800/600" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         </div>
       </div>
     </div>
   </div>
 );
 
-const TransmissionsPage = () => (
+const TransmissionClutchPage = () => (
   <div className="pt-32 pb-24 animate-in slide-in-from-bottom-10 duration-700">
     <div className="max-w-7xl mx-auto px-6">
-      <h1 className="text-5xl font-black italic mb-12 text-center">TRANSMISSIONS & DRIVETRAIN</h1>
+      <h1 className="text-5xl font-black italic mb-12 text-center">TRANSMISSION & CLUTCH</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        {[
+          { title: "Allison Builds", desc: "Stage 1 to full competition builds for Duramax platforms." },
+          { title: "Dual Disc Clutches", desc: "Premium clutch installs for manual heavy haulers." },
+          { title: "Valve Bodies", desc: "Upgraded 68RFE and Aisin components for better shifting." },
+        ].map(item => (
+          <div key={item.title} className="bg-gunmetal p-10 border border-white/5">
+            <h3 className="text-xl font-bold mb-4 uppercase italic text-torque-red">{item.title}</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
-        <p className="text-xl text-gray-400 leading-relaxed">
-          Nothing kills a diesel truck faster than a blown transmission. Whether you're towing 20,000 lbs through the Missouri hills or chasing a 10-second slip at the track, your drivetrain is the weak link. We specialize in building transmissions that don't just survive—they thrive under pressure.
-        </p>
-        <div className="space-y-6">
-          <div className="flex items-center gap-4 bg-gunmetal p-6 border border-white/5">
-            <div className="text-torque-red font-black text-4xl italic">01</div>
-            <div>
-              <h4 className="font-bold uppercase">Stock Plus</h4>
-              <p className="text-xs text-gray-500">Correcting factory flaws for daily reliability.</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4 bg-gunmetal p-6 border border-white/5">
-            <div className="text-torque-red font-black text-4xl italic">02</div>
-            <div>
-              <h4 className="font-bold uppercase">Tow-Ready</h4>
-              <p className="text-xs text-gray-500">Upgraded clutches and coolers for heavy hauling.</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4 bg-torque-red p-6">
-            <div className="text-white font-black text-4xl italic">03</div>
-            <div>
-              <h4 className="font-bold uppercase">Competition</h4>
-              <p className="text-white/80 text-xs">Billet shafts and custom valve bodies for max HP.</p>
-            </div>
-          </div>
+const DrivetrainSuspensionPage = () => (
+  <div className="pt-32 pb-24 animate-in slide-in-from-bottom-10 duration-700">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div>
+          <h1 className="text-5xl font-black italic mb-4">DRIVETRAIN & SUSPENSION</h1>
+          <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">From the axle to the frame, we engineer stability.</p>
         </div>
       </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="space-y-6">
+          <p className="text-gray-400 leading-relaxed">Whether you're looking for a precision lift kit, steering upgrades to kill death wobble, or a full differential restore, our team has the tools and experience to handle Missouri's toughest terrains.</p>
+          <ul className="space-y-4">
+            {['Differential Re-gearing', 'Traction Bar Installs', 'Custom Lift & Level Kits', 'Driveline Balancing'].map(item => (
+              <li key={item} className="flex items-center gap-3 font-bold uppercase text-xs tracking-widest text-gray-300">
+                <ChevronRight size={16} className="text-torque-red" /> {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="bg-gunmetal h-64 border border-white/10"><img src="https://picsum.photos/seed/drivetrain/600/400" className="w-full h-full object-cover" /></div>
+      </div>
+    </div>
+  </div>
+);
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse bg-gunmetal">
-          <thead>
-            <tr className="bg-matte-black border-b border-white/10">
-              <th className="p-6 text-left uppercase tracking-widest text-sm">Build Tier</th>
-              <th className="p-6 text-left uppercase tracking-widest text-sm">HP Rating</th>
-              <th className="p-6 text-left uppercase tracking-widest text-sm">Key Features</th>
-              <th className="p-6 text-left uppercase tracking-widest text-sm">Best For</th>
-            </tr>
-          </thead>
-          <tbody className="text-gray-400 text-sm">
-            <tr className="border-b border-white/5">
-              <td className="p-6 font-bold text-white">STAGE 1</td>
-              <td className="p-6">Up to 450HP</td>
-              <td className="p-6">Improved Valve Body, New Seals</td>
-              <td className="p-6">Daily Driving</td>
-            </tr>
-            <tr className="border-b border-white/5">
-              <td className="p-6 font-bold text-white">STAGE 2 (TOW)</td>
-              <td className="p-6">Up to 600HP</td>
-              <td className="p-6">Billet Converter, Upgraded Clutches</td>
-              <td className="p-6">Heavy Hauling</td>
-            </tr>
-            <tr>
-              <td className="p-6 font-bold text-white">STAGE 3 (RACE)</td>
-              <td className="p-6">800HP+</td>
-              <td className="p-6">Full Billet Internals, Custom Tuning</td>
-              <td className="p-6">Competition</td>
-            </tr>
-          </tbody>
-        </table>
+const GeneralMechanicalPage = () => (
+  <div className="pt-32 pb-24 animate-in slide-in-from-bottom-10 duration-700">
+    <div className="max-w-7xl mx-auto px-6">
+      <h1 className="text-5xl font-black italic mb-16">GENERAL MECHANICAL WORK</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { title: "Diagnostics", desc: "OEM software scans for all major platforms." },
+          { title: "Maintenance", desc: "Precision oil, fuel, and cooling services." },
+          { title: "Fabrication", desc: "Custom metalwork and competition solutions." },
+          { title: "Electrical", desc: "Wiring harness repair and module programming." },
+        ].map(item => (
+          <div key={item.title} className="bg-gunmetal p-8 border border-white/5 hover:border-torque-red transition-colors">
+            <h4 className="font-bold uppercase italic mb-3">{item.title}</h4>
+            <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   </div>
@@ -627,118 +619,6 @@ const ReviewsPage = () => (
             </div>
           </div>
         ))}
-      </div>
-    </div>
-  </div>
-);
-
-const DiagnosticsPage = () => (
-  <div className="pt-32 pb-24 animate-in fade-in duration-700">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div>
-          <span className="text-torque-red font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Precision Testing</span>
-          <h1 className="text-5xl font-black italic mb-8">DIAGNOSTICS & TROUBLESHOOTING</h1>
-          <p className="text-gray-400 leading-relaxed mb-6">
-            Diesel engines are complex, and generic code readers often miss the root cause. We utilize OEM-level diagnostic software for Cummins, Powerstroke, and Duramax platforms to pinpoint issues before they become catastrophic failures.
-          </p>
-          <ul className="space-y-4 mb-8">
-            {['Electrical System Analysis', 'Fuel System Health Checks', 'Turbo VGT Calibration', 'Emission System Diagnostics'].map(item => (
-              <li key={item} className="flex items-center gap-3 font-bold uppercase text-xs tracking-widest text-gray-300">
-                <div className="w-1.5 h-1.5 bg-torque-red" /> {item}
-              </li>
-            ))}
-          </ul>
-          <button onClick={() => window.location.href = 'tel:+15555555555'} className="btn-primary">Schedule Diagnostic</button>
-        </div>
-        <div className="bg-matte-black aspect-video relative overflow-hidden group">
-          <img src="https://picsum.photos/seed/diagnostic/800/600" className="w-full h-full object-cover opacity-50 absolute inset-0" />
-          <div className="absolute inset-0 flex items-center justify-center p-12 text-center">
-            <div className="border border-white/10 p-8 backdrop-blur-sm bg-matte-black/40">
-              <h3 className="text-2xl font-black italic mb-2 tracking-tighter">STOP GUESSING.</h3>
-              <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400">Identify the problem. Engineer the solution.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const MaintenancePage = () => (
-  <div className="pt-32 pb-24 animate-in fade-in duration-700">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="text-center mb-16">
-        <h1 className="text-5xl font-black italic mb-4">PREVENTATIVE MAINTENANCE</h1>
-        <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">Protect your investment with Missouri's best diesel care.</p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          { title: "Oil & Filter", desc: "Premium synthetic blends and high-efficiency filters." },
-          { title: "Fuel Systems", desc: "Filter replacements and fuel system cleaning." },
-          { title: "Cooling", desc: "Flush and fill with platform-specific additives." },
-        ].map(pkg => (
-          <div key={pkg.title} className="bg-gunmetal p-10 border-b-4 border-torque-red">
-            <h3 className="text-xl font-bold mb-4 uppercase italic">{pkg.title}</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">{pkg.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-);
-
-const TuningPage = () => (
-  <div className="pt-32 pb-24 animate-in fade-in duration-700">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="relative h-[60vh] bg-matte-black flex items-center px-12 overflow-hidden mb-16 shadow-2xl">
-        <img src="https://picsum.photos/seed/dyno/1200/800" className="absolute inset-0 w-full h-full object-cover opacity-30" />
-        <div className="relative z-10 max-w-2xl">
-          <h1 className="text-6xl font-black italic mb-6 leading-none">PERFORMANCE <br /><span className="text-torque-red">TUNING</span></h1>
-          <p className="text-lg text-gray-300 mb-8 uppercase font-bold tracking-widest italic">Wake up your engine. Optimize for the track or the trailer.</p>
-          <div className="flex gap-4">
-            <div className="bg-torque-red text-white p-4 font-black italic text-2xl">+200HP</div>
-            <div className="bg-white text-black p-4 font-black italic text-2xl">+400LB-FT</div>
-          </div>
-        </div>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <p className="text-gray-400 leading-relaxed">
-          From mild street tunes to full competition maps, we offer custom tuning solutions for every major diesel platform. Our goal isn't just peak numbers; it's drivability, EGT management, and maximum efficiency. We work with the best in the industry to ensure your truck performs exactly how you need it to.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {['EZ LYNK Support', 'SOTF Capability', 'TCM Tuning', 'Dyno Proven'].map(feature => (
-            <div key={feature} className="border border-white/10 p-4 font-bold uppercase text-[10px] tracking-[0.3em] flex items-center gap-3">
-              <div className="w-1 h-1 bg-torque-red" /> {feature}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const FabricationPage = () => (
-  <div className="pt-32 pb-24 animate-in fade-in duration-700">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="text-left mb-16">
-        <h1 className="text-5xl font-black italic mb-4">CUSTOM FABRICATION</h1>
-        <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">If we can't buy it, we build it. Precision metalwork for competition builds.</p>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
-        <div className="lg:col-span-2 bg-matte-black border border-white/5 p-12">
-          <h3 className="text-2xl font-bold mb-8 uppercase italic border-l-4 border-torque-red pl-6">The Fab Shop</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-400 text-sm leading-relaxed">
-            <p>Our in-house fabrication team specializes in high-strength solutions that the aftermarket often overlooks. Whether it's custom traction bars for a pulling truck or a reinforced cooling system layout, we ensure every weld is track-ready.</p>
-            <p>We work primarily with mild steel, DOM tubing, and aluminum, utilizing precision TIG and MIG welding techniques to deliver components that are as beautiful as they are functional.</p>
-          </div>
-        </div>
-        <div className="bg-torque-red p-12 flex items-center justify-center">
-          <div className="text-center">
-            <h4 className="text-4xl font-black italic mb-2">BUILT</h4>
-            <p className="uppercase font-bold tracking-[0.5em] text-xs">NOT BOUGHT</p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -1076,12 +956,10 @@ export default function App() {
         {page === 'home' && <HomePage setPage={setPage} />}
         {page === 'services' && <ServicesHub />}
         {page === 'shop' && <ShopPage addToCart={addToCart} />}
-        {page === 'engines' && <EnginesPage />}
-        {page === 'transmissions' && <TransmissionsPage />}
-        {page === 'diagnostics' && <DiagnosticsPage />}
-        {page === 'tuning' && <TuningPage />}
-        {page === 'maintenance' && <MaintenancePage />}
-        {page === 'fabrication' && <FabricationPage />}
+        {page === 'engine-performance' && <EnginePerformancePage />}
+        {page === 'transmission-clutch' && <TransmissionClutchPage />}
+        {page === 'drivetrain-suspension' && <DrivetrainSuspensionPage />}
+        {page === 'general-mechanical' && <GeneralMechanicalPage />}
         {page === 'megatron' && <MegatronPage />}
         {page === 'reviews' && <ReviewsPage />}
         {page === 'about' && <AboutPage />}
