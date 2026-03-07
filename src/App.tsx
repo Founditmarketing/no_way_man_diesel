@@ -14,7 +14,11 @@ import {
   Settings,
   Menu,
   X,
-  ArrowRight
+  ArrowRight,
+  ShoppingCart,
+  Plus,
+  Minus,
+  Trash2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -31,7 +35,7 @@ const BRAND = {
 
 // --- Components ---
 
-const Header = ({ activePage, setPage }: { activePage: string, setPage: (p: string) => void }) => {
+const Header = ({ activePage, setPage, cartCount }: { activePage: string, setPage: (p: string) => void, cartCount: number }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -44,6 +48,7 @@ const Header = ({ activePage, setPage }: { activePage: string, setPage: (p: stri
   const navLinks = [
     { id: 'home', label: 'Home' },
     { id: 'services', label: 'Services' },
+    { id: 'shop', label: 'Shop' },
     { id: 'megatron', label: 'Megatron' },
     { id: 'blog', label: 'Blog' },
     { id: 'about', label: 'About' },
@@ -71,10 +76,18 @@ const Header = ({ activePage, setPage }: { activePage: string, setPage: (p: stri
         </nav>
 
         <div className="flex items-center gap-6">
-          <a href={`tel:${BRAND.phone}`} className="hidden md:flex items-center gap-2 font-mono font-bold text-torque-red hover:text-white transition-colors">
+          <a href={`tel:${BRAND.phone}`} className="hidden xl:flex items-center gap-2 font-mono font-bold text-torque-red hover:text-white transition-colors">
             <Phone size={16} /> {BRAND.phone}
           </a>
-          <button onClick={() => setPage('contact')} className="btn-primary text-xs px-6 py-2">Book Shop Time</button>
+          <div className="relative cursor-pointer group" onClick={() => window.dispatchEvent(new CustomEvent('toggle-cart'))}>
+            <ShoppingCart className="text-white group-hover:text-torque-red transition-colors" />
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-torque-red text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-matte-black animate-in zoom-in duration-300">
+                {cartCount}
+              </span>
+            )}
+          </div>
+          <button onClick={() => setPage('shop')} className="btn-primary text-xs px-6 py-2">Shop Parts</button>
           <button className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X /> : <Menu />}
           </button>
@@ -216,10 +229,10 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
             High-end diesel repair, performance tuning, and custom builds for those who demand absolute mechanical authority. We don't just fix trucks—we bulletproof them.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button onClick={() => setPage('contact')} className="btn-primary flex items-center gap-3 group">
-              Book Shop Time <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            <button onClick={() => setPage('shop')} className="btn-primary flex items-center gap-3 group">
+              Shop Diesel Parts <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>
-            <button onClick={() => setPage('services')} className="btn-secondary">View Capabilities</button>
+            <button onClick={() => setPage('contact')} className="btn-secondary">Book Shop Time</button>
           </div>
         </motion.div>
       </div>
@@ -688,22 +701,216 @@ const ContactPage = () => (
   </div>
 );
 
+// --- Shop Related ---
+
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  category: string;
+  image: string;
+  desc: string;
+};
+
+const PRODUCTS: Product[] = [
+  { id: 1, name: "Stage 2 Performance Turbo", price: 1899.99, category: "Performance", image: "https://picsum.photos/seed/turbo/600/600", desc: "Optimized for 6.7L Cummins. Improved spool time." },
+  { id: 2, name: "Bulletproof Head Stud Kit", price: 649.00, category: "Hardware", image: "https://picsum.photos/seed/studs/600/600", desc: "Premium ARP components for maximum cylinder pressure." },
+  { id: 3, name: "High-Flow Injector Set", price: 2450.00, category: "Fuel", image: "https://picsum.photos/seed/injectors/600/600", desc: "30% over stock, competition grade precision." },
+  { id: 4, name: "Triple Tunnel Intake", price: 425.00, category: "Performance", image: "https://picsum.photos/seed/intake/600/600", desc: "Cold air delivery for Duramax platforms." },
+  { id: 5, name: "Megatron Signature Tee", price: 34.99, category: "Apparel", image: "https://picsum.photos/seed/shirt/600/600", desc: "Heavyweight cotton with Megatron track graphics." },
+  { id: 6, name: "Diesel Additive 6-Pack", price: 89.95, category: "Maintenance", image: "https://picsum.photos/seed/additive/600/600", desc: "Missouri winter formula anti-gel protection." },
+];
+
+const ShopPage = ({ addToCart }: { addToCart: (p: Product) => void }) => {
+  const [activeCategory, setActiveCategory] = useState('All');
+  const categories = ['All', ...new Set(PRODUCTS.map(p => p.category))];
+
+  const filteredItems = activeCategory === 'All'
+    ? PRODUCTS
+    : PRODUCTS.filter(p => p.category === activeCategory);
+
+  return (
+    <div className="pt-32 pb-24 animate-in fade-in duration-700">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <div>
+            <h1 className="text-5xl font-black italic mb-4">THE PARTS COUNTER</h1>
+            <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">Performance hardware. Track proven reliability.</p>
+          </div>
+          <div className="flex flex-wrap gap-4">
+            {categories.map(cat => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-6 py-2 uppercase text-xs font-bold tracking-widest transition-all ${activeCategory === cat ? 'bg-torque-red text-white' : 'bg-gunmetal text-gray-400 hover:text-white'}`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredItems.map(product => (
+            <div key={product.id} className="bg-gunmetal border border-white/5 group overflow-hidden">
+              <div className="h-64 overflow-hidden relative">
+                <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute top-4 right-4 bg-matte-black/80 px-4 py-2 font-mono font-bold text-torque-red">
+                  ${product.price.toLocaleString()}
+                </div>
+              </div>
+              <div className="p-8">
+                <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-1 block">{product.category}</span>
+                <h3 className="text-xl font-bold mb-3 uppercase italic">{product.name}</h3>
+                <p className="text-gray-400 text-sm mb-6 leading-relaxed">{product.desc}</p>
+                <button
+                  onClick={() => addToCart(product)}
+                  className="w-full bg-transparent border-2 border-white hover:bg-torque-red hover:border-torque-red transition-all py-3 font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2"
+                >
+                  <Plus size={16} /> Add to Cart
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const CartDrawer = ({
+  isOpen,
+  onClose,
+  cart,
+  updateQuantity,
+  removeItem
+}: {
+  isOpen: boolean,
+  onClose: () => void,
+  cart: (Product & { qty: number })[],
+  updateQuantity: (id: number, delta: number) => void,
+  removeItem: (id: number) => void
+}) => {
+  const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-matte-black/80 backdrop-blur-sm z-[100]"
+          />
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            className="fixed top-0 right-0 w-full max-w-md h-full bg-gunmetal z-[101] p-10 flex flex-col shadow-2xl border-l border-white/10"
+          >
+            <div className="flex justify-between items-center mb-10">
+              <h2 className="text-3xl font-black italic">YOUR CART</h2>
+              <button onClick={onClose} className="hover:text-torque-red"><X size={32} /></button>
+            </div>
+
+            <div className="flex-grow overflow-y-auto space-y-6 pb-10">
+              {cart.length === 0 ? (
+                <div className="text-center py-20">
+                  <ShoppingCart size={64} className="mx-auto text-gray-700 mb-6" />
+                  <p className="text-gray-500 uppercase font-bold tracking-widest">Cart is empty</p>
+                </div>
+              ) : (
+                cart.map(item => (
+                  <div key={item.id} className="flex gap-4 border-b border-white/5 pb-6">
+                    <img src={item.image} className="w-20 h-20 object-cover border border-white/10" />
+                    <div className="flex-grow">
+                      <div className="flex justify-between items-start mb-1">
+                        <h4 className="font-bold uppercase text-sm">{item.name}</h4>
+                        <button onClick={() => removeItem(item.id)} className="text-gray-500 hover:text-torque-red"><Trash2 size={16} /></button>
+                      </div>
+                      <p className="text-torque-red font-mono text-xs mb-4">${item.price.toLocaleString()}</p>
+                      <div className="flex items-center gap-4">
+                        <div className="flex items-center border border-white/10 px-2 py-1 gap-4">
+                          <button onClick={() => updateQuantity(item.id, -1)} disabled={item.qty <= 1} className="disabled:opacity-20"><Minus size={14} /></button>
+                          <span className="text-xs font-bold font-mono">{item.qty}</span>
+                          <button onClick={() => updateQuantity(item.id, 1)}><Plus size={14} /></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+
+            {cart.length > 0 && (
+              <div className="border-t border-white/10 pt-10">
+                <div className="flex justify-between items-end mb-6 text-2xl font-black italic">
+                  <span>TOTAL</span>
+                  <span className="text-torque-red">${total.toLocaleString()}</span>
+                </div>
+                <button
+                  onClick={() => alert('Checkout integration would happen here.')}
+                  className="btn-primary w-full py-5 text-lg"
+                >
+                  Proceed to Checkout
+                </button>
+              </div>
+            )}
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  );
+};
+
 // --- Main App ---
 
 export default function App() {
   const [page, setPage] = useState('home');
+  const [cartItems, setCartItems] = useState<(Product & { qty: number })[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [page]);
 
+  useEffect(() => {
+    const handleToggle = () => setIsCartOpen(!isCartOpen);
+    window.addEventListener('toggle-cart', handleToggle);
+    return () => window.removeEventListener('toggle-cart', handleToggle);
+  }, [isCartOpen]);
+
+  const addToCart = (product: Product) => {
+    setCartItems(prev => {
+      const existing = prev.find(item => item.id === product.id);
+      if (existing) {
+        return prev.map(item => item.id === product.id ? { ...item, qty: item.qty + 1 } : item);
+      }
+      return [...prev, { ...product, qty: 1 }];
+    });
+    setIsCartOpen(true);
+  };
+
+  const updateQuantity = (id: number, delta: number) => {
+    setCartItems(prev => prev.map(item => item.id === id ? { ...item, qty: Math.max(1, item.qty + delta) } : item));
+  };
+
+  const removeItem = (id: number) => {
+    setCartItems(prev => prev.filter(item => item.id !== id));
+  };
+
+  const cartCount = cartItems.reduce((sum, item) => sum + item.qty, 0);
+
   return (
     <div className="min-h-screen flex flex-col">
-      <Header activePage={page} setPage={setPage} />
+      <Header activePage={page} setPage={setPage} cartCount={cartCount} />
 
       <main className="flex-grow">
         {page === 'home' && <HomePage setPage={setPage} />}
         {page === 'services' && <ServicesHub />}
+        {page === 'shop' && <ShopPage addToCart={addToCart} />}
         {page === 'engines' && <EnginesPage />}
         {page === 'transmissions' && <TransmissionsPage />}
         {page === 'megatron' && <MegatronPage />}
@@ -713,6 +920,14 @@ export default function App() {
       </main>
 
       <Footer setPage={setPage} />
+
+      <CartDrawer
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cart={cartItems}
+        updateQuantity={updateQuantity}
+        removeItem={removeItem}
+      />
     </div>
   );
 }
