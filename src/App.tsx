@@ -105,9 +105,6 @@ const Header = ({ activePage, setPage, cartCount }: { activePage: string, setPag
         </nav>
 
         <div className="flex items-center gap-6">
-          <a href={`tel:${BRAND.phone}`} className="hidden xl:flex items-center gap-2 font-mono font-bold text-torque-red hover:text-white transition-colors">
-            <Phone size={16} /> {BRAND.phone}
-          </a>
           <div className="relative cursor-pointer group" onClick={() => window.dispatchEvent(new CustomEvent('toggle-cart'))}>
             <ShoppingCart className="text-white group-hover:text-torque-red transition-colors" />
             {cartCount > 0 && (
@@ -276,7 +273,9 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
             <button onClick={() => setPage('shop')} className="btn-primary flex items-center gap-3 group">
               Shop Diesel Parts <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>
-            <button onClick={() => setPage('contact')} className="btn-secondary">Book Shop Time</button>
+            <a href={`tel:${BRAND.phone}`} className="btn-secondary flex items-center gap-3">
+              <Phone size={18} /> {BRAND.phone}
+            </a>
           </div>
         </motion.div>
       </div>
@@ -441,13 +440,13 @@ const ServicesHub = () => (
 const EnginePerformancePage = () => (
   <div className="pt-32 pb-24 animate-in slide-in-from-bottom-10 duration-700">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
         <div>
           <h1 className="text-5xl md:text-6xl font-black italic mb-8 leading-tight">
             ENGINE & <span className="text-torque-red">PERFORMANCE</span>
           </h1>
-          <p className="text-lg text-gray-400 mb-8">
-            From clinical engine rebuilds to competition-grade tuning, we optimize your diesel heartbeat for maximum reliability and power.
+          <p className="text-xl text-gray-300 mb-8 leading-relaxed italic">
+            Clinical precision for the heart of your truck. From factory restores to track-proven power.
           </p>
           <div className="flex gap-4">
             <div className="bg-gunmetal p-6 border-l-4 border-torque-red grow">
@@ -464,6 +463,26 @@ const EnginePerformancePage = () => (
           <img src="https://picsum.photos/seed/engine-rebuild/800/600" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         </div>
       </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-400">
+        <div className="space-y-6">
+          <h3 className="text-2xl font-bold uppercase italic text-white">The Clinical Rebuild Process</h3>
+          <p className="leading-relaxed">
+            At No Way Man Diesel, we understand that a diesel engine is more than just a power source—it's the heart of your operation, whether that's hauling heavy equipment across Missouri or competing on the national pulling circuit. Our clinical engine rebuild process is exhaustive, beginning with a complete teardown to the bare block. We hot-tank every component and perform precision machining to tolerances that often exceed OEM specifications. By utilizing high-grade components like ARP studs, Mahle pistons, and genuine seals, we ensure that every engine we touch is prepared for a lifetime of heavy-duty service or extreme performance output.
+          </p>
+        </div>
+        <div className="space-y-6">
+          <h3 className="text-2xl font-bold uppercase italic text-white">Performance Tuning Authority</h3>
+          <p className="leading-relaxed">
+            Beyond mechanical rebuilds, we offer cutting-edge performance tuning that wakes up your truck's true potential. We specialize in custom EFI Live and EZ LYNK tuning, optimized specifically for your platform—be it Cummins, Powerstroke, or Duramax. Our tuning philosophy balances raw power with drivability and safety, managing EGTs and fuel delivery to ensure maximum efficiency whether you're at the track or towing a 20,000lb trailer through the hills. From mild street tunes to full competition maps that have been proven by our own track-tested legacy, we provide the mechanical authority your truck deserves.
+          </p>
+        </div>
+      </div>
+      <div className="mt-16 text-center">
+        <a href={`tel:${BRAND.phone}`} className="btn-primary inline-flex items-center gap-3">
+          <Phone size={18} /> Call For Engine Quote
+        </a>
+      </div>
     </div>
   </div>
 );
@@ -471,18 +490,42 @@ const EnginePerformancePage = () => (
 const TransmissionClutchPage = () => (
   <div className="pt-32 pb-24 animate-in slide-in-from-bottom-10 duration-700">
     <div className="max-w-7xl mx-auto px-6">
-      <h1 className="text-5xl font-black italic mb-12 text-center">TRANSMISSION & CLUTCH</h1>
+      <div className="text-center mb-16">
+        <h1 className="text-5xl font-black italic mb-4">TRANSMISSION & CLUTCH</h1>
+        <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">Built to handle Missouri's toughest torque loads.</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-400 mb-16">
+        <div className="bg-gunmetal p-10 border-l-4 border-torque-red">
+          <h3 className="text-2xl font-bold uppercase italic text-white mb-6">Heavy-Duty Transmissions</h3>
+          <p className="leading-relaxed">
+            Nothing kills a diesel truck faster than a blown transmission, especially when subjected to the massive torque of a modern performance build. At No Way Man Diesel, we specialize in building transmissions that don't just survive—they thrive under pressure. Our build process for Allison, 68RFE, and Aisin units involves reinforcing every weak point in the factory design. We utilize billet input and output shafts, upgraded valve bodies, and high-energy clutch materials to ensure crisp shifting and reliable power transfer. Every transmission is built in a clean-room environment where precision is the only standard.
+          </p>
+        </div>
+        <div className="bg-gunmetal p-10 border-l-4 border-torque-red">
+          <h3 className="text-2xl font-bold uppercase italic text-white mb-6">Precision Clutch Engineering</h3>
+          <p className="leading-relaxed">
+            For the manual heavy-haulers, we offer precision clutch engineering that bridges the gap between factory smooth and competition strong. We specialize in dual-disc and triple-disc clutch installations that can handle the aggressive torque curves of tuned diesel engines without sacrificing pedal feel. Whether you're looking for a Stock Plus rebuild for daily reliability or a Stage 3 competition unit capable of handling 800+ horsepower, our team has the technical expertise to deliver a drivetrain that will never let you down on the job site or the Fairgrounds.
+          </p>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         {[
           { title: "Allison Builds", desc: "Stage 1 to full competition builds for Duramax platforms." },
           { title: "Dual Disc Clutches", desc: "Premium clutch installs for manual heavy haulers." },
           { title: "Valve Bodies", desc: "Upgraded 68RFE and Aisin components for better shifting." },
         ].map(item => (
-          <div key={item.title} className="bg-gunmetal p-10 border border-white/5">
-            <h3 className="text-xl font-bold mb-4 uppercase italic text-torque-red">{item.title}</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+          <div key={item.title} className="bg-matte-black p-8 border border-white/5">
+            <h3 className="text-lg font-bold mb-2 uppercase italic text-torque-red">{item.title}</h3>
+            <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
           </div>
         ))}
+      </div>
+      <div className="text-center">
+        <a href={`tel:${BRAND.phone}`} className="btn-primary inline-flex items-center gap-3">
+          <Phone size={18} /> Call For Transmission Quote
+        </a>
       </div>
     </div>
   </div>
@@ -497,18 +540,42 @@ const DrivetrainSuspensionPage = () => (
           <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">From the axle to the frame, we engineer stability.</p>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div className="space-y-6">
-          <p className="text-gray-400 leading-relaxed">Whether you're looking for a precision lift kit, steering upgrades to kill death wobble, or a full differential restore, our team has the tools and experience to handle Missouri's toughest terrains.</p>
-          <ul className="space-y-4">
-            {['Differential Re-gearing', 'Traction Bar Installs', 'Custom Lift & Level Kits', 'Driveline Balancing'].map(item => (
-              <li key={item} className="flex items-center gap-3 font-bold uppercase text-xs tracking-widest text-gray-300">
-                <ChevronRight size={16} className="text-torque-red" /> {item}
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-24">
+        <div className="space-y-12">
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold uppercase italic border-l-4 border-torque-red pl-6">Axle & Differential Precision</h3>
+            <p className="text-gray-400 leading-relaxed">
+              A powerful engine is useless if you can't get that power to the ground or maintain control of your vehicle. Our drivetrain services extend from the transfer case to the wheels, specializing in full differential rebuilds and re-gearing. Whether you're looking to optimize your truck for larger tires or restoring the longevity of a high-mileage work horse, we provide precision setup with high-strength ring and pinion sets. We also address driveline vibrations with professional balancing, ensuring that your truck runs smoothly at highway speeds and under heavy load conditions.
+            </p>
+          </div>
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold uppercase italic border-l-4 border-torque-red pl-6">Suspension Stability Engineering</h3>
+            <p className="text-gray-400 leading-relaxed">
+              Suspension stability is a critical safety factor for any heavy-duty truck. At No Way Man Diesel, we engineer stability from the frame down, offering steering upgrades to eliminate 'death wobble' and custom lift or level kits that maintain proper geometry. We install high-strength traction bars for pulling trucks and reinforce chassis components for maximum durability. Our goal is to ensure that your truck's handling is as sharp as its performance, providing a confident driving experience whether you're navigating Missouri's toughest terrains or hauling a full load on the interstate.
+            </p>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 gap-8">
+          <div className="bg-gunmetal h-80 border border-white/10 overflow-hidden relative">
+            <img src="https://picsum.photos/seed/drivetrain/800/600" className="w-full h-full object-cover opacity-60" />
+            <div className="absolute inset-0 p-8 flex flex-end items-end">
+              <h4 className="text-4xl font-black italic leading-none">BUILT FOR<br />STABILITY.</h4>
+            </div>
+          </div>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gunmetal p-8 border border-white/5">
+            {['Differential Re-gearing', 'Traction Bar Installs', 'Custom Lift & Level Kits', 'Driveline Balancing', 'Steering Upgrades', 'Chassis Reinforcement'].map(item => (
+              <li key={item} className="flex items-center gap-3 font-bold uppercase text-[10px] tracking-widest text-gray-300">
+                <ChevronRight size={14} className="text-torque-red" /> {item}
               </li>
             ))}
           </ul>
         </div>
-        <div className="bg-gunmetal h-64 border border-white/10"><img src="https://picsum.photos/seed/drivetrain/600/400" className="w-full h-full object-cover" /></div>
+      </div>
+      <div className="text-center">
+        <a href={`tel:${BRAND.phone}`} className="btn-primary inline-flex items-center gap-3">
+          <Phone size={18} /> Schedule Drivetrain Service
+        </a>
       </div>
     </div>
   </div>
@@ -517,19 +584,51 @@ const DrivetrainSuspensionPage = () => (
 const GeneralMechanicalPage = () => (
   <div className="pt-32 pb-24 animate-in slide-in-from-bottom-10 duration-700">
     <div className="max-w-7xl mx-auto px-6">
-      <h1 className="text-5xl font-black italic mb-16">GENERAL MECHANICAL WORK</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {[
-          { title: "Diagnostics", desc: "OEM software scans for all major platforms." },
-          { title: "Maintenance", desc: "Precision oil, fuel, and cooling services." },
-          { title: "Fabrication", desc: "Custom metalwork and competition solutions." },
-          { title: "Electrical", desc: "Wiring harness repair and module programming." },
-        ].map(item => (
-          <div key={item.title} className="bg-gunmetal p-8 border border-white/5 hover:border-torque-red transition-colors">
-            <h4 className="font-bold uppercase italic mb-3">{item.title}</h4>
-            <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-16">
+        <div>
+          <h1 className="text-5xl font-black italic mb-8">GENERAL MECHANICAL WORK</h1>
+          <div className="space-y-8 text-gray-400">
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold uppercase italic text-white flex items-center gap-3">
+                <div className="w-8 h-1 bg-torque-red" /> Diagnostic & Electrical Accuracy
+              </h3>
+              <p className="leading-relaxed">
+                Modern diesel diagnostics require more than just a simple code reader. At No Way Man Diesel, we utilize OEM-level diagnostic software for all major platforms, allowing us to pinpoint the 'ghosts in the machine' that generic scanners often miss. Our technicians perform exhaustive electrical system analysis, fuel system health checks, and turbocharger calibration to identify root causes before they become catastrophic failures. We believe in engineering solutions, not just swapping parts, ensuring that your truck returns to the road with a clean bill of health and optimized system performance.
+              </p>
+            </div>
           </div>
-        ))}
+        </div>
+        <div className="bg-matte-black aspect-video relative overflow-hidden flex items-center justify-center border border-white/5">
+          <img src="https://picsum.photos/seed/mechanic/800/600" className="absolute inset-0 w-full h-full object-cover opacity-30" />
+          <div className="relative z-10 text-center p-12">
+            <h4 className="text-4xl font-black italic mb-4">DIAGNOSTIC<br />AUTHORITY.</h4>
+            <a href={`tel:${BRAND.phone}`} className="btn-primary inline-flex items-center gap-3">
+              <Phone size={18} /> Call For Help
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div className="order-2 md:order-1 bg-gunmetal p-12 border border-white/10 shadow-2xl">
+          <h3 className="text-2xl font-bold uppercase italic text-white mb-6">Maintenance & Custom Fabrication</h3>
+          <p className="text-gray-400 leading-relaxed mb-6">
+            Our general mechanical services also include fleet-grade preventative maintenance and custom fabrication for unique performance needs. We offer platform-specific system flushes, high-efficiency oil and fuel filtering, and 50-point safety inspections to protect your investment. When the aftermarket falls short, our in-house fabrication team steps in, utilizing precision TIG and MIG welding to create high-strength components such as custom mounting brackets and reinforced cooling layouts. From routine oil changes to one-off competition solutions, we provide the comprehensive mechanical care that defines No Way Man Diesel.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { title: "Diagnostics", desc: "OEM software scans for all major platforms." },
+              { title: "Maintenance", desc: "Precision oil, fuel, and cooling services." },
+              { title: "Fabrication", desc: "Custom metalwork and competition solutions." },
+              { title: "Electrical", desc: "Wiring harness repair and module programming." },
+            ].map(item => (
+              <div key={item.title} className="bg-matte-black p-4 border border-white/5">
+                <h4 className="font-bold uppercase italic text-[10px] text-torque-red mb-1">{item.title}</h4>
+                <p className="text-[10px] text-gray-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </div>
