@@ -393,7 +393,7 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
     <section
       className="py-48 relative overflow-hidden bg-matte-black bg-left bg-no-repeat"
       style={{
-        backgroundImage: "url('/Decepticon%20Logo.png')",
+        backgroundImage: "linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.4)), url('/Decepticon%20Logo.png')",
         backgroundSize: '67%',
         backgroundPosition: '-5% center'
       }}
@@ -403,7 +403,12 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
         <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
           Our competition pulling truck, "Megatron," isn't just for show. It's our R&D lab for extreme diesel performance.
         </p>
-        <button onClick={() => setPage('megatron')} className="btn-primary">Explore The Legacy</button>
+        <button
+          onClick={() => setPage('megatron')}
+          className="px-10 py-4 bg-gradient-to-r from-[#4b0082] to-[#a855f7] hover:from-[#3c006b] hover:to-[#9333ea] text-white font-bold italic uppercase tracking-widest transition-all duration-300 skew-x-[-12deg] inline-block shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]"
+        >
+          Explore The Legacy
+        </button>
       </div>
     </section>
 
