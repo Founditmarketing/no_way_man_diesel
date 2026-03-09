@@ -242,12 +242,16 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
     {/* Hero Section */}
     <section className="relative h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img
-          src="https://picsum.photos/seed/diesel-shop/1920/1080"
-          alt="Shop Bay"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover opacity-60"
-          referrerPolicy="no-referrer"
-        />
+        >
+          <source src="/Truckcrushingit.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-matte-black via-matte-black/80 to-transparent" />
       </div>
 
