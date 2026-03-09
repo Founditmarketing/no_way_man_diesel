@@ -391,8 +391,8 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
 
     {/* Megatron Teaser */}
     <section
-      className="py-48 relative overflow-hidden bg-matte-black bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/Decepticon%20Logo.png')", backgroundSize: 'cover' }}
+      className="py-48 relative overflow-hidden bg-matte-black bg-center bg-no-repeat bg-cover"
+      style={{ backgroundImage: "linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7)), url('/Small%20D%20LOGO.png')" }}
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         <h2 className="text-5xl md:text-7xl font-black italic mb-6">WE RACE WHAT WE BUILD.</h2>
