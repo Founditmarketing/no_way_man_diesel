@@ -393,9 +393,9 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
     <section
       className="py-48 relative overflow-hidden bg-matte-black bg-left bg-no-repeat"
       style={{
-        backgroundImage: "linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7)), url('/Small%20D%20LOGO.png')",
-        backgroundSize: 'contain',
-        backgroundPosition: '-10% center'
+        backgroundImage: "url('/Decepticon%20Logo.png')",
+        backgroundSize: '35%',
+        backgroundPosition: '-5% center'
       }}
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
