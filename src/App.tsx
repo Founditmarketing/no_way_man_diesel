@@ -257,30 +257,66 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.3
+              }
+            }
+          }}
+          className="max-w-4xl"
         >
-          <div className="flex items-center gap-3 mb-6">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, x: -20 },
+              visible: { opacity: 1, x: 0 }
+            }}
+            className="flex items-center gap-3 mb-6"
+          >
             <div className="h-px w-12 bg-torque-red" />
             <span className="uppercase tracking-[0.3em] text-torque-red font-bold text-sm">Novinger, Missouri</span>
-          </div>
-          <h1 className="text-6xl md:text-8xl font-black mb-6 leading-[0.9] italic">
-            PRECISION <span className="text-torque-red">TUNING.</span><br />
-            BRUTAL POWER.
-          </h1>
-          <p className="text-xl text-gray-300 mb-10 max-w-xl leading-relaxed">
+          </motion.div>
+
+          <motion.h1
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            className="text-6xl md:text-8xl font-black mb-6 leading-[0.9] italic tracking-tight"
+          >
+            <span className="text-torque-red">PRECISION</span> TUNING.<br />
+            BRUTAL <span className="text-torque-red">POWER.</span>
+          </motion.h1>
+
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            className="text-xl text-gray-300 mb-10 max-w-xl leading-relaxed"
+          >
             High-end diesel repair, performance tuning, and custom builds for those who demand absolute mechanical authority. We don't just fix trucks—we bulletproof them.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <button onClick={() => setPage('shop')} className="btn-primary flex items-center gap-3 group">
+          </motion.p>
+
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, scale: 0.95 },
+              visible: { opacity: 1, scale: 1 }
+            }}
+            className="flex flex-wrap gap-4"
+          >
+            <button onClick={() => setPage('shop')} className="btn-primary flex items-center gap-3 group text-lg px-8">
               Shop Diesel Parts <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>
-            <a href={`tel:${BRAND.phone}`} className="btn-secondary flex items-center gap-3">
+            <a href={`tel:${BRAND.phone}`} className="btn-secondary flex items-center gap-3 text-lg px-8">
               <Phone size={18} /> {BRAND.phone}
             </a>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
