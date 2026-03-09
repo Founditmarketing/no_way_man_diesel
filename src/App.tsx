@@ -394,7 +394,7 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
       className="py-48 relative overflow-hidden bg-matte-black bg-left bg-no-repeat"
       style={{
         backgroundImage: "url('/Decepticon%20Logo.png')",
-        backgroundSize: '35%',
+        backgroundSize: '50%',
         backgroundPosition: '-5% center'
       }}
     >
