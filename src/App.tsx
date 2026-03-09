@@ -683,12 +683,9 @@ const GeneralMechanicalPage = () => (
 const MegatronPage = () => (
   <div className="pt-32 pb-24 animate-in fade-in duration-1000">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="text-center mb-20 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-10 pointer-events-none">
-          <img src="/Truck%20images/Decepticon%20Logo.png" className="w-full h-full object-contain filter grayscale" alt="Megatron Logo" />
-        </div>
-        <h1 className="text-7xl md:text-9xl font-black italic mb-4 text-torque-red relative z-10">MEGATRON</h1>
-        <p className="uppercase tracking-[0.5em] text-gray-500 font-bold relative z-10">The Authority of the Track</p>
+      <div className="text-center mb-20">
+        <h1 className="text-7xl md:text-9xl font-black italic mb-4 text-torque-red">MEGATRON</h1>
+        <p className="uppercase tracking-[0.5em] text-gray-500 font-bold">The Authority of the Track</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
@@ -709,12 +706,9 @@ const MegatronPage = () => (
               </div>
             ))}
           </div>
-          <p className="text-gray-400 leading-relaxed mb-8">
+          <p className="text-gray-400 leading-relaxed">
             Megatron was born from a simple question: "How far can we push it?" This truck is the culmination of thousands of hours of fabrication, tuning, and track-side adjustments. It serves as our primary testing ground for the high-performance parts we install in our customers' trucks. When we say a part is "competition-proven," it's because Megatron survived the pull with it.
           </p>
-          <div className="bg-gunmetal border border-white/10 overflow-hidden aspect-video">
-            <img src="/Truck%20images/Close%20side%20shot%20of%20truck.png" className="w-full h-full object-cover" alt="Detail Shot" />
-          </div>
         </div>
         <div className="w-full aspect-[16/9] bg-gunmetal border border-white/10 overflow-hidden shadow-2xl">
           <img
