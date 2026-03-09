@@ -668,11 +668,12 @@ const MegatronPage = () => (
             Megatron was born from a simple question: "How far can we push it?" This truck is the culmination of thousands of hours of fabrication, tuning, and track-side adjustments. It serves as our primary testing ground for the high-performance parts we install in our customers' trucks. When we say a part is "competition-proven," it's because Megatron survived the pull with it. From local Missouri fairgrounds to national circuits, Megatron has established No Way Man Diesel as a force to be reckoned with.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-gunmetal h-64"><img src="https://picsum.photos/seed/pull1/400/400" className="w-full h-full object-cover" referrerPolicy="no-referrer" /></div>
-          <div className="bg-gunmetal h-80"><img src="https://picsum.photos/seed/pull2/400/500" className="w-full h-full object-cover" referrerPolicy="no-referrer" /></div>
-          <div className="bg-gunmetal h-80 -mt-16"><img src="https://picsum.photos/seed/pull3/400/500" className="w-full h-full object-cover" referrerPolicy="no-referrer" /></div>
-          <div className="bg-gunmetal h-64"><img src="https://picsum.photos/seed/pull4/400/400" className="w-full h-full object-cover" referrerPolicy="no-referrer" /></div>
+        <div className="w-full aspect-[16/9] bg-gunmetal border border-white/10 overflow-hidden shadow-2xl">
+          <img
+            src="/Megatron-2025.jpg"
+            alt="Megatron 2025"
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+          />
         </div>
       </div>
     </div>
@@ -740,27 +741,61 @@ const AboutPage = () => (
             Today, we are a premier destination for fleet owners who can't afford downtime and enthusiasts who won't settle for second place. Our team is comprised of specialists who live and breathe diesel. We don't just work here; we pull, we race, and we haul. That real-world experience is what sets us apart. When you bring your truck to No Way Man Diesel, you're getting more than a repair—you're getting a legacy of mechanical excellence.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-4">
-          <img src="https://picsum.photos/seed/shop1/400/600" className="w-full h-80 object-cover" referrerPolicy="no-referrer" />
-          <img src="https://picsum.photos/seed/shop2/400/600" className="w-full h-80 object-cover mt-12" referrerPolicy="no-referrer" />
+        <div className="w-full aspect-video bg-gunmetal border border-white/10 overflow-hidden shadow-2xl lg:mt-0 mt-8">
+          <img
+            src="/Shop-Inside-View.jpg"
+            alt="No Way Man Diesel Shop View"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-matte-black p-6">
+            <h3 className="text-xl font-bold italic uppercase tracking-widest text-white">Clinical Shop Environment</h3>
+          </div>
         </div>
       </div>
 
-      <h2 className="text-4xl font-black italic mb-12 text-center">MEET THE TECHS</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-        {[
-          { name: "Owner / Lead Tech", bio: "20+ years of Cummins expertise. The mastermind behind Megatron." },
-          { name: "Performance Specialist", bio: "Tuning wizard and electrical diagnostic expert. If it has a wire, he can fix it." },
-          { name: "Fabrication Lead", bio: "Master TIG welder and chassis engineer. Turning raw steel into performance art." }
-        ].map(tech => (
-          <div key={tech.name} className="text-center">
-            <div className="w-48 h-48 bg-gunmetal rounded-full mx-auto mb-6 overflow-hidden border-4 border-torque-red">
-              <img src={`https://picsum.photos/seed/${tech.name}/200/200`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+      <div className="py-24 border-y border-white/5 bg-gunmetal/30 -mx-6 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-5xl font-black italic mb-12 text-center text-torque-red">WHY TRUST US?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold italic uppercase text-white border-l-4 border-torque-red pl-4">Decades of Expertise</h3>
+              <p className="text-gray-400 leading-relaxed">
+                We don't just fix trucks; we understand the engineering behind them. With over 20 years of hands-on diesel experience, our team has seen every evolution of the Cummins, Powerstroke, and Duramax platforms.
+              </p>
             </div>
-            <h4 className="text-xl font-bold uppercase italic">{tech.name}</h4>
-            <p className="text-gray-500 text-sm mt-2">{tech.bio}</p>
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold italic uppercase text-white border-l-4 border-torque-red pl-4">Specialized Knowledge</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Generic repair shops use generic scanners. We invest in OEM-level diagnostics and specialized tooling to ensure clinical accuracy in every diagnostic and repair we perform.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold italic uppercase text-white border-l-4 border-torque-red pl-4">Customer-First Approach</h3>
+              <p className="text-gray-400 leading-relaxed">
+                We believe in transparency. You'll receive clear explanations of every issue and a detailed plan for the fix. No surprises, no shortcuts—just mechanical authority.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold italic uppercase text-white border-l-4 border-torque-red pl-4">Competition Proven</h3>
+              <p className="text-gray-400 leading-relaxed">
+                The same techniques and parts we use on our own competition pulling trucks go into your daily driver or work horse. If it survives the track, it will survive your commute.
+              </p>
+            </div>
           </div>
-        ))}
+        </div>
+      </div>
+
+      <div className="py-24">
+        <div className="max-w-3xl mx-auto text-center space-y-8">
+          <h2 className="text-4xl font-black italic">A LEGACY OF PERFORMANCE</h2>
+          <p className="text-gray-400 leading-relaxed text-lg">
+            Whether you're hauling cattle across Missouri or building a 1,000HP street machine, our promise remains the same: Clinical Precision. Heavy Metal Performance. We aren't just building trucks; we're building relationships based on trust and mechanical excellence.
+          </p>
+          <div className="pt-8">
+            <div className="h-px w-24 bg-torque-red mx-auto mb-8" />
+            <p className="font-mono text-sm tracking-[0.3em] text-gray-500 uppercase">Est. 2018 | Novinger, MO</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
