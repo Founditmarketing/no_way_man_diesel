@@ -210,7 +210,7 @@ const Footer = ({ setPage }: { setPage: (p: string) => void }) => (
     </div>
     <div className="max-w-7xl mx-auto px-6 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 uppercase tracking-widest">
       <p>© {new Date().getFullYear()} NO WAY MAN DIESEL LLC. ALL RIGHTS RESERVED.</p>
-      <p>CLINICAL PRECISION. HEAVY METAL PERFORMANCE.</p>
+      <p>PRECISION TUNING. BRUTAL POWER.</p>
     </div>
   </footer>
 );
@@ -267,8 +267,8 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
             <span className="uppercase tracking-[0.3em] text-torque-red font-bold text-sm">Novinger, Missouri</span>
           </div>
           <h1 className="text-6xl md:text-8xl font-black mb-6 leading-[0.9] italic">
-            CLINICAL <span className="text-torque-red">PRECISION.</span><br />
-            HEAVY METAL.
+            PRECISION <span className="text-torque-red">TUNING.</span><br />
+            BRUTAL POWER.
           </h1>
           <p className="text-xl text-gray-300 mb-10 max-w-xl leading-relaxed">
             High-end diesel repair, performance tuning, and custom builds for those who demand absolute mechanical authority. We don't just fix trucks—we bulletproof them.
@@ -789,7 +789,7 @@ const AboutPage = () => (
         <div className="max-w-3xl mx-auto text-center space-y-8">
           <h2 className="text-4xl font-black italic">A LEGACY OF PERFORMANCE</h2>
           <p className="text-gray-400 leading-relaxed text-lg">
-            Whether you're hauling cattle across Missouri or building a 1,000HP street machine, our promise remains the same: Clinical Precision. Heavy Metal Performance. We aren't just building trucks; we're building relationships based on trust and mechanical excellence.
+            Whether you're hauling cattle across Missouri or building a 1,000HP street machine, our promise remains the same: Precision Tuning. Brutal Power. We aren't just building trucks; we're building relationships based on trust and mechanical excellence.
           </p>
           <div className="pt-8">
             <div className="h-px w-24 bg-torque-red mx-auto mb-8" />
