@@ -777,7 +777,7 @@ const AboutPage = () => (
             Today, we are a premier destination for fleet owners who can't afford downtime and enthusiasts who won't settle for second place. Our team is comprised of specialists who live and breathe diesel. We don't just work here; we pull, we race, and we haul. That real-world experience is what sets us apart. When you bring your truck to No Way Man Diesel, you're getting more than a repair—you're getting a legacy of mechanical excellence.
           </p>
         </div>
-        <div className="w-full aspect-video bg-gunmetal border border-white/10 overflow-hidden shadow-2xl lg:mt-0 mt-8">
+        <div className="relative w-full aspect-video bg-gunmetal border border-white/10 overflow-hidden shadow-2xl lg:mt-0 mt-8">
           <img
             src="/Shop-Inside-View.jpg"
             alt="No Way Man Diesel Shop View"
