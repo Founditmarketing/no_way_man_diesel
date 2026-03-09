@@ -742,10 +742,12 @@ const ReviewsPage = () => (
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {[
-          { name: "Jake Thompson", truck: "2019 RAM 2500", content: "No Way Man is the only place I trust with my Cummins. They diagnosed an injector issue that two other shops missed. Fair pricing and absolute pros.", location: "Columbia, MO" },
-          { name: "Sarah Miller", truck: "2022 Ford F-350", content: "Amazing service. Had my Powerstroke in for a full maintenance package and some performance tuning. The truck has never run smoother. Highly recommend!", location: "Novinger, MO" },
-          { name: "Mike Henderson", truck: "2015 Chevy Silverado 3500", content: "Built my Allison transmission after it blew out towing. Six months later and it's still shifting like a dream under heavy loads. These guys know their stuff.", location: "Kirksville, MO" },
-          { name: "David Ross", truck: "2020 GMC Sierra 2500", content: "Great guys. Professional, knowledgeable, and they actually care about the quality of their work. If you have a diesel in North MO, this is the spot.", location: "Macon, MO" },
+          { name: "William Sweet G Craig", truck: "6 years ago", content: "Great place to have truck worked on for a fair price an everything is in working order done right an tested", location: "Verified Review" },
+          { name: "actionjaxon08", truck: "6 years ago", content: "A wonderful place to have work on your truck fair and honest pricing and a knowledgeable service team!", location: "Verified Review" },
+          { name: "Andy Phillips", truck: "12/31/21", content: "Jason is awesome!!! Great guy and knows his stuff! Highly recommend for all your repairs, the man has a pulling truck, and wins, so he can get your pickup in shape, trust me!!! Thanks again for getting me going again!!!", location: "Verified Review" },
+          { name: "Casey Ann", truck: "9/18/2020", content: "Great diesel mechanic, knows his stuff. Down to earth and super friendly as well.", location: "Verified Review" },
+          { name: "Jack Thompson", truck: "9/7/2020", content: "Jason is very helpful and attentive. And very knowledgeable. And his rates are very competitive.", location: "Verified Review" },
+          { name: "Gus Allen", truck: "9/30/2016", content: "Great service and great people! Fast and great work!", location: "Verified Review" },
         ].map((rev, i) => (
           <div key={i} className="bg-gunmetal p-10 border border-white/5 relative">
             <div className="flex text-torque-red mb-6">
