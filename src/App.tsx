@@ -399,8 +399,8 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
         />
         <div className="absolute inset-0 bg-matte-black/40" />
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-10 pointer-events-none z-0">
-        <img src="/Truck%20images/Decepticon%20Logo.png" className="w-full h-full object-contain filter grayscale" alt="Megatron Logo Overlay" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-20 pointer-events-none z-0">
+        <img src="/Truck%20images/Decepticon%20Logo.png" className="w-full h-full object-contain" alt="Megatron Logo Overlay" />
       </div>
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         <h2 className="text-5xl md:text-7xl font-black italic mb-6">WE RACE WHAT WE BUILD.</h2>
