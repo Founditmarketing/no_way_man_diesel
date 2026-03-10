@@ -27,10 +27,10 @@ import { motion, AnimatePresence } from 'motion/react';
 // --- Constants ---
 const BRAND = {
   name: "No Way Man Diesel LLC",
-  address: "19760 Rye Creek Road, Novinger, MO 63559",
+  address: "19760 Rye Creek Road, Novinger,MO 63559",
   phone: "(660) 216-5453",
   email: "sales@nowaymandiesel.com",
-  hours: "Mon – Fri: 8AM – 5PM (Sat – Sun: Closed)",
+  hours: "Monday – Friday: 8AM – 5PM (Saturday – Sunday: Closed)",
   facebook: "https://www.facebook.com/people/No-Way-Man-Diesel-LLC/100035953075932/",
   mapIframe: '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15989.090023980767!2d-92.6731452!3d40.2415076!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87e81361adb348e3%3A0xef9599d8a35a6fda!2sNo%20Way%20Man%20Diesel%2C%20LLC!5e1!3m2!1sen!2sus!4v1772833388705!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>'
 };
