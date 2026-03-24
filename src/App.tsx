@@ -914,10 +914,10 @@ const BlogPost1 = ({ setPage }: { setPage: (p: string) => void }) => (
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Final Verdict</h2>
         <p>The 6.7L Cummins is a mechanical masterpiece, and a blown head gasket shouldn't scare you away from owning one. Once the weak factory bolts are replaced with heavy-duty studs and a precision-milled head, the block becomes nearly indestructible. Whether you are looking to pull a 20,000lb gooseneck with absolute confidence or you want to build a high-horsepower street monster, <strong>No Way Man Diesel</strong> has the technical authority and the track-proven experience to bulletproof your Cummins.</p>
         
-        <div className="sticky bottom-8 h-0 overflow-visible flex justify-end items-end pointer-events-none z-50 mt-12">
+        <div className="sticky bottom-8 h-0 overflow-visible flex justify-start items-end pointer-events-none z-50 mt-12 -ml-2 md:-ml-8 lg:-ml-16">
           <button 
             onClick={() => setPage('blogs')} 
-            className="pointer-events-auto bg-torque-red hover:bg-red-600 text-white p-3 md:p-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-transform hover:scale-110"
+            className="pointer-events-auto bg-torque-red/60 hover:bg-torque-red text-white p-3 md:p-4 rounded-md shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:-translate-y-1"
             title="Close Blog Post"
             aria-label="Close"
           >
@@ -1023,10 +1023,10 @@ const BlogPost2 = ({ setPage }: { setPage: (p: string) => void }) => (
         <p>If you are ready to take your Duramax from a daily street cruiser to a track-dominating force, <strong>No Way Man Diesel</strong> is your partner in performance. We don’t just bolt on parts; we engineer competitive vehicles based on real-world track experience with our own trucks.</p>
         <p className="mt-8"><em>Don't let a snapped tie-rod or a slipping Allison ruin your season before it begins. Contact us today, bring your Duramax to Novinger, Missouri, and let's build something built to survive the dirt.</em></p>
 
-        <div className="sticky bottom-8 h-0 overflow-visible flex justify-end items-end pointer-events-none z-50 mt-12">
+        <div className="sticky bottom-8 h-0 overflow-visible flex justify-start items-end pointer-events-none z-50 mt-12 -ml-2 md:-ml-8 lg:-ml-16">
           <button 
             onClick={() => setPage('blogs')} 
-            className="pointer-events-auto bg-torque-red hover:bg-red-600 text-white p-3 md:p-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-transform hover:scale-110"
+            className="pointer-events-auto bg-torque-red/60 hover:bg-torque-red text-white p-3 md:p-4 rounded-md shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:-translate-y-1"
             title="Close Blog Post"
             aria-label="Close"
           >
@@ -1124,10 +1124,10 @@ const BlogPost3 = ({ setPage }: { setPage: (p: string) => void }) => (
 
         <p className="mt-8"><em>Ready to end the 6.0L anxiety? Call the Powerstroke experts at No Way Man Diesel at <strong>(660) 216-5453</strong> to schedule your comprehensive bulletproofing service today, or visit our <a href="/?page=contact" className="text-torque-red hover:underline">Contact Page</a> to book shop time.</em></p>
 
-        <div className="sticky bottom-8 h-0 overflow-visible flex justify-end items-end pointer-events-none z-50 mt-12">
+        <div className="sticky bottom-8 h-0 overflow-visible flex justify-start items-end pointer-events-none z-50 mt-12 -ml-2 md:-ml-8 lg:-ml-16">
           <button 
             onClick={() => setPage('blogs')} 
-            className="pointer-events-auto bg-torque-red hover:bg-red-600 text-white p-3 md:p-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-transform hover:scale-110"
+            className="pointer-events-auto bg-torque-red/60 hover:bg-torque-red text-white p-3 md:p-4 rounded-md shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:-translate-y-1"
             title="Close Blog Post"
             aria-label="Close"
           >
