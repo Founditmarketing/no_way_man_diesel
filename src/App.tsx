@@ -917,7 +917,7 @@ const BlogPost1 = ({ setPage }: { setPage: (p: string) => void }) => (
         <div className="sticky bottom-8 h-0 overflow-visible flex justify-start items-end pointer-events-none z-50 mt-12 -ml-2 md:-ml-8 lg:-ml-16">
           <button 
             onClick={() => setPage('blogs')} 
-            className="pointer-events-auto bg-torque-red/10 border border-torque-red/30 hover:bg-torque-red/80 hover:border-torque-red text-white p-3 md:p-4 rounded-md shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+            className="pointer-events-auto bg-torque-red/10 border-2 border-torque-red hover:bg-torque-red text-white p-3 md:p-4 rounded-md shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-110 hover:-translate-y-1"
             title="Close Blog Post"
             aria-label="Close"
           >
@@ -1026,7 +1026,7 @@ const BlogPost2 = ({ setPage }: { setPage: (p: string) => void }) => (
         <div className="sticky bottom-8 h-0 overflow-visible flex justify-start items-end pointer-events-none z-50 mt-12 -ml-2 md:-ml-8 lg:-ml-16">
           <button 
             onClick={() => setPage('blogs')} 
-            className="pointer-events-auto bg-torque-red/10 border border-torque-red/30 hover:bg-torque-red/80 hover:border-torque-red text-white p-3 md:p-4 rounded-md shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+            className="pointer-events-auto bg-torque-red/10 border-2 border-torque-red hover:bg-torque-red text-white p-3 md:p-4 rounded-md shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-110 hover:-translate-y-1"
             title="Close Blog Post"
             aria-label="Close"
           >
@@ -1127,7 +1127,7 @@ const BlogPost3 = ({ setPage }: { setPage: (p: string) => void }) => (
         <div className="sticky bottom-8 h-0 overflow-visible flex justify-start items-end pointer-events-none z-50 mt-12 -ml-2 md:-ml-8 lg:-ml-16">
           <button 
             onClick={() => setPage('blogs')} 
-            className="pointer-events-auto bg-torque-red/10 border border-torque-red/30 hover:bg-torque-red/80 hover:border-torque-red text-white p-3 md:p-4 rounded-md shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+            className="pointer-events-auto bg-torque-red/10 border-2 border-torque-red hover:bg-torque-red text-white p-3 md:p-4 rounded-md shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-110 hover:-translate-y-1"
             title="Close Blog Post"
             aria-label="Close"
           >
