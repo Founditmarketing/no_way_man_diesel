@@ -853,23 +853,112 @@ const BlogSlider = ({ setPage }: { setPage: (p: string) => void }) => {
   );
 };
 
-const BlogsPage = () => (
-  <div className="pt-32 pb-24 animate-in fade-in duration-700 min-h-screen">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="text-center mb-16">
-        <h1 className="text-5xl font-black italic mb-4 text-white">THE GARAGE <span className="text-torque-red">BLOG</span></h1>
-        <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">Insights, builds, and diesel knowledge from the shop floor.</p>
-        <div className="h-1 w-20 bg-torque-red mx-auto mt-8" />
+const BlogPost1 = () => (
+  <div className="pt-32 pb-24 animate-in fade-in duration-700 bg-matte-black min-h-screen">
+    <div className="max-w-4xl mx-auto px-6">
+      <div className="mb-12 border-b border-white/10 pb-12">
+        <span className="text-torque-red text-sm font-bold uppercase tracking-widest mb-4 block">Tech Talk • Coming Soon</span>
+        <h1 className="text-4xl md:text-5xl font-black italic mb-6 text-white leading-tight">The Truth About 6.7L Cummins Head Gaskets: Why They Fail and How to Bulletproof Your Diesel</h1>
+        <p className="text-gray-400 text-lg leading-relaxed">Discover why the 6.7L Cummins is prone to head gasket failure and learn how No Way Man Diesel uses ARP studs and precision machining to bulletproof your truck.</p>
       </div>
-      
-      <div className="text-center py-20 bg-gunmetal border border-white/5">
-        <Wrench size={48} className="mx-auto text-torque-red mb-6 opacity-50" />
-        <h3 className="text-2xl font-bold uppercase italic text-white mb-4">More Content Dropping Soon</h3>
-        <p className="text-gray-400 max-w-lg mx-auto">We're currently wrenching on some new blog posts. Check back soon for technical articles, build breakdowns, and shop news.</p>
+
+      <div className="prose prose-invert prose-red max-w-none space-y-8 text-gray-300">
+        <p className="text-lg">If you run a 6.7L Cummins—whether it’s a daily driver, a heavy hauler moving cattle across Missouri, or a track-ready competition rig—you know you own one of the most capable diesel platforms on the planet. The Cummins legacy is built on raw, low-end torque and inline-six durability. But even legends have their weak points. If there is one topic that keeps 6.7L owners awake at night, it's the dreaded blown head gasket.</p>
+        <p className="text-lg">At <strong>No Way Man Diesel</strong>, we’ve torn down, machined, and rebuilt countless 6.7L engines. In this complete guide, we’re cutting through the forums and the myths to give you the clinical truth about why Cummins head gaskets let go, how to spot the early warning signs, and exactly what it takes to bulletproof your engine for good.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Why Do 6.7L Cummins Head Gaskets Fail?</h2>
+        <p>To fix the problem permanently, we first have to understand why it happens. The 6.7L Cummins block and head are massive chunks of cast iron. They are incredibly strong, but they are fighting against physics, emissions equipment, and cylinder pressure. Here are the three primary culprits behind head gasket failure:</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">1. Excessive Cylinder Pressure (The Tuning Factor)</h3>
+        <p>The 6.7L Cummins responds incredibly well to aftermarket tuning. It’s not uncommon to add 100 to 200 horsepower with a simple tune. However, the factory head bolts are torque-to-yield (TTY). These bolts are designed to stretch once during installation to provide clamping force. When you introduce aggressive tuning, you drastically increase cylinder pressure. That excess pressure can actually lift the heavy cast-iron cylinder head off the block by microscopic fractions of an inch. Even a momentary lift is enough to allow ultra-hot combustion gases to slip past the factory multi-layer steel (MLS) head gasket, burning the seal and causing a failure.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">2. Drive Pressure and VGT Turbos</h3>
+        <p>The factory Variable Geometry Turbocharger (VGT) is great for spool-up and acting as an exhaust brake, but it comes with a downside: extreme drive pressure. The ratio of drive pressure to boost pressure can become severely unbalanced, especially when towing heavy loads up grades or running hot tunes. High drive pressures create intense heat and stress inside the cylinder, exacerbating the lifting effect on the cylinder head.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">3. Warped Cylinder Heads</h3>
+        <p>Cast iron is tough, but it’s not immune to heat cycles. Over tens of thousands of miles of intense heating and cooling, the long, heavy cylinder head on the inline-six Cummins can experience minor warping or twisting. Once the mating surface is no longer perfectly flat, the head gasket cannot maintain a uniform seal, inevitably leading to a blowout.</p>
+
+        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">
+          [Image 1: Close-up shot of a burnt or failed 6.7L Cummins MLS head gasket on a shop workbench.]
+        </div>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Warning Signs: Catching the Failure Early</h2>
+        <p>A blown head gasket doesn't always result in a catastrophic, smoke-billowing breakdown on the highway. Often, the early signs are subtle. Watch out for these symptoms:</p>
+        <ul className="list-disc pl-6 space-y-2 mt-4 ml-6">
+          <li><strong>Unexplained Coolant Loss:</strong> Consistently topping off your reservoir with no visible leaks.</li>
+          <li><strong>Coolant Puking:</strong> Combustion gases over-pressurizing the system, forcing coolant out the overflow tube.</li>
+          <li><strong>Overheating Under Load:</strong> Temperature spikes only when towing or accelerating hard.</li>
+          <li><strong>White Smoke on Startup:</strong> Sweet-smelling smoke indicating coolant in the combustion chamber.</li>
+        </ul>
+
+        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">
+          [Image 2: A mechanic at No Way Man Diesel pressure testing a 6.7L Cummins cooling system.]
+        </div>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The "No Way Man Diesel" Bulletproofing Blueprint</h2>
+        <p>If you suspect your 6.7L is suffering from a blown head gasket, simply slapping a new factory gasket in there and torqueing down new factory bolts is a temporary band-aid. Here is our clinical approach to permanently bulletproofing the 6.7L Cummins:</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Step 1: Precision Machining and Decking</h3>
+        <p>We pull the cylinder head and send it to our precision machining partners. The head is meticulously magnafluxed and decked to strict tolerances. We also inspect the engine block deck to ensure a flawless mating surface.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Step 2: High-Grade MLS Gaskets</h3>
+        <p>We utilize premium, high-grade Multi-Layer Steel (MLS) head gaskets engineered specifically to handle elevated cylinder pressures, providing a far superior seal compared to OEM replacements.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Step 3: ARP Head Studs (The Ultimate Upgrade)</h3>
+        <p>We eliminate the weak factory torque-to-yield bolts and install high-tensile ARP Head Studs (such as ARP 2000s or Custom Age 625+). Unlike factory bolts that stretch, ARP studs are threaded into the block first, and the head is clamped down with nuts, providing exponentially more clamping force.</p>
+
+        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">
+          [Image 3: A set of high-tensile ARP head studs installed on a freshly machined 6.7L Cummins block.]
+        </div>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Final Verdict</h2>
+        <p>The 6.7L Cummins is a mechanical masterpiece, and a blown head gasket shouldn't scare you away from owning one. Once the weak factory bolts are replaced with heavy-duty studs and a precision-milled head, the block becomes nearly indestructible. Whether you are looking to pull a 20,000lb gooseneck with absolute confidence or you want to build a high-horsepower street monster, <strong>No Way Man Diesel</strong> has the technical authority and the track-proven experience to bulletproof your Cummins.</p>
       </div>
     </div>
   </div>
 );
+
+const BlogsPage = ({ setPage }: { setPage: (p: string) => void }) => {
+  const blogs = [
+    { id: 'blog-cummins-head-gasket', title: "The Truth About 6.7L Cummins Head Gaskets", category: "Tech Talk", date: "Coming Soon", excerpt: "We dive deep into why the 6.7L Cummins needs head studs and what you can do to prevent failure..." },
+    { id: 'blog-duramax-pulling', title: "Prepping Your Duramax For Pulling Season", category: "Performance", date: "Coming Soon", excerpt: "From tie-rod sleeves to EFI Live tuning, here is everything you need to get your L5P track-ready..." },
+    { id: 'blog-powerstroke-60', title: "Powerstroke 6.0L: Bulletproofing Demystified", category: "Builds", date: "Coming Soon", excerpt: "Is the 6.0L really as bad as they say? Not if you fix the factory flaws. Here is our exact blueprint..." },
+    { id: 'blog-megatron-turbos', title: "Why We Choose S400 Turbos For Megatron", category: "Shop Notes", date: "Coming Soon", excerpt: "Track data and airflow numbers explaining our compound setup on our competition pulling truck..." },
+    { id: 'blog-winter-checklist', title: "Missouri Winter Diesel Checklist", category: "Maintenance", date: "Coming Soon", excerpt: "Don't get stranded in the cold. Fuel additives, block heaters, and battery health explained..." },
+  ];
+
+  return (
+    <div className="pt-32 pb-24 animate-in fade-in duration-700 min-h-screen">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-black italic mb-4 text-white">THE GARAGE <span className="text-torque-red">BLOG</span></h1>
+          <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">Insights, builds, and diesel knowledge from the shop floor.</p>
+          <div className="h-1 w-20 bg-torque-red mx-auto mt-8" />
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogs.map((blog, i) => (
+            <div key={i} className="bg-gunmetal border border-white/5 overflow-hidden flex flex-col group cursor-pointer" onClick={() => (i === 0) ? setPage(blog.id) : alert('This blog post is not published yet.')}>
+              <div className="h-48 bg-matte-black opacity-80 flex items-center justify-center border-b border-white/10 group-hover:opacity-100 transition-opacity">
+                <Wrench className="text-gray-700 group-hover:text-torque-red transition-colors" size={32} />
+              </div>
+              <div className="p-8 flex-grow flex flex-col justify-between">
+                <div>
+                  <span className="text-torque-red text-[10px] font-bold uppercase tracking-widest mb-2 block">{blog.category} • {blog.date}</span>
+                  <h3 className="text-xl font-bold italic mb-4 text-white group-hover:text-torque-red transition-colors">{blog.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-6">{blog.excerpt}</p>
+                </div>
+                <span className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
+                  Read Article <ArrowRight size={14} />
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const AboutPage = () => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700">
@@ -1242,7 +1331,8 @@ export default function App() {
         {page === 'drivetrain-suspension' && <DrivetrainSuspensionPage />}
         {page === 'general-mechanical' && <GeneralMechanicalPage />}
         {page === 'megatron' && <MegatronPage />}
-        {page === 'blogs' && <BlogsPage />}
+        {page === 'blogs' && <BlogsPage setPage={setPage} />}
+        {page === 'blog-cummins-head-gasket' && <BlogPost1 />}
         {page === 'about' && <AboutPage />}
         {page === 'contact' && <ContactPage />}
       </main>
