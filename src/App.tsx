@@ -52,7 +52,7 @@ const Header = ({ activePage, setPage, cartCount }: { activePage: string, setPag
     { id: 'services', label: 'Services', hasDropdown: true },
     { id: 'shop', label: 'Shop' },
     { id: 'megatron', label: 'Megatron' },
-    { id: 'reviews', label: 'Reviews' },
+    { id: 'blogs', label: 'Blogs' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },
   ];
@@ -412,6 +412,9 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
       </div>
     </section>
 
+    {/* Customer Testimonials */}
+    <TestimonialSlider />
+
     {/* Trust Bar */}
     <section className="py-20 bg-gunmetal border-y border-white/5">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -723,51 +726,76 @@ const MegatronPage = () => (
   </div>
 );
 
-const ReviewsPage = () => (
-  <div className="pt-32 pb-24 animate-in fade-in duration-700">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-        <div>
-          <h1 className="text-5xl font-black italic mb-4">CUSTOMER REVIEWS</h1>
-          <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">Real feedback from Missouri's diesel community.</p>
+const TestimonialSlider = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const reviews = [
+    { name: "William Sweet G Craig", truck: "6 years ago", content: "Great place to have truck worked on for a fair price an everything is in working order done right an tested", location: "Verified Review" },
+    { name: "actionjaxon08", truck: "6 years ago", content: "A wonderful place to have work on your truck fair and honest pricing and a knowledgeable service team!", location: "Verified Review" },
+    { name: "Andy Phillips", truck: "12/31/21", content: "Jason is awesome!!! Great guy and knows his stuff! Highly recommend for all your repairs, the man has a pulling truck, and wins, so he can get your pickup in shape, trust me!!! Thanks again for getting me going again!!!", location: "Verified Review" },
+    { name: "Casey Ann", truck: "9/18/2020", content: "Great diesel mechanic, knows his stuff. Down to earth and super friendly as well.", location: "Verified Review" },
+    { name: "Jack Thompson", truck: "9/7/2020", content: "Jason is very helpful and attentive. And very knowledgeable. And his rates are very competitive.", location: "Verified Review" },
+    { name: "Gus Allen", truck: "9/30/2016", content: "Great service and great people! Fast and great work!", location: "Verified Review" },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % reviews.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [reviews.length]);
+
+  return (
+    <section className="py-24 bg-matte-black border-y border-white/5 overflow-hidden">
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        <h2 className="text-4xl font-black italic mb-4">WHAT MISSOURI SAYS</h2>
+        <div className="flex justify-center text-torque-red mb-8">
+          {[...Array(5)].map((_, j) => <Star key={j} size={20} fill="currentColor" />)}
         </div>
-        <div className="flex items-center gap-2 bg-gunmetal px-6 py-3 border border-white/5">
-          <div className="flex text-torque-red">
-            {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
-          </div>
-          <span className="font-bold text-xl font-mono">5.0</span>
-          <span className="text-gray-500 text-xs uppercase font-bold ml-2">Average Rating</span>
+        <div className="relative h-64 md:h-48">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5 }}
+              className="absolute inset-0"
+            >
+              <p className="text-xl md:text-2xl italic text-gray-300 mb-8 leading-relaxed">"{reviews[currentIndex].content}"</p>
+              <div>
+                <h4 className="font-bold uppercase tracking-widest text-sm text-white">{reviews[currentIndex].name}</h4>
+                <p className="text-torque-red text-xs uppercase font-bold font-mono">{reviews[currentIndex].truck}</p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        <div className="flex justify-center gap-2 mt-8">
+          {reviews.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              className={`w-3 h-3 rounded-full transition-colors ${i === currentIndex ? 'bg-torque-red' : 'bg-gray-600 hover:bg-gray-400'}`}
+            />
+          ))}
         </div>
       </div>
+    </section>
+  );
+};
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {[
-          { name: "William Sweet G Craig", truck: "6 years ago", content: "Great place to have truck worked on for a fair price an everything is in working order done right an tested", location: "Verified Review" },
-          { name: "actionjaxon08", truck: "6 years ago", content: "A wonderful place to have work on your truck fair and honest pricing and a knowledgeable service team!", location: "Verified Review" },
-          { name: "Andy Phillips", truck: "12/31/21", content: "Jason is awesome!!! Great guy and knows his stuff! Highly recommend for all your repairs, the man has a pulling truck, and wins, so he can get your pickup in shape, trust me!!! Thanks again for getting me going again!!!", location: "Verified Review" },
-          { name: "Casey Ann", truck: "9/18/2020", content: "Great diesel mechanic, knows his stuff. Down to earth and super friendly as well.", location: "Verified Review" },
-          { name: "Jack Thompson", truck: "9/7/2020", content: "Jason is very helpful and attentive. And very knowledgeable. And his rates are very competitive.", location: "Verified Review" },
-          { name: "Gus Allen", truck: "9/30/2016", content: "Great service and great people! Fast and great work!", location: "Verified Review" },
-        ].map((rev, i) => (
-          <div key={i} className="bg-gunmetal p-10 border border-white/5 relative">
-            <div className="flex text-torque-red mb-6">
-              {[...Array(5)].map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
-            </div>
-            <p className="text-lg italic text-gray-300 mb-8 leading-relaxed">"{rev.content}"</p>
-            <div className="flex justify-between items-center">
-              <div>
-                <h4 className="font-bold uppercase tracking-widest text-sm">{rev.name}</h4>
-                <p className="text-gray-500 text-[10px] uppercase font-bold font-mono">{rev.truck}</p>
-              </div>
-              <div className="text-right">
-                <span className="text-[10px] text-gray-600 uppercase font-bold">{rev.location}</span>
-                <div className="flex items-center gap-1 text-green-500 text-[10px] uppercase font-bold mt-1">
-                  <div className="w-1 h-1 bg-green-500 rounded-full" /> Verified Customer
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+const BlogsPage = () => (
+  <div className="pt-32 pb-24 animate-in fade-in duration-700 min-h-screen">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="text-center mb-16">
+        <h1 className="text-5xl font-black italic mb-4 text-white">THE GARAGE <span className="text-torque-red">BLOG</span></h1>
+        <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">Insights, builds, and diesel knowledge from the shop floor.</p>
+        <div className="h-1 w-20 bg-torque-red mx-auto mt-8" />
+      </div>
+      
+      <div className="text-center py-20 bg-gunmetal border border-white/5">
+        <Wrench size={48} className="mx-auto text-torque-red mb-6 opacity-50" />
+        <h3 className="text-2xl font-bold uppercase italic text-white mb-4">More Content Dropping Soon</h3>
+        <p className="text-gray-400 max-w-lg mx-auto">We're currently wrenching on some new blog posts. Check back soon for technical articles, build breakdowns, and shop news.</p>
       </div>
     </div>
   </div>
@@ -1144,7 +1172,7 @@ export default function App() {
         {page === 'drivetrain-suspension' && <DrivetrainSuspensionPage />}
         {page === 'general-mechanical' && <GeneralMechanicalPage />}
         {page === 'megatron' && <MegatronPage />}
-        {page === 'reviews' && <ReviewsPage />}
+        {page === 'blogs' && <BlogsPage />}
         {page === 'about' && <AboutPage />}
         {page === 'contact' && <ContactPage />}
       </main>
