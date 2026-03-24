@@ -880,7 +880,7 @@ const BlogPost1 = ({ setPage }: { setPage: (p: string) => void }) => (
 
         <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">
         <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
-          <img src="/carimages/Inside the engine.png" alt="Close-up internal engine view" className="w-full h-auto object-cover" />
+          <img src="/carimages/inside_the_engine.png" alt="Close-up internal engine view" className="w-full h-auto object-cover" />
         </div>
         </div>
 
@@ -962,7 +962,7 @@ const BlogPost2 = ({ setPage }: { setPage: (p: string) => void }) => (
         <p>While the front end has its issues, the rear end isn't immune to physics. When you launch a heavy truck with massive torque, the rear axle wants to twist backward. This is called axle wrap. Severe axle wrap causes the rear springs to bend into an S-shape, leading to wheel hop. Wheel hop is violent and will easily snap a driveshaft, U-joint, or axle shaft. Installing heavy-duty traction bars ties the rear axle to the frame, physically preventing the axle from rotating and ensuring smooth, consistent power delivery to the dirt.</p>
 
         <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
-          <img src="/carimages/Truck in the dirt.png" alt="Duramax in the dirt" className="w-full h-auto object-cover" />
+          <img src="/carimages/truck_in_the_dirt.png" alt="Duramax in the dirt" className="w-full h-auto object-cover" />
         </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 2: Drivetrain and The Allison Transmission</h2>
@@ -1112,7 +1112,7 @@ const BlogPost3 = ({ setPage }: { setPage: (p: string) => void }) => (
         <p>While the engine is apart for head studs, installing the updated Ford OEM versions of the stand pipes and dummy plugs—which feature upgraded white Teflon backup rings in addition to the rubber D-rings—permanently solves this oil leak vulnerability.</p>
 
         <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
-          <img src="/carimages/Inside the engine.png" alt="Super Duty Cab Off" className="w-full h-auto object-cover" />
+          <img src="/carimages/inside_the_engine.png" alt="Super Duty Cab Off" className="w-full h-auto object-cover" />
         </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Misunderstood Injector System (HEUI)</h2>
@@ -1179,7 +1179,7 @@ const BlogPost4 = ({ setPage }: { setPage: (p: string) => void }) => (
         <p>Furthermore, the sliding vanes and unison rings inside a VGT are prone to physical failure when subjected to 1,800-degree competition EGTs and 60+ PSI of boost. The soot bakes onto the vanes, causing them to stick. A sticking VGT on a pulling track means an instant loss of power or a catastrophic over-speeding of the compressor wheel.</p>
 
         <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
-          <img src="/carimages/Turbos.png" alt="VGT vs Fixed Geometry S400 turbocharger" className="w-full h-auto object-cover" />
+          <img src="/carimages/turbos.png" alt="VGT vs Fixed Geometry S400 turbocharger" className="w-full h-auto object-cover" />
         </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Enter the Fixed Geometry Heavyweight: The BorgWarner S400</h2>
@@ -1208,7 +1208,7 @@ const BlogPost4 = ({ setPage }: { setPage: (p: string) => void }) => (
         </ul>
 
         <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
-          <img src="/carimages/Turbos.png" alt="Megatron's Compound Turbo Piping" className="w-full h-auto object-cover" />
+          <img src="/carimages/turbos.png" alt="Megatron's Compound Turbo Piping" className="w-full h-auto object-cover" />
         </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Managing the Air: Wastegates and Intercooling</h2>
@@ -1267,7 +1267,7 @@ const BlogPost5 = ({ setPage }: { setPage: (p: string) => void }) => (
         <p>To guarantee survival, you must manually run a high-quality anti-gel additive (like Howes, Stanadyne, or Hot Shot's Secret Diesel Winter Anti-Gel) with every fill-up starting in November. Anti-gel additives do not "melt" the wax; they chemically modify the shape of the wax crystals, keeping them small enough to pass safely through the fuel filters without accumulating.</p>
 
         <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
-          <img src="/carimages/pouring oil.png" alt="Gelled Diesel Fuel Example" className="w-full h-auto object-cover" />
+          <img src="/carimages/pouring_oil.png" alt="Gelled Diesel Fuel Example" className="w-full h-auto object-cover" />
         </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Step 2: Engine Oil Viscosity (5W-40 Synthetic is King)</h2>
@@ -1309,7 +1309,7 @@ const BlogPost5 = ({ setPage }: { setPage: (p: string) => void }) => (
         <p>The most common failure point of a block heater isn't the heating element itself; it's the 120V extension cord. Because it's exposed to road salt, ice, and vibration at the front bumper, the prongs often corrode or the wiring breaks internally. Inspect the cord visually and use a multimeter to check the resistance of the element before the snow flies.</p>
 
         <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
-          <img src="/carimages/Truck in the snow.png" alt="Diesel truck plugged into a block heater in the snow" className="w-full h-auto object-cover" />
+          <img src="/carimages/truck_in_the_snow.png" alt="Diesel truck plugged into a block heater in the snow" className="w-full h-auto object-cover" />
         </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Winter Fronts and Condensation Management</h2>
@@ -1339,11 +1339,11 @@ const BlogPost5 = ({ setPage }: { setPage: (p: string) => void }) => (
 
 const BlogsPage = ({ setPage }: { setPage: (p: string) => void }) => {
   const blogs = [
-    { id: 'blog-cummins-head-gasket', title: "The Truth About 6.7L Cummins Head Gaskets", category: "Tech Talk", date: "Now Published", excerpt: "We dive deep into why the 6.7L Cummins needs head studs and what you can do to prevent failure..." },
-    { id: 'blog-duramax-pulling', title: "Prepping Your Duramax For Pulling Season", category: "Performance", date: "Now Published", excerpt: "From tie-rod sleeves to EFI Live tuning, here is everything you need to get your L5P track-ready..." },
-    { id: 'blog-powerstroke-60', title: "Powerstroke 6.0L: Bulletproofing Demystified", category: "Builds", date: "Now Published", excerpt: "Is the 6.0L really as bad as they say? Not if you fix the factory flaws. Here is our exact blueprint..." },
-    { id: 'blog-megatron-turbos', title: "Why We Choose S400 Turbos For Megatron", category: "Shop Notes", date: "Now Published", excerpt: "Track data and airflow numbers explaining our compound setup on our competition pulling truck..." },
-    { id: 'blog-winter-checklist', title: "Missouri Winter Diesel Checklist", category: "Maintenance", date: "Now Published", excerpt: "Don't get stranded in the cold. Fuel additives, block heaters, and battery health explained..." },
+    { id: 'blog-cummins-head-gasket', title: "The Truth About 6.7L Cummins Head Gaskets", category: "Tech Talk", date: "Now Published", excerpt: "We dive deep into why the 6.7L Cummins needs head studs and what you can do to prevent failure...", image: "/carimages/inside_the_engine.png" },
+    { id: 'blog-duramax-pulling', title: "Prepping Your Duramax For Pulling Season", category: "Performance", date: "Now Published", excerpt: "From tie-rod sleeves to EFI Live tuning, here is everything you need to get your L5P track-ready...", image: "/carimages/truck_in_the_dirt.png" },
+    { id: 'blog-powerstroke-60', title: "Powerstroke 6.0L: Bulletproofing Demystified", category: "Builds", date: "Now Published", excerpt: "Is the 6.0L really as bad as they say? Not if you fix the factory flaws. Here is our exact blueprint...", image: "/carimages/engine.png" },
+    { id: 'blog-megatron-turbos', title: "Why We Choose S400 Turbos For Megatron", category: "Shop Notes", date: "Now Published", excerpt: "Track data and airflow numbers explaining our compound setup on our competition pulling truck...", image: "/carimages/turbos.png" },
+    { id: 'blog-winter-checklist', title: "Missouri Winter Diesel Checklist", category: "Maintenance", date: "Now Published", excerpt: "Don't get stranded in the cold. Fuel additives, block heaters, and battery health explained...", image: "/carimages/truck_in_the_snow.png" },
   ];
 
   return (
@@ -1358,8 +1358,12 @@ const BlogsPage = ({ setPage }: { setPage: (p: string) => void }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog, i) => (
             <div key={i} className="bg-gunmetal border border-white/5 overflow-hidden flex flex-col group cursor-pointer" onClick={() => setPage(blog.id)}>
-              <div className="h-48 bg-matte-black opacity-80 flex items-center justify-center border-b border-white/10 group-hover:opacity-100 transition-opacity">
-                <Wrench className="text-gray-700 group-hover:text-torque-red transition-colors" size={32} />
+              <div className="h-48 bg-matte-black opacity-80 flex items-center justify-center border-b border-white/10 group-hover:opacity-100 transition-opacity relative overflow-hidden">
+                {blog.image ? (
+                  <img src={blog.image} alt={blog.title} className="w-full h-full object-cover" />
+                ) : (
+                  <Wrench className="text-gray-700 group-hover:text-torque-red transition-colors" size={32} />
+                )}
               </div>
               <div className="p-8 flex-grow flex flex-col justify-between">
                 <div>
