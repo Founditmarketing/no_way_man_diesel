@@ -879,7 +879,9 @@ const BlogPost1 = ({ setPage }: { setPage: (p: string) => void }) => (
         <p>Cast iron is tough, but it’s not immune to heat cycles. Over tens of thousands of miles of intense heating and cooling, the long, heavy cylinder head on the inline-six Cummins can experience minor warping or twisting. Once the mating surface is no longer perfectly flat, the head gasket cannot maintain a uniform seal, inevitably leading to a blowout.</p>
 
         <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">
-          [Image 1: Close-up shot of a burnt or failed 6.7L Cummins MLS head gasket on a shop workbench.]
+        <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+          <img src="/carimages/Inside the engine.png" alt="Close-up internal engine view" className="w-full h-auto object-cover" />
+        </div>
         </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Warning Signs: Catching the Failure Early</h2>
@@ -892,7 +894,9 @@ const BlogPost1 = ({ setPage }: { setPage: (p: string) => void }) => (
         </ul>
 
         <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">
-          [Image 2: A mechanic at No Way Man Diesel pressure testing a 6.7L Cummins cooling system.]
+        <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+          <img src="/carimages/engine.png" alt="Mechanic inspecting the engine block" className="w-full h-auto object-cover" />
+        </div>
         </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The "No Way Man Diesel" Bulletproofing Blueprint</h2>
@@ -908,7 +912,9 @@ const BlogPost1 = ({ setPage }: { setPage: (p: string) => void }) => (
         <p>We eliminate the weak factory torque-to-yield bolts and install high-tensile ARP Head Studs (such as ARP 2000s or Custom Age 625+). Unlike factory bolts that stretch, ARP studs are threaded into the block first, and the head is clamped down with nuts, providing exponentially more clamping force.</p>
 
         <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">
-          [Image 3: A set of high-tensile ARP head studs installed on a freshly machined 6.7L Cummins block.]
+        <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+          <img src="/carimages/2.png" alt="Heavy duty studs installed on the block" className="w-full h-auto object-cover" />
+        </div>
         </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Final Verdict</h2>
@@ -955,7 +961,9 @@ const BlogPost2 = ({ setPage }: { setPage: (p: string) => void }) => (
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Traction Bars (CalTracs or Custom Builds)</h3>
         <p>While the front end has its issues, the rear end isn't immune to physics. When you launch a heavy truck with massive torque, the rear axle wants to twist backward. This is called axle wrap. Severe axle wrap causes the rear springs to bend into an S-shape, leading to wheel hop. Wheel hop is violent and will easily snap a driveshaft, U-joint, or axle shaft. Installing heavy-duty traction bars ties the rear axle to the frame, physically preventing the axle from rotating and ensuring smooth, consistent power delivery to the dirt.</p>
 
-        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 1: A Duramax hooked to a sled with heavy-duty traction bars visible under the chassis.]</div>
+        <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+          <img src="/carimages/Truck in the dirt.png" alt="Duramax in the dirt" className="w-full h-auto object-cover" />
+        </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 2: Drivetrain and The Allison Transmission</h2>
         <p>The Allison transmission is legendary in the diesel world, but it has defined limits. A stock 5-speed or 6-speed Allison is generally safe up to about 100 horsepower over stock (roughly 400-450 rear-wheel horsepower depending on the generation). Once you start adding heavy fueling, large turbos, and throwing a sled on the back, the factory clutches will slip, and it will go into limp mode.</p>
@@ -984,7 +992,9 @@ const BlogPost2 = ({ setPage }: { setPage: (p: string) => void }) => (
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Upgraded Injectors</h3>
         <p>If your goal is to dominate the unlimited or high-horsepower classes, factory injectors won't flow enough fuel. Upgrading to 30%, 60%, or even 100% over-stock injectors allows you to deliver the massive volume of fuel required to spool large turbos and maintain power throughout the entire pull.</p>
 
-        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 2: A technician installing a high-flow CP3 injection pump and upgraded fuel lines on a Duramax engine.]</div>
+        <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+          <img src="/carimages/1.png" alt="Technician installing high flow fuel lines" className="w-full h-auto object-cover" />
+        </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 4: Airflow and Turbo Selection</h2>
         <p>Fuel is only half of the horsepower equation. To burn that fuel efficiently and keep your EGTs from melting pistons, you need massive airflow.</p>
@@ -1067,7 +1077,9 @@ const BlogPost3 = ({ setPage }: { setPage: (p: string) => void }) => (
         <p>Because liquids cannot be compressed, ingesting coolant into the engine cylinder creates massive hydraulic pressure. This process, combined with the fact that Ford used a mere four torque-to-yield head bolts per cylinder (which are known to stretch), results in the catastrophic failure of the head gaskets.</p>
         <p>Furthermore, even without EGR failure, the factory head bolts are simply inadequate to handle the increased cylinder pressures generated by aggressive aftermarket tunes. Thus, the 6.0L earns its reputation as a terrible engine—when in reality, the entire head gasket failure can often be traced back to a clogged oil cooler.</p>
 
-        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 1: A diagram showing the coolant flow path from the oil cooler to the EGR cooler on a 6.0L Powerstroke.]</div>
+        <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+          <img src="/carimages/engine.png" alt="6.0L Coolant Flow Diagram" className="w-full h-auto object-cover" />
+        </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The 5 Pillars of 6.0L Bulletproofing</h2>
         <p>Bulletproofing isn’t a single part you can buy; it is a comprehensive system overhaul designed to eliminate the factory bottlenecks and weak points. To truly claim a 6.0L is bulletproofed, five critical pillars must be addressed.</p>
@@ -1099,7 +1111,9 @@ const BlogPost3 = ({ setPage }: { setPage: (p: string) => void }) => (
         <p>Because the injectors rely on High-Pressure Oil to fire, the system must remain perfectly sealed. The 2004.5 - 2007 6.0L engines are infamous for developing high-pressure oil leaks from the D-rings on the internal stand pipes and dummy plugs. When these O-rings blow out, the engine will suffer a "no-start when hot" condition.</p>
         <p>While the engine is apart for head studs, installing the updated Ford OEM versions of the stand pipes and dummy plugs—which feature upgraded white Teflon backup rings in addition to the rubber D-rings—permanently solves this oil leak vulnerability.</p>
 
-        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 2: A Ford Super Duty cab suspended in the air at No Way Man Diesel, revealing the 6.0L engine below for bulletproofing.]</div>
+        <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+          <img src="/carimages/Inside the engine.png" alt="Super Duty Cab Off" className="w-full h-auto object-cover" />
+        </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Misunderstood Injector System (HEUI)</h2>
         <p>One of the most common complaints about the 6.0L is "stiction" in the injectors. Because the injectors rely on highly pressurized engine oil to open the fuel valves, the quality of your engine oil dictates the lifespan of your fuel system.</p>
@@ -1164,7 +1178,9 @@ const BlogPost4 = ({ setPage }: { setPage: (p: string) => void }) => (
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Mechanical Failure</h3>
         <p>Furthermore, the sliding vanes and unison rings inside a VGT are prone to physical failure when subjected to 1,800-degree competition EGTs and 60+ PSI of boost. The soot bakes onto the vanes, causing them to stick. A sticking VGT on a pulling track means an instant loss of power or a catastrophic over-speeding of the compressor wheel.</p>
 
-        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 1: A side-by-side comparison of a factory VGT exhaust housing next to a massive, unrestricted BorgWarner S400 T4 turbine housing.]</div>
+        <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+          <img src="/carimages/Turbos.png" alt="VGT vs Fixed Geometry S400 turbocharger" className="w-full h-auto object-cover" />
+        </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Enter the Fixed Geometry Heavyweight: The BorgWarner S400</h2>
         <p>To solve the bottleneck and survive the torture of dirt pulling, we rely entirely on fixed geometry turbochargers. Specifically, the BorgWarner S-Series. While the S300 frame is excellent for high-performance street trucks, a dedicated sled puller like Megatron requires the immense physical size and airflow capability of the S400 frame.</p>
@@ -1191,7 +1207,9 @@ const BlogPost4 = ({ setPage }: { setPage: (p: string) => void }) => (
           <li><strong>Top-End Hurricane:</strong> Once the engine is at high RPM, the small turbo becomes a restriction—but this is when the massive atmospheric S400 wakes up. The S400 forces a hurricane of dense, compressed air directly into the intake of the smaller turbo, compounding the pressure. The result is 70 to 90 PSI of total manifold boost with incredibly cool intake temperatures.</li>
         </ul>
 
-        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 2: Under the hood of Megatron showing the massive compound turbo piping, completely dominating the engine bay.]</div>
+        <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+          <img src="/carimages/Turbos.png" alt="Megatron's Compound Turbo Piping" className="w-full h-auto object-cover" />
+        </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Managing the Air: Wastegates and Intercooling</h2>
         <p>When you are pushing an S400 turbo close to its absolute map limit, you have to control the chaos. If an S400 barks (compressesor surge) under 80 PSI of boost, it can snap the billet shaft in half instantly.</p>
@@ -1248,7 +1266,9 @@ const BlogPost5 = ({ setPage }: { setPage: (p: string) => void }) => (
         <p>Most gas stations in the Midwest transition to a "winter blend" diesel (a mix of No. 2 and No. 1 diesel fuel) late in the fall, which lowers the gelling point. However, this blend is not foolproof, especially during sudden deep freezes or polar vortex events.</p>
         <p>To guarantee survival, you must manually run a high-quality anti-gel additive (like Howes, Stanadyne, or Hot Shot's Secret Diesel Winter Anti-Gel) with every fill-up starting in November. Anti-gel additives do not "melt" the wax; they chemically modify the shape of the wax crystals, keeping them small enough to pass safely through the fuel filters without accumulating.</p>
 
-        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 1: A side-by-side comparison of clear, flowing liquid diesel next to a jar of heavily gelled, cloudy, semi-solid diesel fuel.]</div>
+        <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+          <img src="/carimages/pouring oil.png" alt="Gelled Diesel Fuel Example" className="w-full h-auto object-cover" />
+        </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Step 2: Engine Oil Viscosity (5W-40 Synthetic is King)</h2>
         <p>Most diesel owners run petroleum-based 15W-40 engine oil year-round. While 15W-40 provides fantastic protection during heavy summer towing, it is a massive hindrance during a cold start.</p>
@@ -1288,7 +1308,9 @@ const BlogPost5 = ({ setPage }: { setPage: (p: string) => void }) => (
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Inspecting the Cord</h3>
         <p>The most common failure point of a block heater isn't the heating element itself; it's the 120V extension cord. Because it's exposed to road salt, ice, and vibration at the front bumper, the prongs often corrode or the wiring breaks internally. Inspect the cord visually and use a multimeter to check the resistance of the element before the snow flies.</p>
 
-        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 2: A snow-covered diesel truck parked outside the No Way Man Diesel shop, with an orange extension cord leading to the front bumper block heater.]</div>
+        <div className="my-12 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+          <img src="/carimages/Truck in the snow.png" alt="Diesel truck plugged into a block heater in the snow" className="w-full h-auto object-cover" />
+        </div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Winter Fronts and Condensation Management</h2>
         <p>Even if you get the truck started, maintaining heat during a drive in sub-zero weather can be difficult. A massive diesel radiator is extremely efficient at shedding heat. If you are not towing a load, the engine may struggle to maintain the 190°F operating temperature required for optimal efficiency and cabin heating. Installing a winter front (a specialized cover that blocks airflow across the radiator grille) forces the engine to retain its heat.</p>
