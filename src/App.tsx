@@ -747,7 +747,7 @@ const TestimonialSlider = () => {
   return (
     <section className="py-24 bg-matte-black border-y border-white/5 overflow-hidden">
       <div className="max-w-4xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-black italic mb-4">WHAT MISSOURI SAYS</h2>
+        <h2 className="text-4xl font-black italic mb-4">CUSTOMER REVIEWS</h2>
         <div className="flex justify-center text-torque-red mb-8">
           {[...Array(5)].map((_, j) => <Star key={j} size={20} fill="currentColor" />)}
         </div>
