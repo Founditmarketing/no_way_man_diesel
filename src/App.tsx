@@ -853,7 +853,7 @@ const BlogSlider = ({ setPage }: { setPage: (p: string) => void }) => {
   );
 };
 
-const BlogPost1 = () => (
+const BlogPost1 = ({ setPage }: { setPage: (p: string) => void }) => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700 bg-matte-black min-h-screen">
     <div className="max-w-4xl mx-auto px-6">
       <div className="mb-12 border-b border-white/10 pb-12">
@@ -913,12 +913,23 @@ const BlogPost1 = () => (
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Final Verdict</h2>
         <p>The 6.7L Cummins is a mechanical masterpiece, and a blown head gasket shouldn't scare you away from owning one. Once the weak factory bolts are replaced with heavy-duty studs and a precision-milled head, the block becomes nearly indestructible. Whether you are looking to pull a 20,000lb gooseneck with absolute confidence or you want to build a high-horsepower street monster, <strong>No Way Man Diesel</strong> has the technical authority and the track-proven experience to bulletproof your Cummins.</p>
+        
+        <div className="sticky bottom-8 h-0 overflow-visible flex justify-end items-end pointer-events-none z-50 mt-12">
+          <button 
+            onClick={() => setPage('blogs')} 
+            className="pointer-events-auto bg-torque-red hover:bg-red-600 text-white p-3 md:p-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-transform hover:scale-110"
+            title="Close Blog Post"
+            aria-label="Close"
+          >
+            <X size={24} />
+          </button>
+        </div>
       </div>
     </div>
   </div>
 );
 
-const BlogPost2 = () => (
+const BlogPost2 = ({ setPage }: { setPage: (p: string) => void }) => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700 bg-matte-black min-h-screen">
     <div className="max-w-4xl mx-auto px-6">
       <div className="mb-12 border-b border-white/10 pb-12">
@@ -1011,12 +1022,23 @@ const BlogPost2 = () => (
         <p>Prepping a Duramax for pulling season is a major commitment. It requires a meticulous balance of chassis reinforcement, drivetrain hardening, massive fueling, and precision tuning. It is an expensive and demanding sport, but the feeling of dragging a multi-ton sled past the 300-foot mark while the exhaust screams and the crowd roars is completely unmatched.</p>
         <p>If you are ready to take your Duramax from a daily street cruiser to a track-dominating force, <strong>No Way Man Diesel</strong> is your partner in performance. We don’t just bolt on parts; we engineer competitive vehicles based on real-world track experience with our own trucks.</p>
         <p className="mt-8"><em>Don't let a snapped tie-rod or a slipping Allison ruin your season before it begins. Contact us today, bring your Duramax to Novinger, Missouri, and let's build something built to survive the dirt.</em></p>
+
+        <div className="sticky bottom-8 h-0 overflow-visible flex justify-end items-end pointer-events-none z-50 mt-12">
+          <button 
+            onClick={() => setPage('blogs')} 
+            className="pointer-events-auto bg-torque-red hover:bg-red-600 text-white p-3 md:p-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-transform hover:scale-110"
+            title="Close Blog Post"
+            aria-label="Close"
+          >
+            <X size={24} />
+          </button>
+        </div>
       </div>
     </div>
   </div>
 );
 
-const BlogPost3 = () => (
+const BlogPost3 = ({ setPage }: { setPage: (p: string) => void }) => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700 bg-matte-black min-h-screen">
     <div className="max-w-4xl mx-auto px-6">
       <div className="mb-12 border-b border-white/10 pb-12">
@@ -1101,6 +1123,17 @@ const BlogPost3 = () => (
         <p>At <strong>No Way Man Diesel</strong>, we don't guess when it comes to the 6.0L. We use strictly OEM or track-proven aftermarket replacement parts. We pull the cabs, deck the heads, and rebuild the legends. If you have a Powerstroke that is puking coolant, suffering from stiction, or if you simply want to buy some peace of mind before hauling your 5th wheel across the midwest, we possess the mechanical authority to make it right.</p>
 
         <p className="mt-8"><em>Ready to end the 6.0L anxiety? Call the Powerstroke experts at No Way Man Diesel at <strong>(660) 216-5453</strong> to schedule your comprehensive bulletproofing service today, or visit our <a href="/?page=contact" className="text-torque-red hover:underline">Contact Page</a> to book shop time.</em></p>
+
+        <div className="sticky bottom-8 h-0 overflow-visible flex justify-end items-end pointer-events-none z-50 mt-12">
+          <button 
+            onClick={() => setPage('blogs')} 
+            className="pointer-events-auto bg-torque-red hover:bg-red-600 text-white p-3 md:p-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-transform hover:scale-110"
+            title="Close Blog Post"
+            aria-label="Close"
+          >
+            <X size={24} />
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1520,9 +1553,9 @@ export default function App() {
         {page === 'general-mechanical' && <GeneralMechanicalPage />}
         {page === 'megatron' && <MegatronPage />}
         {page === 'blogs' && <BlogsPage setPage={setPage} />}
-        {page === 'blog-cummins-head-gasket' && <BlogPost1 />}
-        {page === 'blog-duramax-pulling' && <BlogPost2 />}
-        {page === 'blog-powerstroke-60' && <BlogPost3 />}
+        {page === 'blog-cummins-head-gasket' && <BlogPost1 setPage={setPage} />}
+        {page === 'blog-duramax-pulling' && <BlogPost2 setPage={setPage} />}
+        {page === 'blog-powerstroke-60' && <BlogPost3 setPage={setPage} />}
         {page === 'about' && <AboutPage />}
         {page === 'contact' && <ContactPage />}
       </main>
