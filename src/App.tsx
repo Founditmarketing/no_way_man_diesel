@@ -1139,13 +1139,189 @@ const BlogPost3 = ({ setPage }: { setPage: (p: string) => void }) => (
   </div>
 );
 
+const BlogPost4 = ({ setPage }: { setPage: (p: string) => void }) => (
+  <div className="pt-32 pb-24 animate-in fade-in duration-700 bg-matte-black min-h-screen">
+    <div className="max-w-4xl mx-auto px-6">
+      <div className="mb-12 border-b border-white/10 pb-12">
+        <span className="text-torque-red text-sm font-bold uppercase tracking-widest mb-4 block">Shop Notes • Now Published</span>
+        <h1 className="text-4xl md:text-5xl font-black italic mb-6 text-white leading-tight">Why We Choose S400 Turbos For Megatron: Airflow, Drive Pressure, and 1000+ HP</h1>
+        <p className="text-gray-400 text-lg leading-relaxed">We break down the science behind our competition pulling truck's compound turbo setup, explaining compressor maps, turbine housings, and why the BorgWarner S400 platform is the undisputed king of dirt.</p>
+      </div>
+
+      <div className="prose prose-invert prose-red max-w-none space-y-8 text-gray-300">
+        <p className="text-lg">If you have ever stood near the starting line at a Missouri truck pull, you know the sound. It's an unmistakable, high-pitched scream that cuts through the roar of a straight-piped diesel exhaust. That shriek is the sound of atmospheric air being violently compressed at over 100,000 RPMs. It's the sound of a competition turbocharger fighting for its life to feed an engine that's burning fuel at an unimaginable rate.</p>
+        <p className="text-lg">At <strong>No Way Man Diesel</strong>, our competition pulling truck, "Megatron," is built to do one thing: drag 40,000 pounds of dead weight through the dirt faster and farther than anyone else. To do that, the engine produces well north of 1,000 horsepower. But making that kind of power isn't just about dumping fuel into the cylinders; it's about matching that massive fuel volume with an equally massive volume of dense, oxygen-rich air.</p>
+        <p className="text-lg">In this exhaustive 2000-word deep dive, we are going to open the hood on Megatron and explain the exact science behind our turbocharger selection. We will break down why we abandoned variable geometry turbos (VGTs), why we chose the BorgWarner S400 platform, and the delicate balancing act between manifold boost and exhaust drive pressure.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Problem with Variable Geometry Turbos (VGTs)</h2>
+        <p>Almost all modern heavy-duty pickup trucks (Cummins 6.7L, Duramax LML/L5P, Powerstroke 6.7L) come from the factory equipped with Variable Geometry Turbochargers. VGTs use internal exhaust vanes that physically open and close. At low RPMs, the vanes close to act like a smaller turbo, spooling instantly and providing excellent off-the-line torque. At high RPMs, the vanes open to act like a larger turbo to flow more air.</p>
+        <p>For a daily driver or a tow rig, a VGT is a marvel of modern engineering. However, for a 1000+ horsepower competition pulling truck, VGTs are a massive liability.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">The Exhaust Restriction Bottleneck</h3>
+        <p>To make 1000 horsepower, you must inject an incredible amount of fuel. Burning that fuel creates a massive volume of superheated exhaust gas. The intricate moving vanes inside a VGT housing present a physical restriction to that exhaust flow. When you try to force that much exhaust gas through a VGT at wide-open throttle, the exhaust <strong>drive pressure</strong> skyrockets.</p>
+        <p>Drive pressure is the pressure of the exhaust gases in the manifold <em>before</em> they pass through the turbo. Ideally, your drive pressure should be closely matched to your intake boost pressure (a 1:1 ratio). In an over-fueled VGT setup, it is common to see 50 PSI of boost, but 90+ PSI of drive pressure. That extreme exhaust backpressure creates immense heat (EGTs), chokes the engine on the top end, and frequently causes the engine to lift the cylinder head and blow the head gaskets.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Mechanical Failure</h3>
+        <p>Furthermore, the sliding vanes and unison rings inside a VGT are prone to physical failure when subjected to 1,800-degree competition EGTs and 60+ PSI of boost. The soot bakes onto the vanes, causing them to stick. A sticking VGT on a pulling track means an instant loss of power or a catastrophic over-speeding of the compressor wheel.</p>
+
+        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 1: A side-by-side comparison of a factory VGT exhaust housing next to a massive, unrestricted BorgWarner S400 T4 turbine housing.]</div>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Enter the Fixed Geometry Heavyweight: The BorgWarner S400</h2>
+        <p>To solve the bottleneck and survive the torture of dirt pulling, we rely entirely on fixed geometry turbochargers. Specifically, the BorgWarner S-Series. While the S300 frame is excellent for high-performance street trucks, a dedicated sled puller like Megatron requires the immense physical size and airflow capability of the S400 frame.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">What Makes the S400 Different?</h3>
+        <p>The S400 is not a delicate, emission-friendly piece of hardware. It is a massive, incredibly durable industrial turbocharger originally designed for heavy commercial equipment. It features a massive journal bearing system (or an upgraded severely oversized ball-bearing cartridge), a massive shaft diameter, and huge turbine and compressor wheels.</p>
+        <ul className="list-disc pl-6 space-y-2 mt-4 ml-6">
+          <li><strong>Zero Moving Exhaust Vanes:</strong> Because the S400 is a fixed geometry turbo, the turbine housing is basically a massive cast-iron funnel. There is nothing to stick, melt, or fail. The exhaust gas enters the housing, spins the turbine wheel, and exits cleanly.</li>
+          <li><strong>Massive Airflow (Pounds Per Minute):</strong> A factory turbo might flow 65 pounds of air per minute. A large S400 (like an S475 or S480) can easily flow 110 to 130+ pounds per minute. That sheer volume of air is what supports four-digit horsepower numbers while keeping EGTs in check.</li>
+          <li><strong>Lower Drive Pressure:</strong> Because the exhaust housing (typically a T4 or T6 footprint) is so large, drive pressure stays incredibly low. On Megatron, we routinely see near 1:1 drive-to-boost ratios even at 70 PSI, meaning we aren't choking the engine.</li>
+        </ul>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Single vs. Compound Debate on the Track</h2>
+        <p>When you commit to the S400 platform for a pulling truck, you have two architectural choices: run a single massive S400 turbo, or run a compound twin-turbo setup (using an S300/S400 or an S400/S500 combo). Both have distinct advantages depending on your track class rules.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">The Large Single (S475 / S480)</h3>
+        <p>Many "Work Stock" or "Limited Pro Stock" pulling classes mandate a single turbocharger, often restricting the inducer size (e.g., a 2.5-inch or 2.6-inch rule). Running a massive single S400 has benefits: it's lighter, there is less under-hood piping to blow apart, and it's easier to package.</p>
+        <p>The drawback to a large single fixed-geometry turbo is spool time. Because the exhaust housing is so large and there are no vanes to restrict flow, a giant S400 requires immense heat and RPM to start spinning. To get the truck moving, the driver must stage furiously, bringing the engine near 3,000 RPM, slipping the clutch or converter, and using heavy fuel to light the turbo before unleashing the truck.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">The Compound Setup (The Best of Both Worlds)</h3>
+        <p>For Megatron, operating in unlimited or less restrictive classes allows us to utilize compound turbos. A compound setup links two turbos together sequentially. A smaller, high-pressure turbo (like an S366 or S467) is bolted directly to the exhaust manifold. The exhaust gas exits this smaller turbo and immediately feeds into a massive low-pressure (atmospheric) turbo, like an S480 or even an S488.</p>
+        <ul className="list-disc pl-6 space-y-2 mt-4 ml-6">
+          <li><strong>Instant Spool:</strong> The smaller turbo lights almost instantly off the starting line, forcing air into the engine and creating the initial torque needed to get the 40,000-pound sled moving.</li>
+          <li><strong>Top-End Hurricane:</strong> Once the engine is at high RPM, the small turbo becomes a restriction—but this is when the massive atmospheric S400 wakes up. The S400 forces a hurricane of dense, compressed air directly into the intake of the smaller turbo, compounding the pressure. The result is 70 to 90 PSI of total manifold boost with incredibly cool intake temperatures.</li>
+        </ul>
+
+        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 2: Under the hood of Megatron showing the massive compound turbo piping, completely dominating the engine bay.]</div>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Managing the Air: Wastegates and Intercooling</h2>
+        <p>When you are pushing an S400 turbo close to its absolute map limit, you have to control the chaos. If an S400 barks (compressesor surge) under 80 PSI of boost, it can snap the billet shaft in half instantly.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">External Wastegates</h3>
+        <p>To safely manage the massive exhaust energy, we rely on high-flow external wastegates (like precision 46mm or 60mm gates). If the drive pressure in the exhaust manifold exceeds our safe limit, the wastegate physically opens, bypassing the turbine wheel and dumping the exhaust straight out the hood stack. This prevents the turbo from overspeeding and acts as a mechanical safety valve for the entire engine.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Custom Air-to-Water Intercoolers</h3>
+        <p>Compressing air to 80 PSI creates friction, and friction creates incredible heat. Hot air is less dense and less oxygenated. While factory air-to-air intercoolers are fine for the street, they are totally inadequate on a track. On Megatron, we utilize a massive custom air-to-water intercooler packed with ice in the bed of the truck. This drops the intake air temperatures from 400+ degrees down to just above freezing just before the air enters the intake manifold. Cold, dense air equals safe, massive horsepower.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Bottom Line on Airflow</h2>
+        <p>The BorgWarner S400 is not just a turbocharger; it is a foundational building block for any serious diesel horsepower application. They are incredibly rugged, surprisingly affordable to rebuild, and offer limitless variations of compressor and turbine wheel sizes to perfectly match your fueling strategy.</p>
+        <p>Building a 1000+ horsepower truck like Megatron isn't just bolting random parts together. It's an exact mathematical calculation of volumetric efficiency, fuel delivery, and turbine aerodynamics. The S400 platform allows us to calculate exactly what we need, build the turbo to spec, and unleash hell on the track.</p>
+        <p>Whether you want to upgrade your daily driver with a subtle S300 second-gen swap or you want to build a dedicated pulling truck with massive S400 compounds, <strong>No Way Man Diesel</strong> has the track experience to spec, build, and tune your perfect airflow setup.</p>
+        
+        <p className="mt-8"><em>Want to talk turbos? Contact the experts at No Way Man Diesel at <strong>(660) 216-5453</strong> or visit our <a href="/?page=contact" className="text-torque-red hover:underline">Contact Page</a> to start planning your build.</em></p>
+
+        <div className="sticky bottom-8 h-0 overflow-visible flex justify-start items-end pointer-events-none z-50 mt-12 -ml-6 md:-ml-24 lg:-ml-32">
+          <button 
+            onClick={() => setPage('blogs')} 
+            className="pointer-events-auto bg-torque-red/10 border-2 border-torque-red hover:bg-torque-red text-white p-3 md:p-4 rounded-md shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+            title="Close Blog Post"
+            aria-label="Close"
+          >
+            <X size={24} />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const BlogPost5 = ({ setPage }: { setPage: (p: string) => void }) => (
+  <div className="pt-32 pb-24 animate-in fade-in duration-700 bg-matte-black min-h-screen">
+    <div className="max-w-4xl mx-auto px-6">
+      <div className="mb-12 border-b border-white/10 pb-12">
+        <span className="text-torque-red text-sm font-bold uppercase tracking-widest mb-4 block">Maintenance • Now Published</span>
+        <h1 className="text-4xl md:text-5xl font-black italic mb-6 text-white leading-tight">Missouri Winter Diesel Checklist: Surviving Sub-Zero Temperatures</h1>
+        <p className="text-gray-400 text-lg leading-relaxed">Winter in the Midwest is unforgiving to diesel engines. We cover block heaters, grid heaters vs glow plugs, fuel anti-gel additives, 5w40 synthetic oil, and battery health to ensure your truck starts on the coldest mornings.</p>
+      </div>
+
+      <div className="prose prose-invert prose-red max-w-none space-y-8 text-gray-300">
+        <p className="text-lg">If there is one thing a diesel engine universally despises, it is the bitter, biting cold of a Midwest winter morning. When the ambient temperature drops into the single digits (or sub-zero), the massive cast-iron blocks, thick engine oil, and complex fuel systems of a heavy-duty diesel truck all conspire against the simple act of starting.</p>
+        <p className="text-lg">Unlike gasoline engines, which rely on a spark plug to ignite a highly volatile vapor, diesel engines rely entirely on the heat generated by rapid compression to ignite their fuel. When the cylinder walls are ice cold and the intake air is frigid, that necessary heat is rapidly absorbed before ignition can occur.</p>
+        <p className="text-lg">At <strong>No Way Man Diesel</strong>, winter is our busiest season for emergency calls. Frustrated owners call us because their Duramax is stranded in a driveway, their Powerstroke refuses to crank fast enough, or their Cummins fuel filters have turned into a solid block of wax. In this massive 2000-word winter survival guide, we will break down the exact science of cold-weather diesel operation and provide a bulletproof checklist to ensure your truck starts on command all winter long.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Step 1: The Chemistry of Cold Fuel (Gelling)</h2>
+        <p>The single most common cause of a "no-start" condition in the winter is fuel gelling. Diesel fuel naturally contains paraffin wax. This wax is excellent for lubrication and energy density, but it is highly temperature-sensitive. When the temperature drops below approximately 15°F (-9°C), the wax begins to crystallize and precipitate out of the liquid fuel.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">The Cloud Point and The Pour Point</h3>
+        <p>The temperature at which you first see the fuel become cloudy is the <em>Cloud Point</em>. A few degrees below this is the <em>Cold Filter Plugging Point (CFPP)</em>, which is the exact moment the wax crystals become large enough to clog the tiny microscopic pores of your fuel filter. Once the filter is plugged, the high-pressure injection pump is instantly starved of fuel, and the engine dies or refuses to start.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Winter Fuel and Anti-Gel Additives</h3>
+        <p>Most gas stations in the Midwest transition to a "winter blend" diesel (a mix of No. 2 and No. 1 diesel fuel) late in the fall, which lowers the gelling point. However, this blend is not foolproof, especially during sudden deep freezes or polar vortex events.</p>
+        <p>To guarantee survival, you must manually run a high-quality anti-gel additive (like Howes, Stanadyne, or Hot Shot's Secret Diesel Winter Anti-Gel) with every fill-up starting in November. Anti-gel additives do not "melt" the wax; they chemically modify the shape of the wax crystals, keeping them small enough to pass safely through the fuel filters without accumulating.</p>
+
+        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 1: A side-by-side comparison of clear, flowing liquid diesel next to a jar of heavily gelled, cloudy, semi-solid diesel fuel.]</div>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Step 2: Engine Oil Viscosity (5W-40 Synthetic is King)</h2>
+        <p>Most diesel owners run petroleum-based 15W-40 engine oil year-round. While 15W-40 provides fantastic protection during heavy summer towing, it is a massive hindrance during a cold start.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">The "Syrup" Effect</h3>
+        <p>The "W" in motor oil stands for Winter. The number preceding it indicates the oil's viscosity (thickness) when cold. At 0°F, conventional 15W-40 oil flows with the consistency of cold maple syrup. When you turn the key, the starter motor has to fight against 3 or 4 gallons of that thick sludge just to rotate the massive internal engine components.</p>
+        <p>Furthermore, because the oil is incredibly thick, it takes significantly longer for the oil pump to push it through the galleries to lubricate the turbocharger bearings and the top end of the engine. The vast majority of engine wear occurs during the first few seconds of a cold start. If you own a 6.0L or 7.3L Powerstroke with HEUI injectors (which rely on high-pressure oil to fire), thick 15W-40 oil causes extreme "stiction," resulting in violent bucking, misfires, and white smoke until the engine warms up.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Switching to Full Synthetic 5W-40</h3>
+        <p>The single best mechanical change you can make for the winter is switching your oil to a high-quality, full-synthetic 5W-40 (like Rotella T6 or Valvoline Premium Blue). Synthetic 5W-40 flows exponentially faster at sub-zero temperatures, drastically reducing the physical strain on your starter, enabling the engine to spin over fast enough to generate ignition heat, and providing instant lubrication to your turbocharger.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Step 3: Batteries, Alternators, and Starting RPM</h2>
+        <p>As mentioned earlier, diesels require rapid compression to generate the heat necessary for ignition. If the engine does not spin fast enough, the heat dissipates into the cylinder block, and the truck will simply crank endlessly without starting. The speed at which the engine cranks is entirely dependent on the health of your electrical system.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">The Cold Cranking Amp (CCA) Requirement</h3>
+        <p>Diesels utilize massive dual-battery systems because standard automotive batteries cannot provide the massive surge of amperage required to turn over a high-compression 6.7L engine. Cold temperatures wreak havoc on battery chemistry; a battery that provides 100% capacity at 80°F will only provide roughly 50% capacity at 0°F.</p>
+        <p>If your batteries are more than three or four years old, they may still start the truck in the summer but will fail you entirely in the winter. At No Way Man Diesel, we load-test batteries individually (disconnecting them first, as testing them in parallel masks a weak battery). We highly recommend installing premium AGM (Absorbent Glass Mat) batteries with at least 850 Cold Cranking Amps (CCA) per battery to ensure maximum cranking speed.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Alternator Output</h3>
+        <p>In the winter, your alternator is working heavily overtime. Not only is it running the headlights, blower motor, and heated seats, but on modern diesels, it has to replenish batteries that were deeply discharged by massive current draws from grid heaters and glow plugs. Upgrading to a high-output alternator or dual-alternator setup ensures the batteries stay fully topped off during short winter commutes.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Step 4: Intake Heating (Glow Plugs vs. Grid Heaters)</h2>
+        <p>To combat the heat-absorbing cylinder walls of a cold engine, diesel manufacturers utilize pre-heating systems before the engine ever begins cranking. Understanding your specific system is critical for winter maintenance.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Glow Plugs (Duramax and Powerstroke)</h3>
+        <p>GM and Ford utilize glow plugs. A glow plug looks like a small heating element threaded directly into the cylinder head. When you turn the key to the "Run" position, the Wait-To-Start light illuminates, and electricity is sent to the tips of the glow plugs. The tips literally glow bright orange, super-heating the ambient air directly inside the combustion chamber.</p>
+        <p>Over time, glow plugs burn out, and the glow plug control modules fail. If two or three glow plugs are dead on an engine, those specific cylinders will misfire upon startup, causing severe vibration and a cloud of unburnt white fuel smoke. Before winter hits, a diagnostic scan should be performed to verify the resistance and health of all eight glow plugs.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Grid Heaters (Cummins)</h3>
+        <p>Dodge/RAM Cummins engines take a different approach. Because the inline-six engine has less surface area, Cummins chose to use an intake grid heater. Located directly in the intake manifold, the grid heater consists of a massive, heavy-duty electrical heating element. When activated, it heats the vast column of incoming air before it reaches the cylinders.</p>
+        <p>The Cummins grid heater draws phenomenal amounts of amperage (over 100 amps). If a grid heater relay sticks, it will melt the element or drain the batteries in minutes. At our shop, we test the grid heater relays and clean all the massive electrical connection points to ensure they aren't losing voltage to corrosion.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Step 5: The Block Heater (Plug It In)</h2>
+        <p>The single most effective winter weapon at your disposal is the factory block heater. Almost every heavy-duty diesel comes equipped with a block heater element installed directly into a freeze plug port in the engine block water jacket.</p>
+        <p>The block heater is essentially a high-wattage water heater. When you plug the cord hanging from your front bumper into a standard 120V outlet overnight, the element slowly heats the engine coolant. This warmth radiates throughout the massive cast-iron engine block, heating the cylinders and slightly warming the engine oil. Plugging the truck in ensures near-instant starts, faster cabin heat, vastly reduced engine wear, and less strain on the batteries and starter.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Inspecting the Cord</h3>
+        <p>The most common failure point of a block heater isn't the heating element itself; it's the 120V extension cord. Because it's exposed to road salt, ice, and vibration at the front bumper, the prongs often corrode or the wiring breaks internally. Inspect the cord visually and use a multimeter to check the resistance of the element before the snow flies.</p>
+
+        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 2: A snow-covered diesel truck parked outside the No Way Man Diesel shop, with an orange extension cord leading to the front bumper block heater.]</div>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Winter Fronts and Condensation Management</h2>
+        <p>Even if you get the truck started, maintaining heat during a drive in sub-zero weather can be difficult. A massive diesel radiator is extremely efficient at shedding heat. If you are not towing a load, the engine may struggle to maintain the 190°F operating temperature required for optimal efficiency and cabin heating. Installing a winter front (a specialized cover that blocks airflow across the radiator grille) forces the engine to retain its heat.</p>
+        <p>Finally, keep your fuel tank as close to full as possible throughout the winter. A half-empty fuel tank contains an enormous volume of air. As temperatures fluctuate, the moisture in that air condenses into liquid water on the inside walls of the fuel tank. That water trickles down, enters the fuel system, eventually freezes in the fuel lines, or destroys your injection pump. Keeping the fuel tank full leaves no room for moist air to exist.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Be Prepared, Not Stranded</h2>
+        <p>Owning a diesel truck in the Midwest requires proactive responsibility. If you ignore maintenance, the cold will find your weak points without mercy.</p>
+        <p>At <strong>No Way Man Diesel</strong>, we offer comprehensive Winterization Packages. We load-test both batteries, check alternator output, scan the glow plug or grid heater circuits, inspect block heater cords, swap your oil to premium synthetic 5W-40, and change both fuel filters. We prep the truck so that when the thermometer hits -15°F, you can turn the key with absolute confidence.</p>
+        
+        <p className="mt-8"><em>Don't wait until the first blizzard. Call No Way Man Diesel at <strong>(660) 216-5453</strong> or visit our <a href="/?page=contact" className="text-torque-red hover:underline">Contact Page</a> to schedule your Winterization Prep today.</em></p>
+
+        <div className="sticky bottom-8 h-0 overflow-visible flex justify-start items-end pointer-events-none z-50 mt-12 -ml-6 md:-ml-24 lg:-ml-32">
+          <button 
+            onClick={() => setPage('blogs')} 
+            className="pointer-events-auto bg-torque-red/10 border-2 border-torque-red hover:bg-torque-red text-white p-3 md:p-4 rounded-md shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+            title="Close Blog Post"
+            aria-label="Close"
+          >
+            <X size={24} />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 const BlogsPage = ({ setPage }: { setPage: (p: string) => void }) => {
   const blogs = [
     { id: 'blog-cummins-head-gasket', title: "The Truth About 6.7L Cummins Head Gaskets", category: "Tech Talk", date: "Now Published", excerpt: "We dive deep into why the 6.7L Cummins needs head studs and what you can do to prevent failure..." },
     { id: 'blog-duramax-pulling', title: "Prepping Your Duramax For Pulling Season", category: "Performance", date: "Now Published", excerpt: "From tie-rod sleeves to EFI Live tuning, here is everything you need to get your L5P track-ready..." },
     { id: 'blog-powerstroke-60', title: "Powerstroke 6.0L: Bulletproofing Demystified", category: "Builds", date: "Now Published", excerpt: "Is the 6.0L really as bad as they say? Not if you fix the factory flaws. Here is our exact blueprint..." },
-    { id: 'blog-megatron-turbos', title: "Why We Choose S400 Turbos For Megatron", category: "Shop Notes", date: "Coming Soon", excerpt: "Track data and airflow numbers explaining our compound setup on our competition pulling truck..." },
-    { id: 'blog-winter-checklist', title: "Missouri Winter Diesel Checklist", category: "Maintenance", date: "Coming Soon", excerpt: "Don't get stranded in the cold. Fuel additives, block heaters, and battery health explained..." },
+    { id: 'blog-megatron-turbos', title: "Why We Choose S400 Turbos For Megatron", category: "Shop Notes", date: "Now Published", excerpt: "Track data and airflow numbers explaining our compound setup on our competition pulling truck..." },
+    { id: 'blog-winter-checklist', title: "Missouri Winter Diesel Checklist", category: "Maintenance", date: "Now Published", excerpt: "Don't get stranded in the cold. Fuel additives, block heaters, and battery health explained..." },
   ];
 
   return (
@@ -1159,7 +1335,7 @@ const BlogsPage = ({ setPage }: { setPage: (p: string) => void }) => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog, i) => (
-            <div key={i} className="bg-gunmetal border border-white/5 overflow-hidden flex flex-col group cursor-pointer" onClick={() => (i < 3) ? setPage(blog.id) : alert('This blog post is not published yet.')}>
+            <div key={i} className="bg-gunmetal border border-white/5 overflow-hidden flex flex-col group cursor-pointer" onClick={() => setPage(blog.id)}>
               <div className="h-48 bg-matte-black opacity-80 flex items-center justify-center border-b border-white/10 group-hover:opacity-100 transition-opacity">
                 <Wrench className="text-gray-700 group-hover:text-torque-red transition-colors" size={32} />
               </div>
@@ -1556,6 +1732,8 @@ export default function App() {
         {page === 'blog-cummins-head-gasket' && <BlogPost1 setPage={setPage} />}
         {page === 'blog-duramax-pulling' && <BlogPost2 setPage={setPage} />}
         {page === 'blog-powerstroke-60' && <BlogPost3 setPage={setPage} />}
+        {page === 'blog-megatron-turbos' && <BlogPost4 setPage={setPage} />}
+        {page === 'blog-winter-checklist' && <BlogPost5 setPage={setPage} />}
         {page === 'about' && <AboutPage />}
         {page === 'contact' && <ContactPage />}
       </main>
