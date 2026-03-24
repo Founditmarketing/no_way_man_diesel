@@ -918,11 +918,106 @@ const BlogPost1 = () => (
   </div>
 );
 
+const BlogPost2 = () => (
+  <div className="pt-32 pb-24 animate-in fade-in duration-700 bg-matte-black min-h-screen">
+    <div className="max-w-4xl mx-auto px-6">
+      <div className="mb-12 border-b border-white/10 pb-12">
+        <span className="text-torque-red text-sm font-bold uppercase tracking-widest mb-4 block">Performance • Now Published</span>
+        <h1 className="text-4xl md:text-5xl font-black italic mb-6 text-white leading-tight">Prepping Your Duramax For Pulling Season: The Ultimate Guide to Track-Ready Performance</h1>
+        <p className="text-gray-400 text-lg leading-relaxed">Get your GM Duramax ready for pulling season. We explain everything from tie-rod sleeves and Allison transmission builds to EFI Live tuning and fuel system upgrades.</p>
+      </div>
+
+      <div className="prose prose-invert prose-red max-w-none space-y-8 text-gray-300">
+        <p className="text-lg">When spring thaws the Missouri ground and the fairground dirt starts getting prepped, something special happens in the diesel community. Diesel pulling season requires a vehicle that can endure the absolute limits of mechanical stress for 300 brutal feet.</p>
+        <p className="text-lg">If you drive a GM HD truck equipped with a Duramax diesel, you already have an incredible foundation for torque. But without the right modifications, that first hook of the season could end in snapped tie-rods, a slipped Allison transmission, or a blown CP4 injection pump.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 1: Suspension and Steering Stability (The Duramax Achilles Heel)</h2>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Tie-Rod Sleeves and Upgraded Tie-Rods</h3>
+        <p>The first modification any Duramax owner should make before hooking to a sled is installing heavy-duty tie-rod sleeves or completely upgraded billet tie-rods. The factory tie-rods are thin and prone to bending under high torque and traction. Tie-rod sleeves reinforce them and prevent buckling under pressure.</p>
+        
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Center Link and Pitman/Idler Arm Braces</h3>
+        <p>Even with reinforced tie-rods, the center link can twist. Upgrading to a straight center link and installing pitman and idler arm braces ties the steering components together securely, eliminating front-end flex.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Traction Bars</h3>
+        <p>Severe axle wrap causes the rear springs to bend into an S-shape, leading to violent wheel hop which easily snaps tracking components. Heavy-duty traction bars tie the rear axle to the frame, ensuring smooth, consistent power delivery to the dirt.</p>
+
+        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 1: A Duramax hooked to a sled with heavy-duty traction bars visible under the chassis.]</div>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 2: Drivetrain and The Allison Transmission</h2>
+        <p>A stock Allison is generally safe up to about 100 horsepower over stock. Once you start adding heavy fueling and throwing a sled on the back, the factory clutches will slip.</p>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Building the Allison</h3>
+        <p>An entry-level competition build involves several critical upgrades including a billet multi-disc torque converter, high-energy friction materials, valve body modifications for increased line pressure, and billet input/output shafts.</p>
+        
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 3: Fuel Delivery</h2>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">The CP4 Dilemma (LML Platforms 2011-2016)</h3>
+        <p>For a pulling truck, a CP4 to CP3 conversion kit is absolutely essential. The CP3 flows more fuel, is exponentially more reliable, and can handle aggressive competition tuning.</p>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Lift Pumps and Upgraded Injectors</h3>
+        <p>Installing a high-flow lift pump (like a FASS 165gph or AirDog system) positively pressurizes the fuel line. Upgrading to 30%, 60%, or larger over-stock injectors allows you to deliver the massive volume of fuel required for pulling power.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 4: Airflow and Turbo Selection</h2>
+        <p>Pushing 40 to 60+ PSI of boost requires massive airflow. Many dedicated pullers switch to a fixed-geometry turbo (S300/S400) or compound setups. Upgrading to an all-aluminum, high-flow intercooler ensures the boost actually makes it into your engine.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 5: EFI Live Tuning</h2>
+        <p>A pulling tune is violently different than a street tune. It commands maximum fuel delivery instantly, advances timing significantly, raises shift points, and increases transmission line pressure. RPM limits are often raised past 4000 RPM to keep wheel speed high.</p>
+
+        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 2: A laptop running EFI Live datalogging software inside the cab.]</div>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Ultimate Commitment</h2>
+        <p>Prepping a Duramax for pulling season is a major commitment. If you are ready to take your Duramax from a street cruiser to a track-dominating force, <strong>No Way Man Diesel</strong> is your partner in performance. We engineer competitive vehicles based on real-world track experience with our own trucks.</p>
+      </div>
+    </div>
+  </div>
+);
+
+const BlogPost3 = () => (
+  <div className="pt-32 pb-24 animate-in fade-in duration-700 bg-matte-black min-h-screen">
+    <div className="max-w-4xl mx-auto px-6">
+      <div className="mb-12 border-b border-white/10 pb-12">
+        <span className="text-torque-red text-sm font-bold uppercase tracking-widest mb-4 block">Builds • Now Published</span>
+        <h1 className="text-4xl md:text-5xl font-black italic mb-6 text-white leading-tight">Powerstroke 6.0L: Bulletproofing Demystified</h1>
+        <p className="text-gray-400 text-lg leading-relaxed">No Way Man Diesel explains the true process of bulletproofing the 6.0L, including EGR deletes, ARP studs, OEM oil coolers, and FICM upgrades.</p>
+      </div>
+
+      <div className="prose prose-invert prose-red max-w-none space-y-8 text-gray-300">
+        <p className="text-lg">In the world of diesel trucks, few engines evoke as much emotion as the Ford 6.0L Powerstroke. Once considered a dealership nightmare, brilliantly engineered aftermarket solutions have turned this platform into a reliable, 500+ horsepower tow monster.</p>
+        <p className="text-lg">At <strong>No Way Man Diesel</strong>, we have resurrected countless 6.0L trucks. In this guide, we demystify the 6.0L. We’ll break down exactly what goes wrong, why it happens, and the clinical steps required to fix it once and for all.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Domino Effect of Failure</h2>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Domino 1: The Oil Cooler</h3>
+        <p>The 6.0L liquid-to-liquid oil cooler frequently clogs due to silicates in the factory Ford Gold coolant breaking down under high heat. Once the oil cooler restricts coolant flow, engine oil temps skyrocket and the downstream engine components starve for coolant.</p>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Domino 2: The EGR Cooler</h3>
+        <p>The Exhaust Gas Recirculation (EGR) cooler relies entirely on coolant flowing out of the oil cooler. When deprived of coolant, the extreme heat flash-boils what’s left, rupturing the internal fins causing coolant to pour into the exhaust or combustion chamber.</p>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Domino 3: Blown Head Gaskets</h3>
+        <p>Ingesting coolant creates massive hydraulic pressure inside the cylinders, overpowering the weak factory head bolts (only 4 per cylinder) and blowing the head gaskets immediately.</p>
+
+        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 1: A diagram showing the coolant flow path from the oil cooler to the EGR cooler on a 6.0L Powerstroke.]</div>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The 5 Pillars of 6.0L Bulletproofing</h2>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Pillar 1: Re-Establishing Oil Cooling</h3>
+        <p>After aggressively flushing the block, we install an updated OEM oil cooler or an aftermarket air-to-oil cooler. A coolant filtration system and a switch to heavy-duty red ELC coolant prevent future silicates from building up.</p>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Pillar 2: Addressing the EGR System</h3>
+        <p>We install a heavy-duty, stainless-steel tube-style EGR cooler that won't rupture under heat, or perform a full EGR delete for dedicated off-road vehicles to completely neutralize the threat.</p>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Pillar 3: ARP Head Studs and Precision Machine Work</h3>
+        <p>The cylinder heads are meticulously decked perfectly flat, and clamped down with high-tensile ARP Head Studs and heavy-duty MLS gaskets to prevent head lifting even under aggressive towing or tuned environments.</p>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Pillar 4: The FICM (Fuel Injection Control Module)</h3>
+        <p>Over time, soldering within the factory FICM degrades, providing insufficient voltage to the injectors (below the required 48 volts) and causing total fuel system failure. We upgrade the FICM power board to a heavy-duty 48v or 58v billet unit.</p>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Pillar 5: Updated Stand Pipes and Dummy Plugs</h3>
+        <p>The 6.0L is notorious for high-pressure oil leaks triggering a 'no-start when hot' condition. Replacing the stand pipes and dummy plugs with updated OEM versions carrying upgraded Teflon rings permanently solves this leak vulnerability.</p>
+
+        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 2: A Ford Super Duty cab suspended in the air at No Way Man Diesel, revealing the 6.0L engine below for bulletproofing.]</div>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Final Output: Absolute Mechanical Authority</h2>
+        <p>The Ford 6.0L Powerstroke is not a bad engine; it was a brilliantly designed engine crippled by a few factory flaws. By systematically addressing the 5 Pillars, the domino effect is stopped dead in its tracks. At <strong>No Way Man Diesel</strong>, we employ clinical precision, OEM or top-tier aftermarket parts, and expert assembly to rebuild the legends into true bulletproof tow monsters.</p>
+      </div>
+    </div>
+  </div>
+);
+
 const BlogsPage = ({ setPage }: { setPage: (p: string) => void }) => {
   const blogs = [
-    { id: 'blog-cummins-head-gasket', title: "The Truth About 6.7L Cummins Head Gaskets", category: "Tech Talk", date: "Coming Soon", excerpt: "We dive deep into why the 6.7L Cummins needs head studs and what you can do to prevent failure..." },
-    { id: 'blog-duramax-pulling', title: "Prepping Your Duramax For Pulling Season", category: "Performance", date: "Coming Soon", excerpt: "From tie-rod sleeves to EFI Live tuning, here is everything you need to get your L5P track-ready..." },
-    { id: 'blog-powerstroke-60', title: "Powerstroke 6.0L: Bulletproofing Demystified", category: "Builds", date: "Coming Soon", excerpt: "Is the 6.0L really as bad as they say? Not if you fix the factory flaws. Here is our exact blueprint..." },
+    { id: 'blog-cummins-head-gasket', title: "The Truth About 6.7L Cummins Head Gaskets", category: "Tech Talk", date: "Now Published", excerpt: "We dive deep into why the 6.7L Cummins needs head studs and what you can do to prevent failure..." },
+    { id: 'blog-duramax-pulling', title: "Prepping Your Duramax For Pulling Season", category: "Performance", date: "Now Published", excerpt: "From tie-rod sleeves to EFI Live tuning, here is everything you need to get your L5P track-ready..." },
+    { id: 'blog-powerstroke-60', title: "Powerstroke 6.0L: Bulletproofing Demystified", category: "Builds", date: "Now Published", excerpt: "Is the 6.0L really as bad as they say? Not if you fix the factory flaws. Here is our exact blueprint..." },
     { id: 'blog-megatron-turbos', title: "Why We Choose S400 Turbos For Megatron", category: "Shop Notes", date: "Coming Soon", excerpt: "Track data and airflow numbers explaining our compound setup on our competition pulling truck..." },
     { id: 'blog-winter-checklist', title: "Missouri Winter Diesel Checklist", category: "Maintenance", date: "Coming Soon", excerpt: "Don't get stranded in the cold. Fuel additives, block heaters, and battery health explained..." },
   ];
@@ -938,7 +1033,7 @@ const BlogsPage = ({ setPage }: { setPage: (p: string) => void }) => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog, i) => (
-            <div key={i} className="bg-gunmetal border border-white/5 overflow-hidden flex flex-col group cursor-pointer" onClick={() => (i === 0) ? setPage(blog.id) : alert('This blog post is not published yet.')}>
+            <div key={i} className="bg-gunmetal border border-white/5 overflow-hidden flex flex-col group cursor-pointer" onClick={() => (i < 3) ? setPage(blog.id) : alert('This blog post is not published yet.')}>
               <div className="h-48 bg-matte-black opacity-80 flex items-center justify-center border-b border-white/10 group-hover:opacity-100 transition-opacity">
                 <Wrench className="text-gray-700 group-hover:text-torque-red transition-colors" size={32} />
               </div>
@@ -1333,6 +1428,8 @@ export default function App() {
         {page === 'megatron' && <MegatronPage />}
         {page === 'blogs' && <BlogsPage setPage={setPage} />}
         {page === 'blog-cummins-head-gasket' && <BlogPost1 />}
+        {page === 'blog-duramax-pulling' && <BlogPost2 />}
+        {page === 'blog-powerstroke-60' && <BlogPost3 />}
         {page === 'about' && <AboutPage />}
         {page === 'contact' && <ContactPage />}
       </main>
