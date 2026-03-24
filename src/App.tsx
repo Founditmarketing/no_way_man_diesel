@@ -928,42 +928,89 @@ const BlogPost2 = () => (
       </div>
 
       <div className="prose prose-invert prose-red max-w-none space-y-8 text-gray-300">
-        <p className="text-lg">When spring thaws the Missouri ground and the fairground dirt starts getting prepped, something special happens in the diesel community. Diesel pulling season requires a vehicle that can endure the absolute limits of mechanical stress for 300 brutal feet.</p>
-        <p className="text-lg">If you drive a GM HD truck equipped with a Duramax diesel, you already have an incredible foundation for torque. But without the right modifications, that first hook of the season could end in snapped tie-rods, a slipped Allison transmission, or a blown CP4 injection pump.</p>
+        <p className="text-lg">When spring thaws the Missouri ground and the fairground dirt starts getting prepped, something special happens in the diesel community. The air begins to smell like burnt rubber, exhaust, and anticipation. Diesel pulling season is an entirely different beast compared to daily driving or heavy towing. It requires a vehicle that can endure the absolute limits of mechanical stress for 300 brutal feet.</p>
+        <p className="text-lg">If you drive a GM HD truck equipped with a Duramax diesel—whether it's an older LB7 or a modern L5P—you already have an incredible foundation for torque. But factory engineering is designed for longevity under <em>normal</em> conditions, not dragging a 40,000-pound sled through heavy clay. Without the right modifications, that first hook of the season could end in snapped tie-rods, a slipped Allison transmission, or a blown CP4 injection pump.</p>
+        <p className="text-lg">At <strong>No Way Man Diesel</strong>, we know what it takes to survive the track. Our competition truck, "Megatron," didn't become a legend by remaining stock. In this massive, 2000-word deep dive, we are going to walk you through the exact blueprint for prepping your Duramax for pulling season. We’ll cover suspension stability, driveline reinforcement, critical fueling upgrades, and the tuning necessary to grab that first-place trophy without leaving truck parts scattered in the dirt.</p>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 1: Suspension and Steering Stability (The Duramax Achilles Heel)</h2>
+        <p>Before we even talk about horsepower or turbochargers, we have to address the elephant in the room regarding the GM Independent Front Suspension (IFS). While the IFS provides an incredibly smooth ride on the highway, it is notoriously weak when subjected to high-torque, four-wheel-drive launches. If you don't reinforce the front end, you will experience the dreaded "toe-in" effect, which usually ends with a snapped tie-rod and your front tires pointing at each other.</p>
+
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Tie-Rod Sleeves and Upgraded Tie-Rods</h3>
-        <p>The first modification any Duramax owner should make before hooking to a sled is installing heavy-duty tie-rod sleeves or completely upgraded billet tie-rods. The factory tie-rods are thin and prone to bending under high torque and traction. Tie-rod sleeves reinforce them and prevent buckling under pressure.</p>
+        <p>The absolute first modification any Duramax owner should make before hooking to a sled is installing heavy-duty tie-rod sleeves or completely upgraded billet tie-rods. The factory tie-rods on 2500HD and 3500HD trucks are thin and prone to bending when immense torque is applied to the front wheels while they have high traction (like weighted dirt). Tie-rod sleeves slide over the weak factory rods, reinforcing them and preventing them from buckling under pressure.</p>
         
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Center Link and Pitman/Idler Arm Braces</h3>
-        <p>Even with reinforced tie-rods, the center link can twist. Upgrading to a straight center link and installing pitman and idler arm braces ties the steering components together securely, eliminating front-end flex.</p>
+        <p>Even with reinforced tie-rods, the center link can twist, and the factory pitman and idler arms can wear out rapidly under pulling conditions. Upgrading to a straight center link prevents the twisting motion that changes your steering geometry mid-pull. Additionally, installing pitman and idler arm braces (commonly known as "Kryptonite" braces or similar heavy-duty variants) ties the steering components together securely, eliminating the flex that leads to catastrophic front-end failure.</p>
 
-        <h3 className="text-xl font-bold text-white mt-8 mb-4">Traction Bars</h3>
-        <p>Severe axle wrap causes the rear springs to bend into an S-shape, leading to violent wheel hop which easily snaps tracking components. Heavy-duty traction bars tie the rear axle to the frame, ensuring smooth, consistent power delivery to the dirt.</p>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Traction Bars (CalTracs or Custom Builds)</h3>
+        <p>While the front end has its issues, the rear end isn't immune to physics. When you launch a heavy truck with massive torque, the rear axle wants to twist backward. This is called axle wrap. Severe axle wrap causes the rear springs to bend into an S-shape, leading to wheel hop. Wheel hop is violent and will easily snap a driveshaft, U-joint, or axle shaft. Installing heavy-duty traction bars ties the rear axle to the frame, physically preventing the axle from rotating and ensuring smooth, consistent power delivery to the dirt.</p>
 
         <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 1: A Duramax hooked to a sled with heavy-duty traction bars visible under the chassis.]</div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 2: Drivetrain and The Allison Transmission</h2>
-        <p>A stock Allison is generally safe up to about 100 horsepower over stock. Once you start adding heavy fueling and throwing a sled on the back, the factory clutches will slip.</p>
-        <h3 className="text-xl font-bold text-white mt-8 mb-4">Building the Allison</h3>
-        <p>An entry-level competition build involves several critical upgrades including a billet multi-disc torque converter, high-energy friction materials, valve body modifications for increased line pressure, and billet input/output shafts.</p>
-        
-        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 3: Fuel Delivery</h2>
+        <p>The Allison transmission is legendary in the diesel world, but it has defined limits. A stock 5-speed or 6-speed Allison is generally safe up to about 100 horsepower over stock (roughly 400-450 rear-wheel horsepower depending on the generation). Once you start adding heavy fueling, large turbos, and throwing a sled on the back, the factory clutches will slip, and it will go into limp mode.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Building the Allison for the Track</h3>
+        <p>If you are serious about pulling, a built Allison is a mandatory investment. At No Way Man Diesel, an entry-level competition build involves several critical upgrades:</p>
+        <ul className="list-disc pl-6 space-y-2 mt-4 ml-6">
+          <li><strong>Upgraded Torque Converter:</strong> The factory converter cannot handle aggressive locked launches. We install a billet multi-disc torque converter. A triple-disc converter provides massive surface area for the clutches to grab, ensuring zero slip when the converter locks up.</li>
+          <li><strong>Upgraded Clutch Packs and Steels:</strong> We remove the factory clutches and install high-energy friction materials capable of holding massive torque loads without burning up.</li>
+          <li><strong>Valve Body Modifications:</strong> Better clutches need better fluid pressure to hold them together. Modifying the valve body and installing a shift kit increases line pressure, ensuring crisp, fast, and secure shifts under wide-open throttle.</li>
+          <li><strong>Billet Shafts:</strong> For high-horsepower trucks, the input, main, and output shafts must be upgraded to billet steel. Snapping a factory shaft during a launch will instantly end your night and require a complete transmission teardown.</li>
+        </ul>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">U-Joints and Driveshafts</h3>
+        <p>Don't overlook the vital links connecting your built transmission to the axles. Factory U-joints should be swapped out for non-greasable, high-strength forged U-joints. If you are pushing over 800 horsepower, a custom one-piece aluminum or heavy-duty steel driveshaft is highly recommended to prevent twisting the factory thin-wall shaft in half.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 3: Fuel Delivery and Ensuring Reliability</h2>
+        <p>Duramax trucks utilize high-pressure common rail (HPCR) injection systems. They produce excellent power, but fuel delivery is a delicate balance. Pushing a highly tuned Duramax down the track without adequate fuel supply will lead to rail pressure drops, high exhaust gas temperatures (EGTs), and major pump failures.</p>
+
         <h3 className="text-xl font-bold text-white mt-8 mb-4">The CP4 Dilemma (LML Platforms 2011-2016)</h3>
-        <p>For a pulling truck, a CP4 to CP3 conversion kit is absolutely essential. The CP3 flows more fuel, is exponentially more reliable, and can handle aggressive competition tuning.</p>
-        <h3 className="text-xl font-bold text-white mt-8 mb-4">Lift Pumps and Upgraded Injectors</h3>
-        <p>Installing a high-flow lift pump (like a FASS 165gph or AirDog system) positively pressurizes the fuel line. Upgrading to 30%, 60%, or larger over-stock injectors allows you to deliver the massive volume of fuel required for pulling power.</p>
+        <p>If you own an LML Duramax, you are likely aware of the Bosch CP4.2 high-pressure injection pump. The CP4 is less robust than the older CP3 and is highly susceptible to failure from lack of lubrication or air in the fuel. When a CP4 fails, it sends metal shrapnel through the entire fuel system, requiring a $10,000+ repair. For a pulling truck, a CP4 to CP3 conversion kit is absolutely essential. The CP3 flows more fuel, is exponentially more reliable, and can handle the aggressive tuning required for competition.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Lift Pumps (FASS or AirDog)</h3>
+        <p>Unlike Cummins trucks, factory Duramax trucks do not have a lift pump in the fuel tank; the injection pump creates a vacuum to pull fuel all the way from the rear of the truck. Under extreme acceleration, this vacuum is not enough, leading to starvation and cavitation (air bubbles in the fuel). Installing a high-flow lift pump (like a FASS 165gph or AirDog system) positively pressurizes the fuel line, feeding the injection pump exactly what it needs while simultaneously stripping out air and water. This is cheap insurance for your expensive injectors.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Upgraded Injectors</h3>
+        <p>If your goal is to dominate the unlimited or high-horsepower classes, factory injectors won't flow enough fuel. Upgrading to 30%, 60%, or even 100% over-stock injectors allows you to deliver the massive volume of fuel required to spool large turbos and maintain power throughout the entire pull.</p>
+
+        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 2: A technician installing a high-flow CP3 injection pump and upgraded fuel lines on a Duramax engine.]</div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 4: Airflow and Turbo Selection</h2>
-        <p>Pushing 40 to 60+ PSI of boost requires massive airflow. Many dedicated pullers switch to a fixed-geometry turbo (S300/S400) or compound setups. Upgrading to an all-aluminum, high-flow intercooler ensures the boost actually makes it into your engine.</p>
+        <p>Fuel is only half of the horsepower equation. To burn that fuel efficiently and keep your EGTs from melting pistons, you need massive airflow.</p>
 
-        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 5: EFI Live Tuning</h2>
-        <p>A pulling tune is violently different than a street tune. It commands maximum fuel delivery instantly, advances timing significantly, raises shift points, and increases transmission line pressure. RPM limits are often raised past 4000 RPM to keep wheel speed high.</p>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Drop-In vs. Custom Turbo Setups</h3>
+        <p>For street-class pullers, a high-quality "drop-in" variable vane turbo (VVT) upgrade—like a 63mm or 68mm—offers a great balance of quick spooling and increased top-end power. However, for dedicated pulling trucks, many drivers ditch the factory VVT geometry entirely in favor of a fixed-geometry turbo (like an S400 frame) or a custom compound turbo setup.</p>
+        <ul className="list-disc pl-6 space-y-2 mt-4 ml-6">
+          <li><strong>Fixed Geometry (S300/S400):</strong> These turbos are simpler, more reliable at extreme boost pressures, and flow massive amounts of air on the top end. The trade-off is they take longer to spool, demanding specific tuning strategies to leave the starting line strong.</li>
+          <li><strong>Compound Turbos:</strong> By using a smaller high-pressure turbo to feed a massive low-pressure (atmospheric) turbo, you get the best of both worlds: instant spool-up off the line and a hurricane of dense, cool air at the top of the track.</li>
+        </ul>
 
-        <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 2: A laptop running EFI Live datalogging software inside the cab.]</div>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Intercoolers and Intake Piping</h3>
+        <p>Pushing 40 to 60+ PSI of boost generates extreme heat. The factory intercooler on older Duramax trucks is restrictive and prone to blowing the factory plastic end-tanks or rubber boots. Upgrading to an all-aluminum, high-flow intercooler with hard piping and high-burst-pressure silicone boots ensures that all the boost your turbo makes actually makes it into the intake manifold without leaking.</p>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 5: EFI Live Tuning (The Brains of the Operation)</h2>
+        <p>You can bolt on all the billet hardware in the world, but if the engine control module (ECM) and transmission control module (TCM) aren't commanding it correctly, the truck will fall on its face. The Duramax platform revolutionized diesel tuning through EFI Live and EZ LYNK.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Custom Track Tuning vs. Street Tuning</h3>
+        <p>A street tune is designed for drivability, safe shifting, and moderate EGTs. A strictly dedicated pulling tune is violently different.</p>
+        <ul className="list-disc pl-6 space-y-2 mt-4 ml-6">
+          <li><strong>Fuel Curves:</strong> A pulling tune commands maximum fuel delivery the moment the accelerator hits the floor to build spool rapidly.</li>
+          <li><strong>Timing:</strong> Injection timing is advanced significantly to extract every ounce of mechanical energy from the combustion event.</li>
+          <li><strong>TCM Tuning:</strong> The transmission is tuned to raise shift points, lock the torque converter earlier, and increase line pressure to its absolute maximum to prevent clutch slip.</li>
+          <li><strong>RPM Limitations:</strong> Factory RPM limits are often raised from ~3200 RPM to over 4000 RPM (requiring upgraded valve springs to prevent valve float) to keep wheel speed as high as possible.</li>
+        </ul>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Phase 6: Track-Day Prep and Strategy</h2>
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Hitch Height and Weight Distribution</h3>
+        <p>The rules of your local pulling organization will dictate your maximum hitch height (typically 24 to 26 inches). You want the hitch as high as legally allowed, creating a steeper downward angle on the chain, which lifts the front of the sled and pulls the rear tires of the truck harder into the dirt. Weight distribution is equally critical. You want to hang as much weight as legally permitted on the front bumper. The sled will naturally pull the rear down; front hanging weights keep the front tires planted for crucial 4WD traction and steering control.</p>
+        
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Tire Selection and Pressure</h3>
+        <p>Street tires will not cut it. You need aggressive all-terrain or mud-terrain tires. For dedicated pullers, "cut" tires—where the front edges of the tread blocks are sharpened by a specialized machine—provide an unfair advantage by digging violently into the clay. Tire pressure should be dropped significantly (often between 25-35 PSI depending on the tire and track surface) to widen the footprint and maximize grip.</p>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Ultimate Commitment</h2>
-        <p>Prepping a Duramax for pulling season is a major commitment. If you are ready to take your Duramax from a street cruiser to a track-dominating force, <strong>No Way Man Diesel</strong> is your partner in performance. We engineer competitive vehicles based on real-world track experience with our own trucks.</p>
+        <p>Prepping a Duramax for pulling season is a major commitment. It requires a meticulous balance of chassis reinforcement, drivetrain hardening, massive fueling, and precision tuning. It is an expensive and demanding sport, but the feeling of dragging a multi-ton sled past the 300-foot mark while the exhaust screams and the crowd roars is completely unmatched.</p>
+        <p>If you are ready to take your Duramax from a daily street cruiser to a track-dominating force, <strong>No Way Man Diesel</strong> is your partner in performance. We don’t just bolt on parts; we engineer competitive vehicles based on real-world track experience with our own trucks.</p>
+        <p className="mt-8"><em>Don't let a snapped tie-rod or a slipping Allison ruin your season before it begins. Contact us today, bring your Duramax to Novinger, Missouri, and let's build something built to survive the dirt.</em></p>
       </div>
     </div>
   </div>
@@ -974,40 +1021,86 @@ const BlogPost3 = () => (
     <div className="max-w-4xl mx-auto px-6">
       <div className="mb-12 border-b border-white/10 pb-12">
         <span className="text-torque-red text-sm font-bold uppercase tracking-widest mb-4 block">Builds • Now Published</span>
-        <h1 className="text-4xl md:text-5xl font-black italic mb-6 text-white leading-tight">Powerstroke 6.0L: Bulletproofing Demystified</h1>
+        <h1 className="text-4xl md:text-5xl font-black italic mb-6 text-white leading-tight">Powerstroke 6.0L: Bulletproofing Demystified - Separating Myth from Mechanical Reality</h1>
         <p className="text-gray-400 text-lg leading-relaxed">No Way Man Diesel explains the true process of bulletproofing the 6.0L, including EGR deletes, ARP studs, OEM oil coolers, and FICM upgrades.</p>
       </div>
 
       <div className="prose prose-invert prose-red max-w-none space-y-8 text-gray-300">
-        <p className="text-lg">In the world of diesel trucks, few engines evoke as much emotion as the Ford 6.0L Powerstroke. Once considered a dealership nightmare, brilliantly engineered aftermarket solutions have turned this platform into a reliable, 500+ horsepower tow monster.</p>
-        <p className="text-lg">At <strong>No Way Man Diesel</strong>, we have resurrected countless 6.0L trucks. In this guide, we demystify the 6.0L. We’ll break down exactly what goes wrong, why it happens, and the clinical steps required to fix it once and for all.</p>
+        <p className="text-lg">In the world of diesel trucks, few engines evoke as much emotion—both passionate defense and outright hatred—as the Ford 6.0L Powerstroke. Introduced in late 2003 to replace the legendary 7.3L, the 6.0L (manufactured by Navistar International as the VT365) was a technological leap forward. It offered improved emissions, variable geometry turbocharging, and incredible throttle response. It was designed to rule the heavy-duty truck market.</p>
+        <p className="text-lg">Instead, it became infamous. Online forums are littered with horror stories of blown head gaskets, ruptured EGR coolers, clogged oil coolers, and failed injectors. For a time, the 6.0L was considered a dealership nightmare. However, as the platform aged, brilliant diesel engineers and aftermarket companies dissected the engine, found the root causes of the failures, and developed permanent solutions. The term "Bulletproofing" was born.</p>
+        <p className="text-lg">Today, a properly bulletproofed 6.0L Powerstroke is widely considered one of the most reliable and capable diesel engines on the road. At <strong>No Way Man Diesel</strong>, we have resurrected countless 6.0L trucks that were on the way to the scrap yard, turning them into 500+ horsepower tow monsters that run flawlessly. In this comprehensive 2000-word guide, we are going to demystify the 6.0L. We’ll break down exactly what goes wrong, why it happens, and the clinical steps required to fix it once and for all.</p>
 
-        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Domino Effect of Failure</h2>
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Domino Effect of Failure: Why the 6.0L Breaks</h2>
+        <p>To fully understand the bulletproofing process, you cannot look at 6.0L failures in isolation. The engine suffers from what mechanics call a "cascade failure." One relatively small, poorly designed component fails, which instantly triggers a chain reaction that destroys larger, more expensive parts. Let's trace the domino effect from the beginning.</p>
+
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Domino 1: The Oil Cooler</h3>
-        <p>The 6.0L liquid-to-liquid oil cooler frequently clogs due to silicates in the factory Ford Gold coolant breaking down under high heat. Once the oil cooler restricts coolant flow, engine oil temps skyrocket and the downstream engine components starve for coolant.</p>
+        <p>The 6.0L uses a liquid-to-liquid oil cooler located deep in the engine valley. Engine coolant flows through tiny passageways in the cooler to absorb heat from the engine oil. Unfortunately, Ford utilized a silicate-based coolant (Ford Gold) from the factory. Under extreme heat, the silicates in this coolant break down and turn into a gel or sludge. Also, casting sand leftover from the original engine block manufacturing process tends to circulate in the cooling system.</p>
+        <p>This gel and sand constantly hit the tiny heat-exchanger fins in the oil cooler, eventually plugging it up. Once the coolant side of the oil cooler is blocked, engine oil temperatures skyrocket, and coolant is prevented from flowing to the next crucial component in the chain.</p>
+
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Domino 2: The EGR Cooler</h3>
-        <p>The Exhaust Gas Recirculation (EGR) cooler relies entirely on coolant flowing out of the oil cooler. When deprived of coolant, the extreme heat flash-boils what’s left, rupturing the internal fins causing coolant to pour into the exhaust or combustion chamber.</p>
+        <p>The Exhaust Gas Recirculation (EGR) cooler is designed to cool super-heated exhaust gases before they are routed back into the intake manifold for emissions control. The EGR cooler relies entirely on coolant flowing <em>out</em> of the oil cooler. When the oil cooler becomes plugged (Domino 1), the EGR cooler is starved of coolant while still being blasted by 1,200-degree exhaust gases.</p>
+        <p>Predictably, the thin metal fins inside the EGR cooler flash-boil whatever tiny amount of coolant is left and rupture. Once ruptured, coolant pours directly into the exhaust system (causing huge clouds of white smoke) or flows into the intake manifold, eventually making its way into the combustion chambers.</p>
+
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Domino 3: Blown Head Gaskets</h3>
-        <p>Ingesting coolant creates massive hydraulic pressure inside the cylinders, overpowering the weak factory head bolts (only 4 per cylinder) and blowing the head gaskets immediately.</p>
+        <p>Because liquids cannot be compressed, ingesting coolant into the engine cylinder creates massive hydraulic pressure. This process, combined with the fact that Ford used a mere four torque-to-yield head bolts per cylinder (which are known to stretch), results in the catastrophic failure of the head gaskets.</p>
+        <p>Furthermore, even without EGR failure, the factory head bolts are simply inadequate to handle the increased cylinder pressures generated by aggressive aftermarket tunes. Thus, the 6.0L earns its reputation as a terrible engine—when in reality, the entire head gasket failure can often be traced back to a clogged oil cooler.</p>
 
         <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 1: A diagram showing the coolant flow path from the oil cooler to the EGR cooler on a 6.0L Powerstroke.]</div>
 
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The 5 Pillars of 6.0L Bulletproofing</h2>
+        <p>Bulletproofing isn’t a single part you can buy; it is a comprehensive system overhaul designed to eliminate the factory bottlenecks and weak points. To truly claim a 6.0L is bulletproofed, five critical pillars must be addressed.</p>
+
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Pillar 1: Re-Establishing Oil Cooling</h3>
-        <p>After aggressively flushing the block, we install an updated OEM oil cooler or an aftermarket air-to-oil cooler. A coolant filtration system and a switch to heavy-duty red ELC coolant prevent future silicates from building up.</p>
+        <p>The absolute first step is correcting the oil cooler issue.</p>
+        <ul className="list-disc pl-6 space-y-2 mt-4 ml-6">
+          <li><strong>The Flush:</strong> Before tearing the engine down, the entire cooling system must be aggressively chemically flushed to remove the silicates and casting sand that caused the problem in the first place.</li>
+          <li><strong>The Solution:</strong> We replace the clogged oil cooler with an updated Ford OEM oil cooler (which has slightly wider coolant passages) or, for severe duty applications, we install an aftermarket air-to-oil cooler kit (like the ones from Bullet Proof Diesel) which completely isolates the oil cooling system from the engine coolant system.</li>
+          <li><strong>Coolant Filtration:</strong> To prevent future clogs, an aftermarket coolant filtration system is highly recommended. These bypass filters catch leftover sand and debris before it can ever reach the new cooler. We also mandate the switch from Ford Gold coolant to an Extended Life Coolant (ELC), typically a heavy-duty red coolant (like Cat EC-1) that is free of silicates.</li>
+        </ul>
+
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Pillar 2: Addressing the EGR System</h3>
-        <p>We install a heavy-duty, stainless-steel tube-style EGR cooler that won't rupture under heat, or perform a full EGR delete for dedicated off-road vehicles to completely neutralize the threat.</p>
+        <p>With the oil cooler handled, we must neutralize the threat of the EGR cooler. Depending on the emissions laws in your specific jurisdiction and the purpose of the truck (e.g., off-road or competition use), there are two ways to handle this.</p>
+        <ul className="list-disc pl-6 space-y-2 mt-4 ml-6">
+          <li><strong>The EGR Upgrade:</strong> If the vehicle must retain its emissions equipment, the factory EGR cooler is replaced with a heavy-duty, stainless-steel tube-style EGR cooler (such as those from Bullet Proof Diesel or BDP). These coolers feature internal tubes that are TIG welded and exponentially stronger than the factory finned design. They almost never rupture, even under extreme heat.</li>
+          <li><strong>The EGR Delete:</strong> For dedicated off-road or track vehicles, deleting the EGR system entirely by removing the cooler and installing a block-off plate is the most absolute guarantee against failure.</li>
+        </ul>
+
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Pillar 3: ARP Head Studs and Precision Machine Work</h3>
-        <p>The cylinder heads are meticulously decked perfectly flat, and clamped down with high-tensile ARP Head Studs and heavy-duty MLS gaskets to prevent head lifting even under aggressive towing or tuned environments.</p>
+        <p>Just like the 6.7L Cummins, fixing the head gaskets means doing it correctly. The cab of the truck is typically lifted off the chassis to provide clear access. The cylinder heads are removed and sent off for precision magnafluxing, pressure testing, and decking to ensure perfectly flat mating surfaces.</p>
+        <p>The weak factory torque-to-yield head bolts are thrown in the trash. We install high-tensile <strong>ARP Head Studs</strong> and heavy-duty Multi-Layer Steel (MLS) gaskets. Because the 6.0L only uses four fasteners per cylinder, clamping force is absolutely critical. ARP studs provide the necessary clamping force to ensure the heavy cast-iron cylinder heads never lift, even when you inevitably plug in a programmer and turn the tuning up.</p>
+
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Pillar 4: The FICM (Fuel Injection Control Module)</h3>
-        <p>Over time, soldering within the factory FICM degrades, providing insufficient voltage to the injectors (below the required 48 volts) and causing total fuel system failure. We upgrade the FICM power board to a heavy-duty 48v or 58v billet unit.</p>
+        <p>The 6.0L utilizes a unique HEUI (Hydraulically Actuated Electronically Controlled Unit Injector) system. The injectors are fired by high-pressure engine oil, commanded by the FICM. The FICM requires exactly 48 volts to operate the injectors efficiently. Over time, the internal soldering inside the factory FICM degrades from engine vibration and heat, causing the voltage to drop to 45v, 40v, or even lower.</p>
+        <p>Low FICM voltage causes rough running, cold-start issues, and will quickly destroy all eight expensive fuel injectors. A comprehensive bulletproofing job includes testing the FICM and upgrading the power board to a heavy-duty, 48v or 58v billet unit.</p>
+
         <h3 className="text-xl font-bold text-white mt-8 mb-4">Pillar 5: Updated Stand Pipes and Dummy Plugs</h3>
-        <p>The 6.0L is notorious for high-pressure oil leaks triggering a 'no-start when hot' condition. Replacing the stand pipes and dummy plugs with updated OEM versions carrying upgraded Teflon rings permanently solves this leak vulnerability.</p>
+        <p>Because the injectors rely on High-Pressure Oil to fire, the system must remain perfectly sealed. The 2004.5 - 2007 6.0L engines are infamous for developing high-pressure oil leaks from the D-rings on the internal stand pipes and dummy plugs. When these O-rings blow out, the engine will suffer a "no-start when hot" condition.</p>
+        <p>While the engine is apart for head studs, installing the updated Ford OEM versions of the stand pipes and dummy plugs—which feature upgraded white Teflon backup rings in addition to the rubber D-rings—permanently solves this oil leak vulnerability.</p>
 
         <div className="bg-gunmetal border border-white/5 p-8 my-12 text-center text-gray-500 italic">[Image 2: A Ford Super Duty cab suspended in the air at No Way Man Diesel, revealing the 6.0L engine below for bulletproofing.]</div>
 
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Misunderstood Injector System (HEUI)</h2>
+        <p>One of the most common complaints about the 6.0L is "stiction" in the injectors. Because the injectors rely on highly pressurized engine oil to open the fuel valves, the quality of your engine oil dictates the lifespan of your fuel system.</p>
+        <p>When oil breaks down due to heat and extended drain intervals, internal friction essentially glues the spool valves inside the injectors shut—this is "stiction." It results in terrible cold starts and aggressive bucking until the engine reaches operating temperature.</p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-4">Maintaining a Bulletproofed 6.0L</h3>
+        <p>Once we have bulletproofed your truck, keeping it reliable requires a religious commitment to maintenance:</p>
+        <ul className="list-disc pl-6 space-y-2 mt-4 ml-6">
+          <li><strong>Oil Changes:</strong> The 6.0L shears oil faster than almost any other diesel. 5,000-mile oil change intervals using a high-quality synthetic 5W-40 oil (like Rotella T6) and genuine Motorcraft filters are mandatory.</li>
+          <li><strong>Fuel Filters:</strong> Changing both the upper and lower fuel filters every 10,000 miles ensures clean fuel pressure to prevent injector scoring.</li>
+          <li><strong>Stiction Eliminators:</strong> Using oil additives such as Hot Shot’s Secret or Archoil during oil changes keeps the intricate parts of the HEUI injectors perfectly clean.</li>
+        </ul>
+
+        <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">Should You Buy a 6.0L Powerstroke?</h2>
+        <p>If you are shopping for a used heavy-duty truck, the 6.0L Powerstroke represents an incredible value proposition. Because of their terrible internet reputation, pristine 6.0L trucks can be bought for thousands of dollars less than an equivalent Duramax or Cummins of the same era.</p>
+        <p>If you purchase a cheap 6.0L and immediately bring it to a specialized facility like <strong>No Way Man Diesel</strong>, you can invest the money you saved into our full bulletproofing process. The result? You drive away with an incredibly capable, sharp-looking Ford Super Duty that incorporates bulletproof reliability and easily supports 450 to 500 rear-wheel horsepower on tow tunes. It is one of the smartest financial moves in the diesel truck game, provided you use the right mechanics to do the work.</p>
+
         <h2 className="text-3xl font-bold italic text-white mt-12 mb-6">The Final Output: Absolute Mechanical Authority</h2>
-        <p>The Ford 6.0L Powerstroke is not a bad engine; it was a brilliantly designed engine crippled by a few factory flaws. By systematically addressing the 5 Pillars, the domino effect is stopped dead in its tracks. At <strong>No Way Man Diesel</strong>, we employ clinical precision, OEM or top-tier aftermarket parts, and expert assembly to rebuild the legends into true bulletproof tow monsters.</p>
+        <p>The Ford 6.0L Powerstroke is not a bad engine; it was a brilliantly designed engine crippled by a few small, poorly executed factory parts.</p>
+        <p>By systematically addressing the oil cooler, EGR cooler, head bolts, FICM, and high-pressure oil system, the domino effect is stopped dead in its tracks. A fully bulletproofed 6.0L sounds incredible, tows flawlessly, and will serve you dependably for hundreds of thousands of miles.</p>
+        <p>At <strong>No Way Man Diesel</strong>, we don't guess when it comes to the 6.0L. We use strictly OEM or track-proven aftermarket replacement parts. We pull the cabs, deck the heads, and rebuild the legends. If you have a Powerstroke that is puking coolant, suffering from stiction, or if you simply want to buy some peace of mind before hauling your 5th wheel across the midwest, we possess the mechanical authority to make it right.</p>
+
+        <p className="mt-8"><em>Ready to end the 6.0L anxiety? Call the Powerstroke experts at No Way Man Diesel at <strong>(660) 216-5453</strong> to schedule your comprehensive bulletproofing service today, or visit our <a href="/?page=contact" className="text-torque-red hover:underline">Contact Page</a> to book shop time.</em></p>
       </div>
     </div>
   </div>
