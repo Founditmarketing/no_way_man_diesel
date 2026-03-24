@@ -389,6 +389,9 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
       </div>
     </section>
 
+    {/* Blog Slider */}
+    <BlogSlider setPage={setPage} />
+
     {/* Megatron Teaser */}
     <section
       className="py-48 relative overflow-hidden bg-matte-black bg-left bg-no-repeat"
@@ -745,7 +748,7 @@ const TestimonialSlider = () => {
   }, [reviews.length]);
 
   return (
-    <section className="py-24 bg-matte-black border-y border-white/5 overflow-hidden">
+    <section className="py-24 bg-matte-black border-t-4 border-t-torque-red border-b border-b-white/5 overflow-hidden">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <h2 className="text-4xl font-black italic mb-4">CUSTOMER REVIEWS</h2>
         <div className="flex justify-center text-torque-red mb-8">
@@ -775,6 +778,73 @@ const TestimonialSlider = () => {
               key={i}
               onClick={() => setCurrentIndex(i)}
               className={`w-3 h-3 rounded-full transition-colors ${i === currentIndex ? 'bg-torque-red' : 'bg-gray-600 hover:bg-gray-400'}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const BlogSlider = ({ setPage }: { setPage: (p: string) => void }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const blogs = [
+    { title: "The Truth About 6.7L Cummins Head Gaskets", category: "Tech Talk", date: "Coming Soon", excerpt: "We dive deep into why the 6.7L Cummins needs head studs and what you can do to prevent failure..." },
+    { title: "Prepping Your Duramax For Pulling Season", category: "Performance", date: "Coming Soon", excerpt: "From tie-rod sleeves to EFI Live tuning, here is everything you need to get your L5P track-ready..." },
+    { title: "Powerstroke 6.0L: Bulletproofing Demystified", category: "Builds", date: "Coming Soon", excerpt: "Is the 6.0L really as bad as they say? Not if you fix the factory flaws. Here is our exact blueprint..." },
+    { title: "Why We Choose S400 Turbos For Megatron", category: "Shop Notes", date: "Coming Soon", excerpt: "Track data and airflow numbers explaining our compound setup on our competition pulling truck..." },
+    { title: "Missouri Winter Diesel Checklist", category: "Maintenance", date: "Coming Soon", excerpt: "Don't get stranded in the cold. Fuel additives, block heaters, and battery health explained..." },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % blogs.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [blogs.length]);
+
+  return (
+    <section className="py-24 bg-gunmetal border-y border-white/5 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex justify-between items-end mb-12">
+          <div>
+            <h2 className="text-4xl font-black italic mb-2">LATEST FROM THE GARAGE</h2>
+            <div className="h-1 w-16 bg-torque-red" />
+          </div>
+          <button onClick={() => setPage('blogs')} className="hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-torque-red hover:text-white transition-colors">
+            View All <ArrowRight size={16} />
+          </button>
+        </div>
+        
+        <div className="relative h-[250px] md:h-[200px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5 }}
+              className="absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-matte-black p-8 border border-white/5"
+            >
+              <div>
+                <span className="text-torque-red text-[10px] font-bold uppercase tracking-widest mb-2 block">{blogs[currentIndex].category} • {blogs[currentIndex].date}</span>
+                <h3 className="text-2xl font-black italic mb-4 text-white line-clamp-2">{blogs[currentIndex].title}</h3>
+                <button onClick={() => setPage('blogs')} className="btn-primary text-xs px-6 py-2 mt-4 hidden md:inline-block">Read More</button>
+              </div>
+              <div className="border-l border-white/10 md:pl-8">
+                <p className="text-gray-400 text-sm leading-relaxed italic line-clamp-3">"{blogs[currentIndex].excerpt}"</p>
+                <button onClick={() => setPage('blogs')} className="btn-primary text-xs px-6 py-2 mt-6 md:hidden w-full">Read More</button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        
+        <div className="flex justify-center gap-3 mt-8">
+          {blogs.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              className={`h-2 transition-all ${i === currentIndex ? 'w-8 bg-torque-red' : 'w-2 bg-gray-600 hover:bg-gray-400'}`}
             />
           ))}
         </div>
