@@ -1716,7 +1716,7 @@ const PARTNER_BRANDS = [
     id: 'sb',
     name: "S&B Intakes",
     category: "Intake & Air",
-    image: "/Truck%20images/sb-intake.png",
+    image: "/Truck%20images/sb-intake.webp",
     desc: "Cold air intake systems engineered specifically for diesel trucks. S&B Intakes deliver measurable airflow gains with premium filtration for Cummins, Duramax, and Powerstroke.",
     url: "https://sbfilters.com/"
   }
