@@ -300,7 +300,7 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
             }}
             className="text-xl text-gray-300 mb-10 max-w-xl leading-relaxed"
           >
-            High-end diesel repair, performance tuning, and custom builds for those who demand absolute mechanical authority. We don't just fix trucks—we bulletproof them.
+            High-end diesel repair, performance tuning, and custom builds for those who demand absolute mechanical authority. We don't just fix trucks—we engineer reliability.
           </motion.p>
 
           <motion.div
@@ -500,7 +500,7 @@ const EnginePerformancePage = () => (
           </p>
           <div className="flex gap-4">
             <div className="bg-gunmetal p-6 border-l-4 border-torque-red grow">
-              <h4 className="font-bold uppercase mb-2">Bulletproofing</h4>
+              <h4 className="font-bold uppercase mb-2">Bulletproofing (Ford 6.0)</h4>
               <p className="text-xs text-gray-500 italic">ARP studs, high-grade gaskets, precision machining.</p>
             </div>
             <div className="bg-gunmetal p-6 border-l-4 border-torque-red grow">
@@ -524,7 +524,7 @@ const EnginePerformancePage = () => (
         <div className="space-y-6">
           <h3 className="text-2xl font-bold uppercase italic text-white">Performance Tuning Authority</h3>
           <p className="leading-relaxed">
-            Beyond mechanical rebuilds, we offer cutting-edge performance tuning that wakes up your truck's true potential. We specialize in custom EFI Live and EZ LYNK tuning, optimized specifically for your platform—be it Cummins, Powerstroke, or Duramax. Our tuning philosophy balances raw power with drivability and safety, managing EGTs and fuel delivery to ensure maximum efficiency whether you're at the track or towing a 20,000lb trailer through the hills. From mild street tunes to full competition maps that have been proven by our own track-tested legacy, we provide the mechanical authority your truck deserves.
+            Beyond mechanical rebuilds, we offer cutting-edge performance tuning that wakes up your truck's true potential. We specialize in custom EFI Live, EZ LYNK, and HP Tuners tuning, optimized specifically for your platform—be it Cummins, Powerstroke, or Duramax. Our tuning philosophy balances raw power with drivability and safety, managing EGTs and fuel delivery to ensure maximum efficiency whether you're at the track or towing a 20,000lb trailer through the hills. From mild street tunes to full competition maps that have been proven by our own track-tested legacy, we provide the mechanical authority your truck deserves.
           </p>
         </div>
       </div>
