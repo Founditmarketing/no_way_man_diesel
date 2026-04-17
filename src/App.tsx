@@ -402,9 +402,12 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
       }}
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+        <div className="inline-flex items-center gap-3 mb-6 bg-torque-red/20 border border-torque-red/40 px-6 py-2 rounded-none">
+          <span className="text-torque-red font-black uppercase tracking-[0.3em] text-sm">🏆 3X National Title Winner</span>
+        </div>
         <h2 className="text-5xl md:text-7xl font-black italic mb-6">WE RACE WHAT WE BUILD.</h2>
         <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-          Our competition pulling truck, "Megatron," isn't just for show. It's our R&D lab for extreme diesel performance.
+          Our competition pulling truck, "Megatron," isn't just for show. It's our R&amp;D lab for extreme diesel performance.
         </p>
         <button
           onClick={() => setPage('megatron')}
@@ -707,11 +710,11 @@ const MegatronPage = () => (
           <div className="grid grid-cols-2 gap-4">
             {[
               { label: "ENGINE", val: "6.7L Cummins Base" },
-              { label: "TURBO", val: "Compound S400/S500" },
-              { label: "HP", val: "1,800+ (Estimated)" },
+              { label: "TURBO", val: "3.0 Smooth Bore" },
+              { label: "HP", val: "1,600+" },
               { label: "FUEL", val: "Triple CP3 Pumps" },
-              { label: "CHASSIS", val: "Custom 4-Link" },
-              { label: "TIRES", val: "Cut Pulling Tires" },
+              { label: "CHASSIS", val: "Custom Fabricated" },
+              { label: "TIRES", val: "DOT Street Tire / Mud Grips" },
             ].map(spec => (
               <div key={spec.label} className="bg-gunmetal p-4 border-l-2 border-torque-red">
                 <span className="text-[10px] text-gray-500 uppercase block mb-1">{spec.label}</span>
@@ -1643,12 +1646,27 @@ type Product = {
 };
 
 const PRODUCTS: Product[] = [
-  { id: 1, name: "Stage 2 Performance Turbo", price: 1899.99, category: "Performance", image: "https://picsum.photos/seed/turbo/600/600", desc: "Optimized for 6.7L Cummins. Improved spool time." },
-  { id: 2, name: "Bulletproof Head Stud Kit", price: 649.00, category: "Hardware", image: "https://picsum.photos/seed/studs/600/600", desc: "Premium ARP components for maximum cylinder pressure." },
-  { id: 3, name: "High-Flow Injector Set", price: 2450.00, category: "Fuel", image: "https://picsum.photos/seed/injectors/600/600", desc: "30% over stock, competition grade precision." },
-  { id: 4, name: "Triple Tunnel Intake", price: 425.00, category: "Performance", image: "https://picsum.photos/seed/intake/600/600", desc: "Cold air delivery for Duramax platforms." },
-  { id: 5, name: "Megatron Signature Tee", price: 34.99, category: "Apparel", image: "https://picsum.photos/seed/shirt/600/600", desc: "Heavyweight cotton with Megatron track graphics." },
-  { id: 6, name: "Diesel Additive 6-Pack", price: 89.95, category: "Maintenance", image: "https://picsum.photos/seed/additive/600/600", desc: "Missouri winter formula anti-gel protection." },
+  { id: 3, name: "High-Flow Injector Set", price: 2450.00, category: "Fuel", image: "/Truck%20images/injector-set.png", desc: "30% over stock, competition-grade precision injectors for Cummins, Duramax, and Powerstroke platforms." },
+  { id: 5, name: "Megatron Signature Tee", price: 34.99, category: "Apparel", image: "/Truck%20images/megatron-tee.png", desc: "Heavyweight cotton with Megatron track graphics. Rep the shop that races what it builds." },
+];
+
+const PARTNER_BRANDS = [
+  {
+    id: 'hotshot',
+    name: "Hot Shot's Secret",
+    category: "Additives",
+    image: "/Truck%20images/hotshot-secret.png",
+    desc: "Premium diesel fuel additives, oil treatments, and anti-gel formulas. Shop the full Hot Shot's Secret lineup — No Way Man Diesel's recommended additive brand.",
+    url: "https://www.hotshotsecret.com/"
+  },
+  {
+    id: 'sb',
+    name: "S&B Intakes",
+    category: "Intake & Air",
+    image: "/Truck%20images/sb-intake.png",
+    desc: "Cold air intake systems engineered specifically for diesel trucks. S&B Intakes deliver measurable airflow gains with premium filtration for Cummins, Duramax, and Powerstroke.",
+    url: "https://sbfilters.com/"
+  }
 ];
 
 const ShopPage = ({ addToCart }: { addToCart: (p: Product) => void }) => {
@@ -1667,21 +1685,11 @@ const ShopPage = ({ addToCart }: { addToCart: (p: Product) => void }) => {
             <h1 className="text-5xl font-black italic mb-4">THE PARTS COUNTER</h1>
             <p className="text-gray-400 uppercase tracking-widest text-sm font-bold">Performance hardware. Track proven reliability.</p>
           </div>
-          <div className="flex flex-wrap gap-4">
-            {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-2 uppercase text-xs font-bold tracking-widest transition-all ${activeCategory === cat ? 'bg-torque-red text-white' : 'bg-gunmetal text-gray-400 hover:text-white'}`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map(product => (
+        {/* Shop Products */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          {PRODUCTS.map(product => (
             <div key={product.id} className="bg-gunmetal border border-white/5 group overflow-hidden">
               <div className="h-64 overflow-hidden relative">
                 <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -1693,15 +1701,48 @@ const ShopPage = ({ addToCart }: { addToCart: (p: Product) => void }) => {
                 <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-1 block">{product.category}</span>
                 <h3 className="text-xl font-bold mb-3 uppercase italic">{product.name}</h3>
                 <p className="text-gray-400 text-sm mb-6 leading-relaxed">{product.desc}</p>
-                <button
-                  onClick={() => addToCart(product)}
+                <a
+                  href="https://squareup.com/store/no-way-man-diesel"
+                  target="_blank"
+                  rel="noreferrer"
                   className="w-full bg-transparent border-2 border-white hover:bg-torque-red hover:border-torque-red transition-all py-3 font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2"
                 >
-                  <Plus size={16} /> Add to Cart
-                </button>
+                  <Plus size={16} /> Order via Square
+                </a>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Partner Brands */}
+        <div className="border-t border-white/10 pt-16 mb-4">
+          <h2 className="text-3xl font-black italic mb-2">TRUSTED BRAND PARTNERS</h2>
+          <p className="text-gray-500 uppercase tracking-widest text-xs font-bold mb-12">Brands we run, recommend, and stand behind.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {PARTNER_BRANDS.map(brand => (
+              <div key={brand.id} className="bg-gunmetal border border-white/5 group overflow-hidden">
+                <div className="h-64 overflow-hidden relative">
+                  <img src={brand.image} alt={brand.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-4 left-4 bg-torque-red px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
+                    Partner Brand
+                  </div>
+                </div>
+                <div className="p-8">
+                  <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-1 block">{brand.category}</span>
+                  <h3 className="text-xl font-bold mb-3 uppercase italic">{brand.name}</h3>
+                  <p className="text-gray-400 text-sm mb-6 leading-relaxed">{brand.desc}</p>
+                  <a
+                    href={brand.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full bg-transparent border-2 border-torque-red hover:bg-torque-red transition-all py-3 font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2 text-torque-red hover:text-white"
+                  >
+                    Shop {brand.name} <ChevronRight size={14} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
