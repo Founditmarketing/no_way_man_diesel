@@ -1478,6 +1478,59 @@ const BlogsPage = ({ setPage }: { setPage: (p: string) => void }) => {
   );
 };
 
+const SPONSORS = [
+  { name: "Valair Clutch", url: "https://valairinc.com/", tagline: "Official Clutch Partner" },
+  { name: "Perkins Diesel", url: "https://www.perkinsdieselshop.com/", tagline: "Trusted Parts Supplier" },
+  { name: "Dynomite Diesel Products", url: "https://dynomitediesel.com/", tagline: "Performance Build Partner" },
+  { name: "Valair Clutch", url: "https://valairinc.com/", tagline: "Official Clutch Partner" },
+  { name: "Perkins Diesel", url: "https://www.perkinsdieselshop.com/", tagline: "Trusted Parts Supplier" },
+  { name: "Dynomite Diesel Products", url: "https://dynomitediesel.com/", tagline: "Performance Build Partner" },
+];
+
+const SponsorTicker = () => (
+  <div className="bg-matte-black border-y border-white/10 py-5 overflow-hidden">
+    <div className="flex items-center gap-6 mb-2 px-6">
+      <div className="h-px flex-grow bg-white/10" />
+      <span className="text-[10px] uppercase tracking-[0.4em] text-gray-500 font-bold shrink-0">Official Sponsors</span>
+      <div className="h-px flex-grow bg-white/10" />
+    </div>
+    <div className="relative overflow-hidden">
+      <div
+        className="flex gap-0 whitespace-nowrap"
+        style={{
+          animation: 'ticker-scroll 30s linear infinite',
+        }}
+      >
+        {SPONSORS.map((sponsor, i) => (
+          <a
+            key={i}
+            href={sponsor.url}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-6 px-12 group shrink-0"
+          >
+            <div className="h-8 w-px bg-torque-red/30" />
+            <div>
+              <span className="text-white font-black uppercase tracking-widest text-sm group-hover:text-torque-red transition-colors">
+                {sponsor.name}
+              </span>
+              <span className="text-gray-600 text-[10px] uppercase tracking-widest font-bold ml-3">
+                {sponsor.tagline}
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+    <style>{`
+      @keyframes ticker-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+    `}</style>
+  </div>
+);
+
 const AboutPage = () => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700">
     <div className="max-w-7xl mx-auto px-6">
@@ -1485,10 +1538,10 @@ const AboutPage = () => (
         <div>
           <h1 className="text-5xl font-black italic mb-8">OUR STORY</h1>
           <p className="text-gray-400 leading-relaxed mb-6">
-            Founded in the heart of Novinger, Missouri, No Way Man Diesel LLC began with a single bay and a relentless obsession with diesel performance. Our roots are deep in the Missouri soil, and our reputation was built one truck at a time. We didn't want to be just another repair shop; we wanted to be the facility that people traveled across state lines to visit.
+            Founded in the heart of Novinger, Missouri, No Way Man Diesel LLC began with a single bay and a relentless obsession with diesel performance. Jason was raised on a farm just outside of Novinger, where his family operated a cattle operation of over 1,000 head—and his family still owns that ground today. Those roots run deep in the Missouri soil, and that work ethic is what built this shop’s reputation one truck at a time. We didn’t want to be just another repair shop; we wanted to be the facility that people traveled across state lines to visit.
           </p>
           <p className="text-gray-400 leading-relaxed">
-            Today, we are a premier destination for fleet owners who can't afford downtime and enthusiasts who won't settle for second place. Our team is comprised of specialists who live and breathe diesel. We don't just work here; we pull, we race, and we haul. That real-world experience is what sets us apart. When you bring your truck to No Way Man Diesel, you're getting more than a repair—you're getting a legacy of mechanical excellence.
+            Today, we are a premier destination for enthusiasts and working truck owners who won't settle for second place. Our team is comprised of specialists who live and breathe diesel. We don’t just work here; we pull, we race, and we haul. That real-world experience is what sets us apart. When you bring your truck to No Way Man Diesel, you’re getting more than a repair—you’re getting a legacy of mechanical excellence.
           </p>
         </div>
         <div className="relative w-full aspect-video bg-gunmetal border border-white/10 overflow-hidden shadow-2xl lg:mt-0 mt-8">
@@ -1898,6 +1951,7 @@ export default function App() {
         {page === 'contact' && <ContactPage />}
       </main>
 
+      <SponsorTicker />
       <Footer setPage={setPage} />
 
       <CartDrawer
