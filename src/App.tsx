@@ -544,7 +544,7 @@ const TransmissionClutchPage = () => (
         <h1 className="text-5xl font-black italic mb-4">TRANSMISSION & CLUTCH</h1>
         <p className="text-gray-400 uppercase tracking-widest text-sm font-bold mb-8">Built to handle Missouri's toughest torque loads.</p>
         <div className="max-w-4xl mx-auto aspect-video bg-gunmetal border border-white/5 overflow-hidden">
-          <img src="/Truck%20images/Gear%20box.png" className="w-full h-full object-cover opacity-80" alt="Gear Box" />
+          <img src="/Truck%20images/transmission.jpg" className="w-full h-full object-cover opacity-90" alt="Assembled Diesel Transmission" />
         </div>
       </div>
 
@@ -552,13 +552,13 @@ const TransmissionClutchPage = () => (
         <div className="bg-gunmetal p-10 border-l-4 border-torque-red">
           <h3 className="text-2xl font-bold uppercase italic text-white mb-6">Heavy-Duty Transmissions</h3>
           <p className="leading-relaxed">
-            Nothing kills a diesel truck faster than a blown transmission, especially when subjected to the massive torque of a modern performance build. At No Way Man Diesel, we specialize in building transmissions that don't just survive—they thrive under pressure. Our build process for Allison, 68RFE, and Aisin units involves reinforcing every weak point in the factory design. We utilize billet input and output shafts, upgraded valve bodies, and high-energy clutch materials to ensure crisp shifting and reliable power transfer. Every transmission is built in a clean-room environment where precision is the only standard.
+            Nothing kills a diesel truck faster than a blown transmission, especially when subjected to the massive torque of a modern performance build. At No Way Man Diesel, we build transmissions for both the street and the dirt—whether you're hauling freight on Missouri highways or launching hard off the line at a pulling event. Our build process for Allison, 68RFE, and Aisin units involves reinforcing every weak point in the factory design. We utilize billet input and output shafts, upgraded valve bodies, and high-energy clutch materials to ensure crisp shifting and reliable power transfer under any condition. Whether it's an on-road daily driver that needs to survive 100,000 miles of hard towing or an off-road competition truck that demands absolute reliability at wide-open throttle, every transmission we build is held to the same clean-room standard of precision.
           </p>
         </div>
         <div className="bg-gunmetal p-10 border-l-4 border-torque-red">
           <h3 className="text-2xl font-bold uppercase italic text-white mb-6">Precision Clutch Engineering</h3>
           <p className="leading-relaxed">
-            For the manual heavy-haulers, we offer precision clutch engineering that bridges the gap between factory smooth and competition strong. We specialize in dual-disc and triple-disc clutch installations that can handle the aggressive torque curves of tuned diesel engines without sacrificing pedal feel. Whether you're looking for a Stock Plus rebuild for daily reliability or a Stage 3 competition unit capable of handling 800+ horsepower, our team has the technical expertise to deliver a drivetrain that will never let you down on the job site or the Fairgrounds.
+            For the manual heavy-haulers, we offer precision clutch engineering that bridges the gap between factory smooth and competition strong. No Way Man Diesel specifically specializes in Valair Clutches—one of the most respected names in diesel performance clutch systems—offering their full lineup of dual-disc and triple-disc installations that can handle the aggressive torque curves of tuned diesel engines without sacrificing pedal feel. Whether you're looking for a Stock Plus rebuild for daily reliability or a Stage 3 competition unit capable of handling 800+ horsepower, our team has the technical expertise to deliver a drivetrain that will never let you down on the job site or the Fairgrounds.
           </p>
         </div>
       </div>
@@ -606,6 +606,12 @@ const DrivetrainSuspensionPage = () => (
             <h3 className="text-2xl font-bold uppercase italic border-l-4 border-torque-red pl-6">Suspension Stability Engineering</h3>
             <p className="text-gray-400 leading-relaxed">
               Suspension stability is a critical safety factor for any heavy-duty truck. At No Way Man Diesel, we engineer stability from the frame down, offering steering upgrades to eliminate 'death wobble' and custom lift or level kits that maintain proper geometry. We install high-strength traction bars for pulling trucks and reinforce chassis components for maximum durability. Our goal is to ensure that your truck's handling is as sharp as its performance, providing a confident driving experience whether you're navigating Missouri's toughest terrains or hauling a full load on the interstate.
+            </p>
+          </div>
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold uppercase italic border-l-4 border-torque-red pl-6">Pulling &amp; Racing Suspension</h3>
+            <p className="text-gray-400 leading-relaxed">
+              No Way Man Diesel is a specialty shop for pulling and racing truck suspension builds. We understand that a sled-pulling truck and a street truck have dramatically different suspension demands—and we engineer each setup accordingly. From reinforced front-end geometry and high-strength traction bars designed to eliminate axle wrap off the line, to custom 4-link rear setups that keep your rear tires planted in the dirt, we build suspension systems that are purpose-built to survive the violent forces of competition. If you're serious about making a clean, full-pull, your suspension starts here.
             </p>
           </div>
         </div>
@@ -666,7 +672,7 @@ const GeneralMechanicalPage = () => (
         <div className="order-2 md:order-1 bg-gunmetal p-12 border border-white/10 shadow-2xl">
           <h3 className="text-2xl font-bold uppercase italic text-white mb-6">Maintenance & Custom Fabrication</h3>
           <p className="text-gray-400 leading-relaxed mb-6">
-            Our general mechanical services also include fleet-grade preventative maintenance and custom fabrication for unique performance needs. We offer platform-specific system flushes, high-efficiency oil and fuel filtering, and 50-point safety inspections to protect your investment. When the aftermarket falls short, our in-house fabrication team steps in, utilizing precision TIG and MIG welding to create high-strength components such as custom mounting brackets and reinforced cooling layouts. From routine oil changes to one-off competition solutions, we provide the comprehensive mechanical care that defines No Way Man Diesel.
+            Our general mechanical services also include fleet-grade preventative maintenance and custom fabrication for unique performance needs. We offer platform-specific system flushes, high-efficiency oil and fuel filtering, and a safety inspection to protect your investment. When the aftermarket falls short, our in-house fabrication team steps in, utilizing precision welding to create high-strength components such as custom mounting brackets and reinforced cooling layouts. From routine oil changes to one-off competition solutions, we provide the comprehensive mechanical care that defines No Way Man Diesel.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
