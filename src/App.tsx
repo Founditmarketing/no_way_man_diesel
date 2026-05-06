@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Phone,
   Mail,
@@ -215,25 +215,71 @@ const Footer = ({ setPage }: { setPage: (p: string) => void }) => (
   </footer>
 );
 
-const StickySidebarForm = () => (
-  <div className="sticky top-32 bg-gunmetal p-8 border border-white/10 shadow-2xl">
-    <h3 className="text-xl font-bold mb-2 uppercase italic">Request An Estimate</h3>
-    <p className="text-gray-400 text-xs mb-6 uppercase tracking-widest">Get a response within 24 hours</p>
-    <form className="space-y-4">
-      <input type="text" placeholder="FULL NAME" className="w-full bg-matte-black border border-white/10 p-3 text-sm focus:border-torque-red outline-none" />
-      <input type="tel" placeholder="PHONE NUMBER" className="w-full bg-matte-black border border-white/10 p-3 text-sm focus:border-torque-red outline-none" />
-      <select className="w-full bg-matte-black border border-white/10 p-3 text-sm focus:border-torque-red outline-none text-gray-400">
-        <option>SELECT SERVICE</option>
-        <option>ENGINE & PERFORMANCE</option>
-        <option>TRANSMISSION & CLUTCH</option>
-        <option>DRIVETRAIN & SUSPENSION</option>
-        <option>GENERAL MECHANICAL</option>
-      </select>
-      <textarea placeholder="DESCRIBE SYMPTOMS" rows={3} className="w-full bg-matte-black border border-white/10 p-3 text-sm focus:border-torque-red outline-none"></textarea>
-      <button type="submit" className="btn-primary w-full">Send Request</button>
-    </form>
-  </div>
-);
+const StickySidebarForm = () => {
+  const [fields, setFields] = useState({ name: '', email: '', phone: '', service: 'SELECT SERVICE', message: '' });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+    setFields(prev => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!fields.name || !fields.email) return;
+    setStatus('loading');
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: fields.name,
+          email: fields.email,
+          phone: fields.phone,
+          service: fields.service !== 'SELECT SERVICE' ? fields.service : undefined,
+          message: fields.message,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed');
+      setStatus('success');
+      setFields({ name: '', email: '', phone: '', service: 'SELECT SERVICE', message: '' });
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  return (
+    <div className="sticky top-32 bg-gunmetal p-8 border border-white/10 shadow-2xl">
+      <h3 className="text-xl font-bold mb-2 uppercase italic">Request An Estimate</h3>
+      <p className="text-gray-400 text-xs mb-6 uppercase tracking-widest">Get a response within 24 hours</p>
+
+      {status === 'success' ? (
+        <div className="bg-green-900/30 border border-green-500/40 p-6 text-center">
+          <p className="text-green-400 font-bold uppercase tracking-widest text-sm">✓ Request Sent!</p>
+          <p className="text-gray-400 text-xs mt-2">We'll be in touch within 24 hours.</p>
+          <button onClick={() => setStatus('idle')} className="mt-4 text-xs text-torque-red uppercase tracking-widest hover:underline">Send Another</button>
+        </div>
+      ) : (
+        <form className="space-y-4" onSubmit={handleSubmit}>
+          <input name="name" value={fields.name} onChange={handleChange} type="text" placeholder="FULL NAME *" required className="w-full bg-matte-black border border-white/10 p-3 text-sm focus:border-torque-red outline-none" />
+          <input name="email" value={fields.email} onChange={handleChange} type="email" placeholder="EMAIL ADDRESS *" required className="w-full bg-matte-black border border-white/10 p-3 text-sm focus:border-torque-red outline-none" />
+          <input name="phone" value={fields.phone} onChange={handleChange} type="tel" placeholder="PHONE NUMBER" className="w-full bg-matte-black border border-white/10 p-3 text-sm focus:border-torque-red outline-none" />
+          <select name="service" value={fields.service} onChange={handleChange} className="w-full bg-matte-black border border-white/10 p-3 text-sm focus:border-torque-red outline-none text-gray-400">
+            <option>SELECT SERVICE</option>
+            <option>ENGINE &amp; PERFORMANCE</option>
+            <option>TRANSMISSION &amp; CLUTCH</option>
+            <option>DRIVETRAIN &amp; SUSPENSION</option>
+            <option>GENERAL MECHANICAL</option>
+          </select>
+          <textarea name="message" value={fields.message} onChange={handleChange} placeholder="DESCRIBE SYMPTOMS" rows={3} className="w-full bg-matte-black border border-white/10 p-3 text-sm focus:border-torque-red outline-none"></textarea>
+          {status === 'error' && <p className="text-red-400 text-xs uppercase tracking-widest">Something went wrong. Please try again.</p>}
+          <button type="submit" disabled={status === 'loading'} className="btn-primary w-full disabled:opacity-60">
+            {status === 'loading' ? 'Sending...' : 'Send Request'}
+          </button>
+        </form>
+      )}
+    </div>
+  );
+};
 
 // --- Page Views ---
 
@@ -1604,88 +1650,143 @@ const AboutPage = () => (
   </div>
 );
 
-const ContactPage = () => (
-  <div className="pt-32 pb-24 animate-in fade-in duration-700">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        <div>
-          <h1 className="text-5xl font-black italic mb-8">GET IN TOUCH</h1>
-          <div className="space-y-8 mb-12">
-            <div className="flex gap-6">
-              <div className="w-12 h-12 bg-torque-red flex items-center justify-center shrink-0"><MapPin /></div>
-              <div>
-                <h4 className="font-bold uppercase tracking-widest text-sm mb-1">Location</h4>
-                <p className="text-gray-400">{BRAND.address}</p>
-              </div>
-            </div>
-            <div className="flex gap-6">
-              <div className="w-12 h-12 bg-torque-red flex items-center justify-center shrink-0"><Phone /></div>
-              <div>
-                <h4 className="font-bold uppercase tracking-widest text-sm mb-1">Phone</h4>
-                <p className="text-gray-400">{BRAND.phone}</p>
-              </div>
-            </div>
-            <div className="flex gap-6">
-              <div className="w-12 h-12 bg-torque-red flex items-center justify-center shrink-0"><Clock /></div>
-              <div>
-                <h4 className="font-bold uppercase tracking-widest text-sm mb-1">Hours</h4>
-                <p className="text-gray-400">{BRAND.hours}</p>
-              </div>
-            </div>
-          </div>
-          <div className="h-80 bg-gunmetal border border-white/10 overflow-hidden">
-            <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: BRAND.mapIframe }} />
-          </div>
-        </div>
+const ContactPage = () => {
+  const [fields, setFields] = useState({
+    firstName: '', lastName: '', phone: '', email: '',
+    truckYear: '', makeModel: '', engineType: 'Select Engine', message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-        <div className="bg-gunmetal p-12 border border-white/10 shadow-2xl">
-          <h2 className="text-3xl font-black italic mb-8">BOOK SHOP TIME</h2>
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">First Name</label>
-              <input type="text" className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red" />
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+    setFields(prev => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!fields.firstName || !fields.email) return;
+    setStatus('loading');
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: `${fields.firstName} ${fields.lastName}`.trim(),
+          email: fields.email,
+          phone: fields.phone,
+          truckYear: fields.truckYear,
+          makeModel: fields.makeModel,
+          engineType: fields.engineType !== 'Select Engine' ? fields.engineType : undefined,
+          message: fields.message,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed');
+      setStatus('success');
+      setFields({ firstName: '', lastName: '', phone: '', email: '', truckYear: '', makeModel: '', engineType: 'Select Engine', message: '' });
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  return (
+    <div className="pt-32 pb-24 animate-in fade-in duration-700">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <h1 className="text-5xl font-black italic mb-8">GET IN TOUCH</h1>
+            <div className="space-y-8 mb-12">
+              <div className="flex gap-6">
+                <div className="w-12 h-12 bg-torque-red flex items-center justify-center shrink-0"><MapPin /></div>
+                <div>
+                  <h4 className="font-bold uppercase tracking-widest text-sm mb-1">Location</h4>
+                  <p className="text-gray-400">{BRAND.address}</p>
+                </div>
+              </div>
+              <div className="flex gap-6">
+                <div className="w-12 h-12 bg-torque-red flex items-center justify-center shrink-0"><Phone /></div>
+                <div>
+                  <h4 className="font-bold uppercase tracking-widest text-sm mb-1">Phone</h4>
+                  <p className="text-gray-400">{BRAND.phone}</p>
+                </div>
+              </div>
+              <div className="flex gap-6">
+                <div className="w-12 h-12 bg-torque-red flex items-center justify-center shrink-0"><Clock /></div>
+                <div>
+                  <h4 className="font-bold uppercase tracking-widest text-sm mb-1">Hours</h4>
+                  <p className="text-gray-400">{BRAND.hours}</p>
+                </div>
+              </div>
             </div>
-            <div className="space-y-2">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Last Name</label>
-              <input type="text" className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red" />
+            <div className="h-80 bg-gunmetal border border-white/10 overflow-hidden">
+              <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: BRAND.mapIframe }} />
             </div>
-            <div className="space-y-2">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Phone</label>
-              <input type="tel" className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red" />
-            </div>
-            <div className="space-y-2">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Email</label>
-              <input type="email" className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red" />
-            </div>
-            <div className="space-y-2">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Truck Year</label>
-              <input type="text" className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red" />
-            </div>
-            <div className="space-y-2">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Make / Model</label>
-              <input type="text" className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red" />
-            </div>
-            <div className="space-y-2 md:col-span-2">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Engine Type</label>
-              <select className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red text-gray-400">
-                <option>Select Engine</option>
-                <option>Cummins 5.9L / 6.7L</option>
-                <option>Duramax LB7-L5P</option>
-                <option>Powerstroke 6.0L / 6.4L / 6.7L</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div className="space-y-2 md:col-span-2">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Symptoms / Modifications Needed</label>
-              <textarea rows={4} className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red"></textarea>
-            </div>
-            <button className="btn-primary md:col-span-2 py-5 text-lg">Submit Booking Request</button>
-          </form>
+          </div>
+
+          <div className="bg-gunmetal p-12 border border-white/10 shadow-2xl">
+            <h2 className="text-3xl font-black italic mb-8">BOOK SHOP TIME</h2>
+
+            {status === 'success' ? (
+              <div className="flex flex-col items-center justify-center py-16 text-center">
+                <div className="w-16 h-16 bg-green-900/40 border border-green-500/40 flex items-center justify-center mb-6">
+                  <span className="text-green-400 text-3xl">✓</span>
+                </div>
+                <h3 className="text-2xl font-black italic mb-3">Request Received!</h3>
+                <p className="text-gray-400 mb-8">We'll reach out within 24 hours to confirm your shop time.</p>
+                <button onClick={() => setStatus('idle')} className="text-xs text-torque-red uppercase tracking-widest hover:underline">Submit Another Request</button>
+              </div>
+            ) : (
+              <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">First Name *</label>
+                  <input name="firstName" value={fields.firstName} onChange={handleChange} type="text" required className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Last Name</label>
+                  <input name="lastName" value={fields.lastName} onChange={handleChange} type="text" className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Phone</label>
+                  <input name="phone" value={fields.phone} onChange={handleChange} type="tel" className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Email *</label>
+                  <input name="email" value={fields.email} onChange={handleChange} type="email" required className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Truck Year</label>
+                  <input name="truckYear" value={fields.truckYear} onChange={handleChange} type="text" className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Make / Model</label>
+                  <input name="makeModel" value={fields.makeModel} onChange={handleChange} type="text" className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red" />
+                </div>
+                <div className="space-y-2 md:col-span-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Engine Type</label>
+                  <select name="engineType" value={fields.engineType} onChange={handleChange} className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red text-gray-400">
+                    <option>Select Engine</option>
+                    <option>Cummins 5.9L / 6.7L</option>
+                    <option>Duramax LB7-L5P</option>
+                    <option>Powerstroke 6.0L / 6.4L / 6.7L</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div className="space-y-2 md:col-span-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Symptoms / Modifications Needed</label>
+                  <textarea name="message" value={fields.message} onChange={handleChange} rows={4} className="w-full bg-matte-black border border-white/10 p-4 outline-none focus:border-torque-red"></textarea>
+                </div>
+                {status === 'error' && (
+                  <p className="md:col-span-2 text-red-400 text-xs uppercase tracking-widest">Something went wrong. Please try again or call us directly.</p>
+                )}
+                <button type="submit" disabled={status === 'loading'} className="btn-primary md:col-span-2 py-5 text-lg disabled:opacity-60">
+                  {status === 'loading' ? 'Sending...' : 'Submit Booking Request'}
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 // --- Shop Related ---
 
