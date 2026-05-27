@@ -1990,12 +1990,69 @@ const CartDrawer = ({
   );
 };
 
-// --- Main App ---
+const VALID_PAGES = [
+  'home',
+  'services',
+  'shop',
+  'engine-performance',
+  'transmission-clutch',
+  'drivetrain-suspension',
+  'general-mechanical',
+  'megatron',
+  'blogs',
+  'blog-cummins-head-gasket',
+  'blog-duramax-pulling',
+  'blog-powerstroke-60',
+  'blog-megatron-turbos',
+  'blog-winter-checklist',
+  'blog-fluid-and-gauges',
+  'about',
+  'contact'
+];
 
 export default function App() {
   const [page, setPage] = useState('home');
   const [cartItems, setCartItems] = useState<(Product & { qty: number })[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname.replace(/^\/+|\/+$/g, '') || 'home';
+      if (VALID_PAGES.includes(path)) {
+        setPage(path);
+      } else {
+        const params = new URLSearchParams(window.location.search);
+        const queryPage = params.get('page');
+        if (queryPage && VALID_PAGES.includes(queryPage)) {
+          setPage(queryPage);
+        }
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+
+    // Initial check
+    const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+    if (VALID_PAGES.includes(path)) {
+      setPage(path);
+    } else {
+      const params = new URLSearchParams(window.location.search);
+      const queryPage = params.get('page');
+      if (queryPage && VALID_PAGES.includes(queryPage)) {
+        setPage(queryPage);
+      }
+    }
+
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Update URL history when page state changes
+  useEffect(() => {
+    const currentPath = window.location.pathname.replace(/^\/+|\/+$/g, '') || 'home';
+    if (currentPath !== page) {
+      const newPath = page === 'home' ? '/' : `/${page}`;
+      window.history.pushState(null, '', newPath);
+    }
+  }, [page]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
