@@ -1806,7 +1806,7 @@ const PRODUCTS: Product[] = [
   { id: 3, name: "High-Flow Injector Set", price: 2450.00, category: "Fuel", image: "/Truck%20images/injector-set.png", desc: "30% over stock, competition-grade precision injectors for Cummins, Duramax, and Powerstroke platforms.", checkoutUrl: "https://square.link/u/D4m8IYMD" },
   { id: 5, name: "Megatron Signature Tee", price: 35.00, category: "Apparel", image: "/Truck%20images/megatron-tee.png", desc: "Heavyweight cotton with Megatron track graphics. Rep the shop that races what it builds.", checkoutUrl: "https://square.link/u/u4koWhL4" },
   { id: 6, name: "Signature License Plate", price: 20.00, category: "Accessories", image: "/Truck%20images/license-plate.jpeg", desc: "Black license plate with stainless laser engraving. Super Street Diesel 4x4 Champion edition featuring the No Way Man Decepticon mark.", checkoutUrl: "https://square.link/u/W53GLNQi" },
-  { id: 7, name: "Leather Keychain", price: 5.00, category: "Accessories", image: "/Truck%20images/keychain.jpeg", desc: "Custom leather keychain laser-branded with the No Way Man Diesel Decepticon mark. Keep your keys styling and profiling.", checkoutUrl: "https://square.link/u/pBhE0z3V" },
+  { id: 7, name: "Leather Keychain", price: 5.00, category: "Accessories", image: "/Truck%20images/keychain.jpeg", desc: "Custom leather keychain laser-branded with the No Way Man Diesel Decepticon mark. Keep your keys styling and profiling.", checkoutUrl: "https://square.link/u/DiAo29kc" },
 ];
 
 const PARTNER_BRANDS = [
