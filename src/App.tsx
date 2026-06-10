@@ -1797,10 +1797,13 @@ type Product = {
   category: string;
   image: string;
   desc: string;
+  checkoutUrl?: string;
 };
 
+const SQUARE_STORE_URL = "https://squareup.com/store/no-way-man-diesel";
+
 const PRODUCTS: Product[] = [
-  { id: 3, name: "High-Flow Injector Set", price: 2450.00, category: "Fuel", image: "/Truck%20images/injector-set.png", desc: "30% over stock, competition-grade precision injectors for Cummins, Duramax, and Powerstroke platforms." },
+  { id: 3, name: "High-Flow Injector Set", price: 2450.00, category: "Fuel", image: "/Truck%20images/injector-set.png", desc: "30% over stock, competition-grade precision injectors for Cummins, Duramax, and Powerstroke platforms.", checkoutUrl: "https://square.link/u/D4m8IYMD" },
   { id: 5, name: "Megatron Signature Tee", price: 34.99, category: "Apparel", image: "/Truck%20images/megatron-tee.png", desc: "Heavyweight cotton with Megatron track graphics. Rep the shop that races what it builds." },
   { id: 6, name: "Signature License Plate", price: 20.00, category: "Accessories", image: "/Truck%20images/license-plate.jpeg", desc: "Black license plate with stainless laser engraving. Super Street Diesel 4x4 Champion edition featuring the No Way Man Decepticon mark." },
   { id: 7, name: "Leather Keychain", price: 5.00, category: "Accessories", image: "/Truck%20images/keychain.jpeg", desc: "Custom leather keychain laser-branded with the No Way Man Diesel Decepticon mark. Keep your keys styling and profiling." },
@@ -1858,7 +1861,7 @@ const ShopPage = ({ addToCart }: { addToCart: (p: Product) => void }) => {
                 <h3 className="text-xl font-bold mb-3 uppercase italic">{product.name}</h3>
                 <p className="text-gray-400 text-sm mb-6 leading-relaxed">{product.desc}</p>
                 <a
-                  href="https://squareup.com/store/no-way-man-diesel"
+                  href={product.checkoutUrl ?? SQUARE_STORE_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="w-full bg-transparent border-2 border-white hover:bg-torque-red hover:border-torque-red transition-all py-3 font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2"
