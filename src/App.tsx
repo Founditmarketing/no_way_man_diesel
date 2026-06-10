@@ -15,10 +15,7 @@ import {
   Menu,
   X,
   ArrowRight,
-  ShoppingCart,
   Plus,
-  Minus,
-  Trash2,
   ChevronDown,
   Star
 } from 'lucide-react';
@@ -37,7 +34,7 @@ const BRAND = {
 
 // --- Components ---
 
-const Header = ({ activePage, setPage, cartCount }: { activePage: string, setPage: (p: string) => void, cartCount: number }) => {
+const Header = ({ activePage, setPage }: { activePage: string, setPage: (p: string) => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -105,14 +102,6 @@ const Header = ({ activePage, setPage, cartCount }: { activePage: string, setPag
         </nav>
 
         <div className="flex items-center gap-6">
-          <div className="relative cursor-pointer group" onClick={() => window.dispatchEvent(new CustomEvent('toggle-cart'))}>
-            <ShoppingCart className="text-white group-hover:text-torque-red transition-colors" />
-            {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-torque-red text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-matte-black animate-in zoom-in duration-300">
-                {cartCount}
-              </span>
-            )}
-          </div>
           <button onClick={() => setPage('shop')} className="btn-primary text-xs px-6 py-2">Shop Parts</button>
           <button className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X /> : <Menu />}
@@ -1828,7 +1817,7 @@ const PARTNER_BRANDS = [
   }
 ];
 
-const ShopPage = ({ addToCart }: { addToCart: (p: Product) => void }) => {
+const ShopPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const categories = ['All', ...new Set(PRODUCTS.map(p => p.category))];
 
@@ -1908,92 +1897,6 @@ const ShopPage = ({ addToCart }: { addToCart: (p: Product) => void }) => {
   );
 };
 
-const CartDrawer = ({
-  isOpen,
-  onClose,
-  cart,
-  updateQuantity,
-  removeItem
-}: {
-  isOpen: boolean,
-  onClose: () => void,
-  cart: (Product & { qty: number })[],
-  updateQuantity: (id: number, delta: number) => void,
-  removeItem: (id: number) => void
-}) => {
-  const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="fixed inset-0 bg-matte-black/80 backdrop-blur-sm z-[100]"
-          />
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            className="fixed top-0 right-0 w-full max-w-md h-full bg-gunmetal z-[101] p-10 flex flex-col shadow-2xl border-l border-white/10"
-          >
-            <div className="flex justify-between items-center mb-10">
-              <h2 className="text-3xl font-black italic">YOUR CART</h2>
-              <button onClick={onClose} className="hover:text-torque-red"><X size={32} /></button>
-            </div>
-
-            <div className="flex-grow overflow-y-auto space-y-6 pb-10">
-              {cart.length === 0 ? (
-                <div className="text-center py-20">
-                  <ShoppingCart size={64} className="mx-auto text-gray-700 mb-6" />
-                  <p className="text-gray-500 uppercase font-bold tracking-widest">Cart is empty</p>
-                </div>
-              ) : (
-                cart.map(item => (
-                  <div key={item.id} className="flex gap-4 border-b border-white/5 pb-6">
-                    <img src={item.image} className="w-20 h-20 object-cover border border-white/10" />
-                    <div className="flex-grow">
-                      <div className="flex justify-between items-start mb-1">
-                        <h4 className="font-bold uppercase text-sm">{item.name}</h4>
-                        <button onClick={() => removeItem(item.id)} className="text-gray-500 hover:text-torque-red"><Trash2 size={16} /></button>
-                      </div>
-                      <p className="text-torque-red font-mono text-xs mb-4">${item.price.toLocaleString()}</p>
-                      <div className="flex items-center gap-4">
-                        <div className="flex items-center border border-white/10 px-2 py-1 gap-4">
-                          <button onClick={() => updateQuantity(item.id, -1)} disabled={item.qty <= 1} className="disabled:opacity-20"><Minus size={14} /></button>
-                          <span className="text-xs font-bold font-mono">{item.qty}</span>
-                          <button onClick={() => updateQuantity(item.id, 1)}><Plus size={14} /></button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-
-            {cart.length > 0 && (
-              <div className="border-t border-white/10 pt-10">
-                <div className="flex justify-between items-end mb-6 text-2xl font-black italic">
-                  <span>TOTAL</span>
-                  <span className="text-torque-red">${total.toLocaleString()}</span>
-                </div>
-                <button
-                  onClick={() => alert('Checkout integration would happen here.')}
-                  className="btn-primary w-full py-5 text-lg"
-                >
-                  Proceed to Checkout
-                </button>
-              </div>
-            )}
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
-  );
-};
 
 const VALID_PAGES = [
   'home',
@@ -2017,8 +1920,6 @@ const VALID_PAGES = [
 
 export default function App() {
   const [page, setPage] = useState('home');
-  const [cartItems, setCartItems] = useState<(Product & { qty: number })[]>([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -2063,41 +1964,14 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [page]);
 
-  useEffect(() => {
-    const handleToggle = () => setIsCartOpen(!isCartOpen);
-    window.addEventListener('toggle-cart', handleToggle);
-    return () => window.removeEventListener('toggle-cart', handleToggle);
-  }, [isCartOpen]);
-
-  const addToCart = (product: Product) => {
-    setCartItems(prev => {
-      const existing = prev.find(item => item.id === product.id);
-      if (existing) {
-        return prev.map(item => item.id === product.id ? { ...item, qty: item.qty + 1 } : item);
-      }
-      return [...prev, { ...product, qty: 1 }];
-    });
-    setIsCartOpen(true);
-  };
-
-  const updateQuantity = (id: number, delta: number) => {
-    setCartItems(prev => prev.map(item => item.id === id ? { ...item, qty: Math.max(1, item.qty + delta) } : item));
-  };
-
-  const removeItem = (id: number) => {
-    setCartItems(prev => prev.filter(item => item.id !== id));
-  };
-
-  const cartCount = cartItems.reduce((sum, item) => sum + item.qty, 0);
-
   return (
     <div className="min-h-screen flex flex-col">
-      <Header activePage={page} setPage={setPage} cartCount={cartCount} />
+      <Header activePage={page} setPage={setPage} />
 
       <main className="flex-grow">
         {page === 'home' && <HomePage setPage={setPage} />}
         {page === 'services' && <ServicesHub />}
-        {page === 'shop' && <ShopPage addToCart={addToCart} />}
+        {page === 'shop' && <ShopPage />}
         {page === 'engine-performance' && <EnginePerformancePage />}
         {page === 'transmission-clutch' && <TransmissionClutchPage />}
         {page === 'drivetrain-suspension' && <DrivetrainSuspensionPage />}
@@ -2116,14 +1990,6 @@ export default function App() {
 
       <SponsorTicker />
       <Footer setPage={setPage} />
-
-      <CartDrawer
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        cart={cartItems}
-        updateQuantity={updateQuantity}
-        removeItem={removeItem}
-      />
     </div>
   );
 }
