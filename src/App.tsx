@@ -216,15 +216,14 @@ const StickySidebarForm = () => {
     if (!fields.name || !fields.email) return;
     setStatus('loading');
     try {
-      const res = await fetch('/api/send-email', {
+      const res = await fetch('https://www.founditos.com/api/contact-form/5406b48c-1dbc-459c-aae8-be06dcb74277', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: fields.name,
           email: fields.email,
           phone: fields.phone,
-          service: fields.service !== 'SELECT SERVICE' ? fields.service : undefined,
-          message: fields.message,
+          message: `Service: ${fields.service !== 'SELECT SERVICE' ? fields.service : 'General'}\n\n${fields.message}`,
         }),
       });
       const data = await res.json();
@@ -1654,17 +1653,14 @@ const ContactPage = () => {
     if (!fields.firstName || !fields.email) return;
     setStatus('loading');
     try {
-      const res = await fetch('/api/send-email', {
+      const res = await fetch('https://www.founditos.com/api/contact-form/5406b48c-1dbc-459c-aae8-be06dcb74277', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: `${fields.firstName} ${fields.lastName}`.trim(),
           email: fields.email,
           phone: fields.phone,
-          truckYear: fields.truckYear,
-          makeModel: fields.makeModel,
-          engineType: fields.engineType !== 'Select Engine' ? fields.engineType : undefined,
-          message: fields.message,
+          message: `Truck: ${fields.truckYear} ${fields.makeModel}\nEngine: ${fields.engineType !== 'Select Engine' ? fields.engineType : 'Not specified'}\n\n${fields.message}`,
         }),
       });
       const data = await res.json();
