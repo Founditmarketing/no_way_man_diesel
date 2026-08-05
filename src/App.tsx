@@ -24,12 +24,91 @@ import { motion, AnimatePresence } from 'motion/react';
 // --- Constants ---
 const BRAND = {
   name: "No Way Man Diesel LLC",
-  address: "19760 Rye Creek Road, Novinger,MO 63559",
+  address: "19760 Rye Creek Road, Novinger, MO 63559",
   phone: "(660) 216-5453",
   email: "sales@nowaymandiesel.com",
   hours: "Monday – Friday: 8AM – 5PM (Saturday – Sunday: Closed)",
   facebook: "https://www.facebook.com/people/No-Way-Man-Diesel-LLC/100035953075932/",
   mapIframe: '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15989.090023980767!2d-92.6731452!3d40.2415076!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87e81361adb348e3%3A0xef9599d8a35a6fda!2sNo%20Way%20Man%20Diesel%2C%20LLC!5e1!3m2!1sen!2sus!4v1772833388705!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>'
+};
+
+// --- SEO ---
+
+const SITE_URL = "https://www.nowaymandiesel.com";
+
+const breadcrumbSchema = (items: { name: string; path: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: item.name,
+    item: `${SITE_URL}${item.path}`,
+  })),
+});
+
+const serviceSchema = (serviceType: string, description: string, path: string) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType,
+  description,
+  url: `${SITE_URL}${path}`,
+  provider: { "@id": `${SITE_URL}/#business` },
+  areaServed: { "@type": "AdministrativeArea", name: "Novinger, Missouri and Northeast Missouri" },
+});
+
+const PageSEO = ({
+  path,
+  title,
+  description,
+  schema,
+}: {
+  path: string;
+  title: string;
+  description: string;
+  schema?: object | object[];
+}) => {
+  useEffect(() => {
+    document.title = title;
+
+    const ensureMeta = (attr: "name" | "property", key: string) => {
+      let tag = document.head.querySelector(`meta[${attr}="${key}"]`) as HTMLMetaElement | null;
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attr, key);
+        document.head.appendChild(tag);
+      }
+      return tag;
+    };
+
+    ensureMeta("name", "description").setAttribute("content", description);
+    ensureMeta("property", "og:title").setAttribute("content", title);
+    ensureMeta("property", "og:description").setAttribute("content", description);
+    ensureMeta("property", "og:url").setAttribute("content", `${SITE_URL}${path}`);
+
+    let canonical = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", `${SITE_URL}${path}`);
+
+    let schemaTag = document.getElementById("page-schema") as HTMLScriptElement | null;
+    if (schema) {
+      if (!schemaTag) {
+        schemaTag = document.createElement("script");
+        schemaTag.id = "page-schema";
+        schemaTag.type = "application/ld+json";
+        document.head.appendChild(schemaTag);
+      }
+      schemaTag.textContent = JSON.stringify(schema);
+    } else if (schemaTag) {
+      schemaTag.remove();
+    }
+  }, [path]);
+
+  return null;
 };
 
 // --- Components ---
@@ -273,6 +352,11 @@ const StickySidebarForm = () => {
 
 const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
   <div className="animate-in fade-in duration-700">
+    <PageSEO
+      path="/"
+      title="No Way Man Diesel LLC | Diesel Repair & Performance Tuning, Novinger MO"
+      description="Heavy-duty diesel repair, performance tuning, and competition-proven builds for Cummins, Duramax, and Powerstroke trucks in Novinger, Missouri."
+    />
     {/* Hero Section */}
     <section className="relative h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -478,6 +562,15 @@ const HomePage = ({ setPage }: { setPage: (p: string) => void }) => (
 
 const ServicesHub = () => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700">
+    <PageSEO
+      path="/services"
+      title="Diesel Repair & Performance Services | No Way Man Diesel"
+      description="Full-service diesel repair including engine rebuilds, custom tuning, transmission builds, drivetrain work, and general mechanical service in Novinger, MO."
+      schema={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+      ])}
+    />
     <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-16">
       <div className="lg:col-span-2">
         <h1 className="text-5xl font-black italic mb-8">FULL SERVICE CAPABILITIES</h1>
@@ -524,8 +617,23 @@ const ServicesHub = () => (
   </div>
 );
 
-const EnginePerformancePage = () => (
+const EnginePerformancePage = () => {
+  const description = "Clinical engine rebuilds and custom EFI Live, EZ LYNK, and HP Tuners performance tuning for Cummins, Duramax, and Powerstroke diesels in Novinger, MO.";
+  return (
   <div className="pt-32 pb-24 animate-in slide-in-from-bottom-10 duration-700">
+    <PageSEO
+      path="/engine-performance"
+      title="Engine & Performance Tuning | No Way Man Diesel"
+      description={description}
+      schema={[
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Engine & Performance", path: "/engine-performance" },
+        ]),
+        serviceSchema("Engine & Performance Tuning", description, "/engine-performance"),
+      ]}
+    />
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
         <div>
@@ -572,10 +680,26 @@ const EnginePerformancePage = () => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
-const TransmissionClutchPage = () => (
+const TransmissionClutchPage = () => {
+  const description = "Heavy-duty Allison, 68RFE, and Aisin transmission builds plus Valair dual and triple-disc clutch installs for diesel trucks in Novinger, MO.";
+  return (
   <div className="pt-32 pb-24 animate-in slide-in-from-bottom-10 duration-700">
+    <PageSEO
+      path="/transmission-clutch"
+      title="Transmission & Clutch Builds | No Way Man Diesel"
+      description={description}
+      schema={[
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Transmission & Clutch", path: "/transmission-clutch" },
+        ]),
+        serviceSchema("Transmission & Clutch Builds", description, "/transmission-clutch"),
+      ]}
+    />
     <div className="max-w-7xl mx-auto px-6">
       <div className="text-center mb-16">
         <h1 className="text-5xl font-black italic mb-4">TRANSMISSION & CLUTCH</h1>
@@ -619,10 +743,26 @@ const TransmissionClutchPage = () => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
-const DrivetrainSuspensionPage = () => (
+const DrivetrainSuspensionPage = () => {
+  const description = "Axle and differential rebuilds, traction bars, custom lift and level kits, and steering upgrades engineered for stability in Novinger, MO.";
+  return (
   <div className="pt-32 pb-24 animate-in slide-in-from-bottom-10 duration-700">
+    <PageSEO
+      path="/drivetrain-suspension"
+      title="Drivetrain & Suspension Services | No Way Man Diesel"
+      description={description}
+      schema={[
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Drivetrain & Suspension", path: "/drivetrain-suspension" },
+        ]),
+        serviceSchema("Drivetrain & Suspension Services", description, "/drivetrain-suspension"),
+      ]}
+    />
     <div className="max-w-7xl mx-auto px-6">
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
         <div>
@@ -675,10 +815,26 @@ const DrivetrainSuspensionPage = () => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
-const GeneralMechanicalPage = () => (
+const GeneralMechanicalPage = () => {
+  const description = "OEM-level diagnostics, preventative maintenance, electrical repair, and custom fabrication for diesel trucks at No Way Man Diesel in Novinger, MO.";
+  return (
   <div className="pt-32 pb-24 animate-in slide-in-from-bottom-10 duration-700">
+    <PageSEO
+      path="/general-mechanical"
+      title="General Mechanical & Diagnostics | No Way Man Diesel"
+      description={description}
+      schema={[
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "General Mechanical", path: "/general-mechanical" },
+        ]),
+        serviceSchema("General Mechanical Work", description, "/general-mechanical"),
+      ]}
+    />
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-16">
         <div>
@@ -728,10 +884,20 @@ const GeneralMechanicalPage = () => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 const MegatronPage = () => (
   <div className="pt-32 pb-24 animate-in fade-in duration-1000">
+    <PageSEO
+      path="/megatron"
+      title="Megatron | Our Competition Pulling Truck | No Way Man Diesel"
+      description="Meet Megatron, our 1,600+ HP competition pulling truck and R&D testbed for the performance parts we install in customer trucks in Novinger, MO."
+      schema={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Megatron", path: "/megatron" },
+      ])}
+    />
     <div className="max-w-7xl mx-auto px-6">
       <div className="text-center mb-20">
         <h1 className="text-7xl md:text-9xl font-black italic mb-4 text-torque-red">MEGATRON</h1>
@@ -898,6 +1064,16 @@ const BlogSlider = ({ setPage }: { setPage: (p: string) => void }) => {
 
 const BlogPost1 = ({ setPage }: { setPage: (p: string) => void }) => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700 bg-matte-black min-h-screen">
+    <PageSEO
+      path="/blog-cummins-head-gasket"
+      title="The Truth About 6.7L Cummins Head Gaskets | No Way Man Diesel"
+      description="Why the 6.7L Cummins needs head studs and how to prevent head gasket failure, straight from the No Way Man Diesel shop floor."
+      schema={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Blog", path: "/blogs" },
+        { name: "6.7L Cummins Head Gaskets", path: "/blog-cummins-head-gasket" },
+      ])}
+    />
     <div className="max-w-4xl mx-auto px-6">
       <div className="mb-12 border-b border-white/10 pb-12">
         <span className="text-torque-red text-sm font-bold uppercase tracking-widest mb-4 block">Tech Talk • Coming Soon</span>
@@ -980,6 +1156,16 @@ const BlogPost1 = ({ setPage }: { setPage: (p: string) => void }) => (
 
 const BlogPost2 = ({ setPage }: { setPage: (p: string) => void }) => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700 bg-matte-black min-h-screen">
+    <PageSEO
+      path="/blog-duramax-pulling"
+      title="Prepping Your Duramax For Pulling Season | No Way Man Diesel"
+      description="From tie-rod sleeves to EFI Live tuning, everything you need to get your L5P Duramax track-ready for pulling season."
+      schema={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Blog", path: "/blogs" },
+        { name: "Prepping Your Duramax For Pulling Season", path: "/blog-duramax-pulling" },
+      ])}
+    />
     <div className="max-w-4xl mx-auto px-6">
       <div className="mb-12 border-b border-white/10 pb-12">
         <span className="text-torque-red text-sm font-bold uppercase tracking-widest mb-4 block">Performance • Now Published</span>
@@ -1093,6 +1279,16 @@ const BlogPost2 = ({ setPage }: { setPage: (p: string) => void }) => (
 
 const BlogPost3 = ({ setPage }: { setPage: (p: string) => void }) => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700 bg-matte-black min-h-screen">
+    <PageSEO
+      path="/blog-powerstroke-60"
+      title="Powerstroke 6.0L Bulletproofing Demystified | No Way Man Diesel"
+      description="Our exact blueprint for fixing the 6.0L Powerstroke's factory flaws and building a truck that survives for the long haul."
+      schema={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Blog", path: "/blogs" },
+        { name: "Powerstroke 6.0L Bulletproofing Demystified", path: "/blog-powerstroke-60" },
+      ])}
+    />
     <div className="max-w-4xl mx-auto px-6">
       <div className="mb-12 border-b border-white/10 pb-12">
         <span className="text-torque-red text-sm font-bold uppercase tracking-widest mb-4 block">Builds • Now Published</span>
@@ -1198,6 +1394,16 @@ const BlogPost3 = ({ setPage }: { setPage: (p: string) => void }) => (
 
 const BlogPost4 = ({ setPage }: { setPage: (p: string) => void }) => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700 bg-matte-black min-h-screen">
+    <PageSEO
+      path="/blog-megatron-turbos"
+      title="Why We Choose S400 Turbos For Megatron | No Way Man Diesel"
+      description="Track data and airflow numbers behind the compound S400 turbo setup on our competition pulling truck, Megatron."
+      schema={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Blog", path: "/blogs" },
+        { name: "Why We Choose S400 Turbos For Megatron", path: "/blog-megatron-turbos" },
+      ])}
+    />
     <div className="max-w-4xl mx-auto px-6">
       <div className="mb-12 border-b border-white/10 pb-12">
         <span className="text-torque-red text-sm font-bold uppercase tracking-widest mb-4 block">Shop Notes • Now Published</span>
@@ -1287,6 +1493,16 @@ const BlogPost4 = ({ setPage }: { setPage: (p: string) => void }) => (
 
 const BlogPost5 = ({ setPage }: { setPage: (p: string) => void }) => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700 bg-matte-black min-h-screen">
+    <PageSEO
+      path="/blog-winter-checklist"
+      title="Missouri Winter Diesel Checklist | No Way Man Diesel"
+      description="Fuel additives, block heaters, and battery health tips to keep your diesel truck running through a Missouri winter."
+      schema={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Blog", path: "/blogs" },
+        { name: "Missouri Winter Diesel Checklist", path: "/blog-winter-checklist" },
+      ])}
+    />
     <div className="max-w-4xl mx-auto px-6">
       <div className="mb-12 border-b border-white/10 pb-12">
         <span className="text-torque-red text-sm font-bold uppercase tracking-widest mb-4 block">Maintenance • Now Published</span>
@@ -1382,6 +1598,16 @@ const BlogPost5 = ({ setPage }: { setPage: (p: string) => void }) => (
 
 const BlogPost6 = ({ setPage }: { setPage: (p: string) => void }) => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700 min-h-screen">
+    <PageSEO
+      path="/blog-fluid-and-gauges"
+      title="Fluid Maintenance & Interior Gauge Monitoring | No Way Man Diesel"
+      description="Why premium oils, cabin air filters, and precision EGT and fuel pressure gauges are the secret to million-mile diesel longevity."
+      schema={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Blog", path: "/blogs" },
+        { name: "Fluid Maintenance & Interior Gauge Monitoring", path: "/blog-fluid-and-gauges" },
+      ])}
+    />
     <div className="max-w-4xl mx-auto px-6">
       <div className="mb-12">
         <span className="text-torque-red text-sm font-bold uppercase tracking-widest mb-4 block">Tech Talk • Now Published</span>
@@ -1477,6 +1703,15 @@ const BlogsPage = ({ setPage }: { setPage: (p: string) => void }) => {
 
   return (
     <div className="pt-32 pb-24 animate-in fade-in duration-700 min-h-screen">
+      <PageSEO
+        path="/blogs"
+        title="The Garage Blog | No Way Man Diesel"
+        description="Diesel repair insights, build breakdowns, and maintenance advice from the No Way Man Diesel shop floor in Novinger, Missouri."
+        schema={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blogs" },
+        ])}
+      />
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-black italic mb-4 text-white">THE GARAGE <span className="text-torque-red">BLOG</span></h1>
@@ -1567,6 +1802,15 @@ const SponsorTicker = () => (
 
 const AboutPage = () => (
   <div className="pt-32 pb-24 animate-in fade-in duration-700">
+    <PageSEO
+      path="/about"
+      title="About Us | No Way Man Diesel LLC, Novinger MO"
+      description="Founded in Novinger, Missouri, No Way Man Diesel LLC brings farm-built work ethic and decades of hands-on diesel expertise to every truck."
+      schema={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "About", path: "/about" },
+      ])}
+    />
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
         <div>
@@ -1674,6 +1918,15 @@ const ContactPage = () => {
 
   return (
     <div className="pt-32 pb-24 animate-in fade-in duration-700">
+      <PageSEO
+        path="/contact"
+        title="Contact & Book Shop Time | No Way Man Diesel"
+        description="Get directions, hours, and contact info for No Way Man Diesel in Novinger, MO, or book your truck's shop time online."
+        schema={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
@@ -1823,6 +2076,15 @@ const ShopPage = () => {
 
   return (
     <div className="pt-32 pb-24 animate-in fade-in duration-700">
+      <PageSEO
+        path="/shop"
+        title="Shop Diesel Parts | No Way Man Diesel"
+        description="Order performance hardware and track-proven diesel parts from No Way Man Diesel's parts counter in Novinger, Missouri."
+        schema={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Shop", path: "/shop" },
+        ])}
+      />
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div>

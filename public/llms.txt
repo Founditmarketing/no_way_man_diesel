@@ -6,28 +6,28 @@ High-end Diesel Repair, Performance Tuning, and Custom Build Facility in Novinge
 No Way Man Diesel LLC is a premier destination for heavy-duty diesel enthusiasts and working truck owners. Based in Novinger, Missouri, the shop offers expert repairs, custom performance tuning, and bulletproof builds for Powerstroke, Duramax, and Cummins engines.
 
 ## Key Navigation / Pages
-- **Home**: Main landing page highlighting services, recent builds, client reviews, and shop stats. (Url: https://nowaymandiesel.com/)
-- **Services**: Comprehensive overview of high-end mechanical and performance services. (Url: https://nowaymandiesel.com/services)
-- **Engine Performance**: Specialized tuning, compound turbos, cylinder head bulletproofing, and complete engine builds. (Url: https://nowaymandiesel.com/engine-performance)
-- **Transmission & Clutch**: Custom built performance transmissions (Allison, 68RFE, 47/48RE) and dual/triple-disc clutch installs. (Url: https://nowaymandiesel.com/transmission-clutch)
-- **Drivetrain & Suspension**: Heavy-duty axle upgrades, traction bars, custom lift/leveling kits, and sled-pulling suspension setups. (Url: https://nowaymandiesel.com/drivetrain-suspension)
-- **General Mechanical**: Routine fleet maintenance, advanced computer diagnostics, fuel system repair, and brake/steering service. (Url: https://nowaymandiesel.com/general-mechanical)
-- **Megatron Legacy**: History and specs of our dedicated, 1000+ HP compound-turbo competition sled-pulling truck. (Url: https://nowaymandiesel.com/megatron)
-- **Shop Parts**: E-commerce catalog for premium diesel parts and official shop apparel. (Url: https://nowaymandiesel.com/shop)
-- **About**: Our story, roots in the local Novinger community, farm-built work ethic, and team credentials. (Url: https://nowaymandiesel.com/about)
-- **Contact**: Location map, hours of operation, phone contact, and form to book shop time. (Url: https://nowaymandiesel.com/contact)
+- **Home**: Main landing page highlighting services, recent builds, client reviews, and shop stats. (Url: https://www.nowaymandiesel.com/)
+- **Services**: Comprehensive overview of high-end mechanical and performance services. (Url: https://www.nowaymandiesel.com/services)
+- **Engine Performance**: Specialized tuning, compound turbos, cylinder head bulletproofing, and complete engine builds. (Url: https://www.nowaymandiesel.com/engine-performance)
+- **Transmission & Clutch**: Custom built performance transmissions (Allison, 68RFE, 47/48RE) and dual/triple-disc clutch installs. (Url: https://www.nowaymandiesel.com/transmission-clutch)
+- **Drivetrain & Suspension**: Heavy-duty axle upgrades, traction bars, custom lift/leveling kits, and sled-pulling suspension setups. (Url: https://www.nowaymandiesel.com/drivetrain-suspension)
+- **General Mechanical**: Routine fleet maintenance, advanced computer diagnostics, fuel system repair, and brake/steering service. (Url: https://www.nowaymandiesel.com/general-mechanical)
+- **Megatron Legacy**: History and specs of our dedicated, 1000+ HP compound-turbo competition sled-pulling truck. (Url: https://www.nowaymandiesel.com/megatron)
+- **Shop Parts**: E-commerce catalog for premium diesel parts and official shop apparel. (Url: https://www.nowaymandiesel.com/shop)
+- **About**: Our story, roots in the local Novinger community, farm-built work ethic, and team credentials. (Url: https://www.nowaymandiesel.com/about)
+- **Contact**: Location map, hours of operation, phone contact, and form to book shop time. (Url: https://www.nowaymandiesel.com/contact)
 
 ## The Garage Blog
 Insights, technical articles, and maintenance advice straight from the shop floor:
-- **The Truth About 6.7L Cummins Head Gaskets**: Detailed breakdown of head stud upgrades and preventing cylinder head lift. (Url: https://nowaymandiesel.com/blog-cummins-head-gasket)
-- **Prepping Your Duramax For Pulling Season**: Track prep guide covering tie-rod sleeves, suspension stops, and EFI Live tuning. (Url: https://nowaymandiesel.com/blog-duramax-pulling)
-- **Powerstroke 6.0L: Bulletproofing Demystified**: Our blueprint to solve factory oil cooler, EGR, and head gasket issues. (Url: https://nowaymandiesel.com/blog-powerstroke-60)
-- **Why We Choose S400 Turbos For Megatron**: Volumetric efficiency, drive pressure, and airflow calculations for compound turbo setups. (Url: https://nowaymandiesel.com/blog-megatron-turbos)
-- **Missouri Winter Diesel Checklist**: Practical guide to anti-gel additives, 5W-40 synthetic oil, battery health, and block heaters. (Url: https://nowaymandiesel.com/blog-winter-checklist)
-- **Beyond the Engine: Mastering Fluid Maintenance and Interior Monitoring**: Critical look at oil analysis (UOA), cabin air filters, and gauges (EGT, deltas, fuel pressure). (Url: https://nowaymandiesel.com/blog-fluid-and-gauges)
+- **The Truth About 6.7L Cummins Head Gaskets**: Detailed breakdown of head stud upgrades and preventing cylinder head lift. (Url: https://www.nowaymandiesel.com/blog-cummins-head-gasket)
+- **Prepping Your Duramax For Pulling Season**: Track prep guide covering tie-rod sleeves, suspension stops, and EFI Live tuning. (Url: https://www.nowaymandiesel.com/blog-duramax-pulling)
+- **Powerstroke 6.0L: Bulletproofing Demystified**: Our blueprint to solve factory oil cooler, EGR, and head gasket issues. (Url: https://www.nowaymandiesel.com/blog-powerstroke-60)
+- **Why We Choose S400 Turbos For Megatron**: Volumetric efficiency, drive pressure, and airflow calculations for compound turbo setups. (Url: https://www.nowaymandiesel.com/blog-megatron-turbos)
+- **Missouri Winter Diesel Checklist**: Practical guide to anti-gel additives, 5W-40 synthetic oil, battery health, and block heaters. (Url: https://www.nowaymandiesel.com/blog-winter-checklist)
+- **Beyond the Engine: Mastering Fluid Maintenance and Interior Monitoring**: Critical look at oil analysis (UOA), cabin air filters, and gauges (EGT, deltas, fuel pressure). (Url: https://www.nowaymandiesel.com/blog-fluid-and-gauges)
 
 ## Contact Information
 - **Phone**: (660) 216-5453
 - **Email**: sales@nowaymandiesel.com
-- **Address**: 17282 State Hwy 6, Novinger, MO 63559
+- **Address**: 19760 Rye Creek Road, Novinger, MO 63559
 - **Hours**: Monday - Friday: 8:00 AM - 5:00 PM | Saturday: By Appointment | Sunday: Closed
